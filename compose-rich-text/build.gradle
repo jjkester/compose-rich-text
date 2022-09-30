@@ -1,0 +1,22 @@
+plugins {
+    id 'project-android-library'
+}
+
+android {
+    namespace 'nl.jjkester.crt.renderer'
+}
+
+dependencies {
+    implementation libs.compose.foundation
+    implementation libs.compose.ui.text
+    implementation 'org.commonmark:commonmark:0.19.0'
+
+    // For preview
+    implementation libs.compose.ui
+    implementation libs.compose.ui.toolingPreview
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation 'androidx.customview:customview-poolingcontainer'
+    debugImplementation 'androidx.lifecycle:lifecycle-runtime'
+    debugImplementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate'
+    debugImplementation 'androidx.core:core'
+}

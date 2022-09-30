@@ -1,0 +1,19 @@
+buildscript {
+    dependencies {
+        // Autocomplete for version catalogs - see https://youtrack.jetbrains.com/issue/IDEA-279603
+        classpath files(libs.class.superclass.protectionDomain.codeSource.location)
+    }
+}
+
+plugins {
+    alias libs.plugins.android.application apply false
+    alias libs.plugins.android.library apply false
+    alias libs.plugins.kotlin.android apply false
+    alias libs.plugins.dokka apply false
+    alias libs.plugins.kotlinx.binaryCompatibilityValidator apply false
+}
+
+allprojects {
+    group 'nl.jjkester.crt'
+    version '0.1.0-SNAPSHOT'
+}
