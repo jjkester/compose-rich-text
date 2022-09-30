@@ -1,0 +1,36 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'org.jetbrains.dokka'
+    id 'org.jetbrains.kotlinx.binary-compatibility-validator'
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    withSourcesJar()
+    withJavadocJar()
+}
+
+kotlin {
+    explicitApi()
+}
+
+tasks.named("javadocJar") {
+    from tasks.named("dokkaJavadoc")
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            afterEvaluate {
+                from components.java
+            }
+        }
+    }
+}

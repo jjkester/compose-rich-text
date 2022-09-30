@@ -1,0 +1,10 @@
+public abstract interface class nl/jjkester/crt/api/renderer/DocumentRenderer : nl/jjkester/crt/api/renderer/Renderer {
+}
+
+public abstract interface class nl/jjkester/crt/api/renderer/Renderer {
+	public abstract fun render (Ljava/lang/String;)Ljava/lang/Object;
+}
+
+public abstract interface class nl/jjkester/crt/api/renderer/TextRenderer : nl/jjkester/crt/api/renderer/Renderer {
+}
+

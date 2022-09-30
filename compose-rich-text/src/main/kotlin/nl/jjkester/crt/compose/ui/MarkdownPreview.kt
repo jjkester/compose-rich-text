@@ -1,5 +1,6 @@
 package nl.jjkester.crt.compose.ui
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.rememberScrollState
@@ -21,10 +22,7 @@ private fun InlineMarkdownPreview() {
     """.trimIndent()
 
     Box(Modifier.verticalScroll(rememberScrollState())) {
-        InlineMarkdown(
-            text = markdown,
-            onClick = toastFunction()
-        )
+        Markdown(text = markdown, onClick = clickHandler())
     }
 }
 
@@ -79,15 +77,15 @@ private fun MarkdownDocumentPreview() {
     """.trimIndent()
 
     Box(Modifier.verticalScroll(rememberScrollState())) {
-        Markdown(
-            text = markdown,
-            onClick = toastFunction()
-        )
+        Markdown(text = markdown, onClick = clickHandler())
     }
 }
 
 @Composable
-private fun toastFunction(): (String) -> Unit {
+private fun clickHandler(): (String) -> Unit {
     val context = LocalContext.current
-    return { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() }
+    return {
+        Log.d("nl.jjkester.crt.compose.ui.MarkdownPreviewKt", it)
+        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+    }
 }

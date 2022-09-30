@@ -3,15 +3,13 @@ plugins {
 }
 
 android {
-    namespace 'nl.jjkester.crt.renderer'
+    namespace 'nl.jjkester.crt.compose'
 }
 
 dependencies {
-    api project(':crt-api-renderer')
     api project(':crt-api-builder')
+    api project(':crt-api-renderer')
     api project(':crt-common')
-    implementation project(':crt-renderer-markdown')
-    implementation project(':crt-builder-compose')
 
     implementation libs.compose.foundation
     implementation libs.compose.ui.text

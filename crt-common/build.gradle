@@ -1,0 +1,8 @@
+plugins {
+    id 'project-library'
+}
+
+dependencies {
+    api project(':crt-api-common')
+    api libs.slf4j.api
+}

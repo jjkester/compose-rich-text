@@ -26,7 +26,6 @@ output.
 ### Future plans
 
 - Proper documentation, both in code and published online
-- Modularize the library, separating the core API from the different implementations
 - Release artifact(s)
 - Support some HTML tags as input
 - Support some HTML tags embedded in Markdown

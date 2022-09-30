@@ -1,0 +1,25 @@
+public abstract interface class nl/jjkester/crt/api/builder/DocumentBuilder {
+	public abstract fun blockquote (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun build ()Lnl/jjkester/crt/api/document/RichTextDocument;
+	public abstract fun code (Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun heading (ILkotlin/jvm/functions/Function1;)V
+	public abstract fun listItem (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun orderedList (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun paragraph (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun separator ()V
+	public abstract fun unorderedList (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class nl/jjkester/crt/api/builder/DocumentBuilder$DefaultImpls {
+	public static synthetic fun code$default (Lnl/jjkester/crt/api/builder/DocumentBuilder;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public abstract interface class nl/jjkester/crt/api/builder/TextBuilder {
+	public abstract fun append (Ljava/lang/String;)V
+	public abstract fun build ()Lnl/jjkester/crt/api/text/RichTextString;
+	public abstract fun code (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun emphasis (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun link (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun strongEmphasis (Lkotlin/jvm/functions/Function1;)V
+}
+

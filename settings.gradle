@@ -29,8 +29,9 @@ dependencyResolutionManagement {
             // Plugins
             plugin('android-application', 'com.android.application').versionRef('agp')
             plugin('android-library', 'com.android.library').versionRef('agp')
-            plugin('dokka', 'org.jetbrains.dokka').versionRef('kotlin')
+            plugin('kotlin-jvm', 'org.jetbrains.kotlin.jvm').versionRef('kotlin')
             plugin('kotlin-android', 'org.jetbrains.kotlin.android').versionRef('kotlin')
+            plugin('kotlin-dokka', 'org.jetbrains.dokka').versionRef('kotlin')
             plugin('kotlinx-binaryCompatibilityValidator', 'org.jetbrains.kotlinx.binary-compatibility-validator').version('0.11.1')
 
             // Libraries
@@ -41,8 +42,15 @@ dependencyResolutionManagement {
             library('compose-ui-testManifest', 'androidx.compose.ui', 'ui-test-manifest').versionRef('compose-ui')
             library('compose-ui-tooling', 'androidx.compose.ui', 'ui-tooling').versionRef('compose-ui')
             library('compose-ui-toolingPreview', 'androidx.compose.ui', 'ui-tooling-preview').versionRef('compose-ui')
+            library('slf4j-api', 'org.slf4j', 'slf4j-api').version('2.0.3')
         }
     }
 }
 
 include ':compose-rich-text'
+include ':crt-api-common'
+include ':crt-api-renderer'
+include ':crt-api-builder'
+include ':crt-builder-compose'
+include ':crt-common'
+include ':crt-renderer-markdown'
