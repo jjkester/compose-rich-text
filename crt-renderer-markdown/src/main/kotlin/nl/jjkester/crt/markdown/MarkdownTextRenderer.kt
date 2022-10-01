@@ -5,6 +5,7 @@ import nl.jjkester.crt.api.renderer.TextRenderer
 import nl.jjkester.crt.api.text.RichTextString
 import org.commonmark.node.Block
 import org.commonmark.node.Document
+import org.commonmark.parser.IncludeSourceSpans
 import org.commonmark.parser.Parser
 
 public class MarkdownTextRenderer<out R : RichTextString> internal constructor(
@@ -24,8 +25,16 @@ public class MarkdownTextRenderer<out R : RichTextString> internal constructor(
 
     public companion object {
         @JvmStatic
-        public fun <R : RichTextString> create(builderFactory: () -> TextBuilder<R>): TextRenderer<R> {
-            val parser = Parser.builder().build()
+        public fun <R : RichTextString> create(
+            builderFactory: () -> TextBuilder<R>,
+            includeDebugInfo: Boolean = false
+        ): TextRenderer<R> {
+            val parser = Parser.builder()
+                .apply {
+                    if (includeDebugInfo) includeSourceSpans(IncludeSourceSpans.BLOCKS_AND_INLINES)
+                }
+                .build()
+
             return MarkdownTextRenderer(parser, builderFactory)
         }
 

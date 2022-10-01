@@ -11,12 +11,12 @@ internal class MarkdownDocumentVisitor(
         when (node) {
             is BlockQuote -> blockquote(node)
             is BulletList -> bulletList(node)
-            is CustomBlock -> ignored(node)
             is Document -> document(node)
             is FencedCodeBlock -> fencedCode(node)
             is Heading -> heading(node)
-            is HtmlBlock -> ignored(node)
+            is HtmlBlock -> html(node)
             is IndentedCodeBlock -> indentedCode(node)
+            is LinkReferenceDefinition -> suppressed(node)
             is ListItem -> listItem(node)
             is OrderedList -> orderedList(node)
             is Paragraph -> paragraph(node)
@@ -48,6 +48,13 @@ internal class MarkdownDocumentVisitor(
     private fun heading(node: Heading) {
         builder.heading(node.level) {
             text(node)
+        }
+    }
+
+    private fun html(node: HtmlBlock) {
+        // HTML is not rendered at the moment, so we present it as text
+        builder.paragraph {
+            append(node.literal)
         }
     }
 
