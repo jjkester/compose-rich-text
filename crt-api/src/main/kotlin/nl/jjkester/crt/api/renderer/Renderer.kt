@@ -1,5 +1,8 @@
 package nl.jjkester.crt.api.renderer
 
-public interface Renderer<out R : Any> {
-    public fun render(input: String): R
+import nl.jjkester.crt.api.model.tree.Node
+
+public interface Renderer<out T> {
+
+    public fun render(node: Node): T
 }

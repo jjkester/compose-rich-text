@@ -1,0 +1,38 @@
+public final class nl/jjkester/crt/markdown/MarkdownParser : nl/jjkester/crt/api/parser/Parser {
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/api/parser/ParserResult;
+	public fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/markdown/MarkdownParserResult;
+	public synthetic fun parse (Ljava/lang/String;)Lnl/jjkester/crt/api/parser/ParserResult;
+	public fun parse (Ljava/lang/String;)Lnl/jjkester/crt/markdown/MarkdownParserResult;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownParserFactory : nl/jjkester/crt/api/parser/AbstractParserFactory {
+	public static final field Companion Lnl/jjkester/crt/markdown/MarkdownParserFactory$Companion;
+	public fun <init> ()V
+	public synthetic fun create ()Lnl/jjkester/crt/api/parser/Parser;
+	public fun create ()Lnl/jjkester/crt/markdown/MarkdownParser;
+	public final fun getTextFallback ()Z
+	public final fun setTextFallback (Z)V
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownParserFactory$Companion : kotlin/jvm/functions/Function0 {
+	public final fun create (Lkotlin/jvm/functions/Function1;)Lnl/jjkester/crt/markdown/MarkdownParser;
+	public static synthetic fun create$default (Lnl/jjkester/crt/markdown/MarkdownParserFactory$Companion;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lnl/jjkester/crt/markdown/MarkdownParser;
+	public synthetic fun invoke ()Ljava/lang/Object;
+	public fun invoke ()Lnl/jjkester/crt/markdown/MarkdownParser;
+}
+
+public abstract interface class nl/jjkester/crt/markdown/MarkdownParserModule : nl/jjkester/crt/api/parser/ParserModule {
+	public abstract fun getExtension ()Lorg/commonmark/parser/Parser$ParserExtension;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownParserModule$DefaultImpls {
+	public static fun getExtension (Lnl/jjkester/crt/markdown/MarkdownParserModule;)Lorg/commonmark/parser/Parser$ParserExtension;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownParserResult : nl/jjkester/crt/api/parser/ParserResult {
+	public fun <init> (Lnl/jjkester/crt/api/model/tree/Node;Lnl/jjkester/crt/api/parser/ParserMetrics;)V
+	public fun getMetrics ()Lnl/jjkester/crt/api/parser/ParserMetrics;
+	public fun getRootNode ()Lnl/jjkester/crt/api/model/tree/Node;
+}
+

@@ -48,8 +48,8 @@ dependencyResolutionManagement {
 }
 
 include ':crt-api'
-include ':crt-builder-compose'
 include ':crt-common'
 include ':crt-demo'
-include ':crt-renderer-markdown'
+include ':crt-parser-markdown'
+include ':crt-renderer-compose'
 include ':utils:slf4j-android'

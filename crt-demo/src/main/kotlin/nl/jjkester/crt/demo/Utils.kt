@@ -6,16 +6,19 @@ import android.content.Intent
 import android.net.Uri
 import androidx.annotation.RawRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import nl.jjkester.crt.compose.style.DocumentStyles
-import nl.jjkester.crt.compose.style.TextStyles
+import nl.jjkester.crt.compose.style.BlockquoteStyle
+import nl.jjkester.crt.compose.style.RichTextStyle
+import nl.jjkester.crt.compose.style.rememberBasicRichTextStyle
 
 @Composable
 fun rememberIntentClickHandler(uri: String): () -> Unit {
@@ -37,12 +40,15 @@ fun rememberSnackbarIntentClickHandler(): (String) -> Unit {
 
     return remember(context, snackbarHostState) {
         {
-            context.openLink(it) {
-                coroutineScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = it,
-                        withDismissAction = true
-                    )
+            coroutineScope.launch {
+                val action = snackbarHostState.showSnackbar(
+                    message = it,
+                    actionLabel = "Open",
+                    withDismissAction = true
+                )
+
+                if (action == SnackbarResult.ActionPerformed) {
+                    context.openLink(it)
                 }
             }
         }
@@ -64,13 +70,14 @@ fun readRawResource(@RawRes id: Int): String =
         .use { it.readText() }
 
 @Composable
-fun rememberMaterialRichTextStyles(): Pair<DocumentStyles, TextStyles> {
+fun rememberMaterialRichTextStyle(): RichTextStyle {
     val colorScheme = MaterialTheme.colorScheme
     val typography = MaterialTheme.typography
     val dividerColor = DividerDefaults.color
+    val basicStyle = rememberBasicRichTextStyle(spacing = PaddingValues(16.dp))
 
     return remember(colorScheme, typography) {
-        val documentStyles = DocumentStyles(
+        basicStyle.copy(
             h1 = typography.displaySmall,
             h2 = typography.titleLarge,
             h3 = typography.titleMedium,
@@ -78,27 +85,22 @@ fun rememberMaterialRichTextStyles(): Pair<DocumentStyles, TextStyles> {
             h5 = typography.labelMedium,
             h6 = typography.labelSmall,
             paragraph = typography.bodyMedium,
-            paragraphSpacing = 16.dp,
-            blockquote = typography.bodyMedium.run {
-                copy(color = color.copy(alpha = .66f))
-            },
-            blockquoteBorder = BorderStroke(
-                width = DividerDefaults.Thickness * 2,
-                color = dividerColor
+            blockquote = BlockquoteStyle(
+                text = typography.bodyMedium.run {
+                    copy(color = color.copy(alpha = .66f))
+                },
+                border = BorderStroke(
+                    width = DividerDefaults.Thickness * 2,
+                    color = dividerColor
+                )
             ),
-            separatorBorder = BorderStroke(
+            divider = BorderStroke(
                 width = DividerDefaults.Thickness,
                 color = dividerColor
             ),
-            inset = 16.dp
-        )
-
-        val textStyles = TextStyles(
-            link = TextStyles.Default.link.copy(
+            link = basicStyle.link.copy(
                 color = colorScheme.primary
             )
         )
-
-        documentStyles to textStyles
     }
 }

@@ -9,7 +9,7 @@ public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration$C
 
 public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration$Fixed : nl/jjkester/crt/common/enumeration/Enumeration {
 	public abstract fun getChild ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public abstract fun getValue ()Lnl/jjkester/crt/api/text/RichTextString;
+	public abstract fun getValue ()Ljava/lang/Object;
 }
 
 public abstract class nl/jjkester/crt/common/enumeration/EnumerationFactory {
@@ -17,7 +17,7 @@ public abstract class nl/jjkester/crt/common/enumeration/EnumerationFactory {
 	public final fun bullets ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun bullets (Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public static synthetic fun bullets$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	protected abstract fun convert (Ljava/lang/String;)Lnl/jjkester/crt/api/text/RichTextString;
+	protected abstract fun convert (Ljava/lang/String;)Ljava/lang/Object;
 	public final fun counting (Lkotlin/sequences/Sequence;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun counting (Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public static synthetic fun counting$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;

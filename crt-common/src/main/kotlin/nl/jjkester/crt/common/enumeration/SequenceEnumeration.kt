@@ -1,8 +1,6 @@
 package nl.jjkester.crt.common.enumeration
 
-import nl.jjkester.crt.api.text.RichTextString
-
-internal class SequenceEnumeration<T : RichTextString>(
+internal class SequenceEnumeration<T : Any>(
     override val sequence: Sequence<T>,
     child: Enumeration.Counting<T>? = null
 ) : Enumeration.Counting<T> {

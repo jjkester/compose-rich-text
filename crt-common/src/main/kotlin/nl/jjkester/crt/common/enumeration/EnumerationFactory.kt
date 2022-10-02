@@ -1,10 +1,8 @@
 package nl.jjkester.crt.common.enumeration
 
-import nl.jjkester.crt.api.text.RichTextString
+public abstract class EnumerationFactory<T : Any> {
 
-public abstract class EnumerationFactory<T : RichTextString> {
-
-    public val fixed: Enumeration.Fixed<T> by lazy(LazyThreadSafetyMode.NONE) {
+    public val bulleted: Enumeration.Fixed<T> by lazy(LazyThreadSafetyMode.NONE) {
         fixed(bullet, circle, square)
     }
 
@@ -61,7 +59,7 @@ public abstract class EnumerationFactory<T : RichTextString> {
             yieldAll(iterable.map { "$prefix$it" })
 
             iterable.forEach {
-                yieldAll(repeatCombining(iterable,"$it$prefix"))
+                yieldAll(repeatCombining(iterable, "$it$prefix"))
             }
         }
     }

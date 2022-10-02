@@ -31,8 +31,8 @@ dependencies {
     // Project dependencies
     implementation project(':crt-api')
     implementation project(':crt-common')
-    implementation project(':crt-renderer-markdown')
-    implementation project(':crt-builder-compose')
+    implementation project(':crt-parser-markdown')
+    implementation project(':crt-renderer-compose')
 
     implementation project(':utils:slf4j-android')
 }
