@@ -1,7 +1,0 @@
-plugins {
-    id 'project-library'
-}
-
-dependencies {
-    api project(':crt-api-common')
-}

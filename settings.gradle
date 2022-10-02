@@ -47,9 +47,7 @@ dependencyResolutionManagement {
     }
 }
 
-include ':crt-api-builder'
-include ':crt-api-common'
-include ':crt-api-renderer'
+include ':crt-api'
 include ':crt-builder-compose'
 include ':crt-common'
 include ':crt-demo'

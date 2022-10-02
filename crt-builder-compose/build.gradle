@@ -7,8 +7,7 @@ android {
 }
 
 dependencies {
-    api project(':crt-api-builder')
-    api project(':crt-api-renderer')
+    api project(':crt-api')
     api project(':crt-common')
 
     implementation libs.compose.foundation

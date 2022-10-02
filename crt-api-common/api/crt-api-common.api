@@ -1,6 +1,0 @@
-public abstract interface class nl/jjkester/crt/api/document/RichTextDocument {
-}
-
-public abstract interface class nl/jjkester/crt/api/text/RichTextString {
-}
-
