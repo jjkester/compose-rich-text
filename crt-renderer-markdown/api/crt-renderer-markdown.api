@@ -1,0 +1,30 @@
+public abstract class nl/jjkester/crt/markdown/AbstractMarkdownRenderer : nl/jjkester/crt/api/renderer/Renderer {
+	public fun <init> (Lorg/commonmark/parser/Parser;)V
+	public final fun render (Ljava/lang/String;)Ljava/lang/Object;
+	protected abstract fun render (Lorg/commonmark/node/Document;)Ljava/lang/Object;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownDocumentRenderer : nl/jjkester/crt/markdown/AbstractMarkdownRenderer, nl/jjkester/crt/api/renderer/DocumentRenderer {
+	public static final field Companion Lnl/jjkester/crt/markdown/MarkdownDocumentRenderer$Companion;
+	public static final fun create (Lkotlin/jvm/functions/Function0;Z)Lnl/jjkester/crt/api/renderer/DocumentRenderer;
+	public synthetic fun render (Lorg/commonmark/node/Document;)Ljava/lang/Object;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownDocumentRenderer$Companion {
+	public final fun create (Lkotlin/jvm/functions/Function0;Z)Lnl/jjkester/crt/api/renderer/DocumentRenderer;
+	public static synthetic fun create$default (Lnl/jjkester/crt/markdown/MarkdownDocumentRenderer$Companion;Lkotlin/jvm/functions/Function0;ZILjava/lang/Object;)Lnl/jjkester/crt/api/renderer/DocumentRenderer;
+	public final fun invoke (Lkotlin/jvm/functions/Function0;)Lnl/jjkester/crt/api/renderer/DocumentRenderer;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownTextRenderer : nl/jjkester/crt/markdown/AbstractMarkdownRenderer, nl/jjkester/crt/api/renderer/TextRenderer {
+	public static final field Companion Lnl/jjkester/crt/markdown/MarkdownTextRenderer$Companion;
+	public static final fun create (Lkotlin/jvm/functions/Function0;Z)Lnl/jjkester/crt/api/renderer/TextRenderer;
+	public synthetic fun render (Lorg/commonmark/node/Document;)Ljava/lang/Object;
+}
+
+public final class nl/jjkester/crt/markdown/MarkdownTextRenderer$Companion {
+	public final fun create (Lkotlin/jvm/functions/Function0;Z)Lnl/jjkester/crt/api/renderer/TextRenderer;
+	public static synthetic fun create$default (Lnl/jjkester/crt/markdown/MarkdownTextRenderer$Companion;Lkotlin/jvm/functions/Function0;ZILjava/lang/Object;)Lnl/jjkester/crt/api/renderer/TextRenderer;
+	public final fun invoke (Lkotlin/jvm/functions/Function0;)Lnl/jjkester/crt/api/renderer/TextRenderer;
+}
+

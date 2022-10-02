@@ -1,8 +1,6 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'kotlin-android'
-    id 'org.jetbrains.dokka'
-    id 'maven-publish'
 }
 
 android {
@@ -31,26 +29,5 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
-    }
-
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
-}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId project.group
-            artifactId project.name
-            version project.version
-
-            afterEvaluate {
-                from components.release
-            }
-        }
     }
 }

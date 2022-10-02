@@ -1,4 +1,4 @@
-package nl.jjkester.crt.compose.ui
+package nl.jjkester.crt.demo.markdown
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -6,8 +6,8 @@ import androidx.compose.ui.text.TextStyle
 import nl.jjkester.crt.api.renderer.DocumentRenderer
 import nl.jjkester.crt.compose.RichText
 import nl.jjkester.crt.compose.builder.ComposeRichTextDocument
-import nl.jjkester.crt.compose.style.DocumentStyles
 import nl.jjkester.crt.compose.rememberDocumentRenderer
+import nl.jjkester.crt.compose.style.DocumentStyles
 import nl.jjkester.crt.compose.style.TextStyles
 import nl.jjkester.crt.markdown.MarkdownDocumentRenderer
 

@@ -17,6 +17,12 @@ kotlin {
     explicitApi()
 }
 
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
 tasks.named("javadocJar") {
     from tasks.named("dokkaJavadoc")
 }
