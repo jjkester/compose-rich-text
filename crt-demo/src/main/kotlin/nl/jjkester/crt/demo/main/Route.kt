@@ -24,6 +24,8 @@ sealed interface Route : RouteInfo {
 
     object Index : Route, SingletonRoute("index")
 
+    object Readme : Route, SingletonRoute("readme")
+
     data class ShowcaseOverview(val showcaseIndex: Int) : Route {
         override val value: String = "showcase/$showcaseIndex"
 

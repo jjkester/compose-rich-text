@@ -40,11 +40,13 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import nl.jjkester.crt.demo.BuildConfig
-import nl.jjkester.crt.demo.markdown.MarkdownShowcase
+import nl.jjkester.crt.demo.components.Jumbotron
+import nl.jjkester.crt.demo.components.NavigationCard
 import nl.jjkester.crt.demo.rememberIntentClickHandler
+import nl.jjkester.crt.demo.showcases.Showcase
 
 @Composable
-fun MainScreen(onNavigate: (Route) -> Unit) {
+fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
@@ -55,14 +57,25 @@ fun MainScreen(onNavigate: (Route) -> Unit) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
+                    text = "Project information",
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
+                )
+
+                NavigationDrawerItem(
+                    label = { Text("Readme") },
+                    selected = false,
+                    onClick = { onNavigate(Route.Readme) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                )
+
+                Text(
                     text = "Showcases",
                     style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
                 )
 
-                listOf(
-                    MarkdownShowcase
-                ).forEachIndexed { index, showcase ->
+                showcases.forEachIndexed { index, showcase ->
                     NavigationDrawerItem(
                         label = { Text(showcase.name) },
                         selected = false,
@@ -117,8 +130,33 @@ fun MainScreen(onNavigate: (Route) -> Unit) {
                         .padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(32.dp)
                 ) {
-                    Readme()
-                    GitHubButton()
+                    Jumbotron(
+                        title = "Compose Rich Text",
+                        subtitle = "Rich text rendering for Jetpack Compose"
+                    )
+
+                    NavigationCard(
+                        title = "Project information",
+                        description = "Read the project README, rendered from Markdown",
+                        onClick = { onNavigate(Route.Readme) },
+                    )
+
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        Text(text = "Showcases", style = MaterialTheme.typography.headlineMedium)
+
+                        showcases.forEachIndexed { index, showcase ->
+                            NavigationCard(
+                                title = showcase.name,
+                                description = showcase.description,
+                                onClick = { onNavigate(Route.ShowcaseOverview(index)) },
+                            )
+                        }
+                    }
+
+                    GitHubButton(modifier = Modifier.fillMaxWidth())
                 }
             }
         }
