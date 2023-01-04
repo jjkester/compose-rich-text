@@ -5,7 +5,7 @@ import nl.jjkester.crt.api.factory.NodeFactory
 import nl.jjkester.crt.api.factory.codeBlock
 import nl.jjkester.crt.api.factory.heading
 import nl.jjkester.crt.api.factory.link
-import nl.jjkester.crt.api.model.tree.Node
+import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.common.logging.logger
 import org.commonmark.node.BlockQuote
 import org.commonmark.node.BulletList

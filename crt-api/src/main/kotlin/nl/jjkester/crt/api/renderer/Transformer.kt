@@ -1,21 +1,33 @@
 package nl.jjkester.crt.api.renderer
 
-import nl.jjkester.crt.api.model.tree.Blockquote
-import nl.jjkester.crt.api.model.tree.Code
-import nl.jjkester.crt.api.model.tree.CodeBlock
-import nl.jjkester.crt.api.model.tree.Container
-import nl.jjkester.crt.api.model.tree.Divider
-import nl.jjkester.crt.api.model.tree.Emphasis
-import nl.jjkester.crt.api.model.tree.Heading
-import nl.jjkester.crt.api.model.tree.Link
-import nl.jjkester.crt.api.model.tree.ListItem
-import nl.jjkester.crt.api.model.tree.Node
-import nl.jjkester.crt.api.model.tree.OrderedList
-import nl.jjkester.crt.api.model.tree.Paragraph
-import nl.jjkester.crt.api.model.tree.StrongEmphasis
-import nl.jjkester.crt.api.model.tree.Text
-import nl.jjkester.crt.api.model.tree.UnorderedList
+import nl.jjkester.crt.api.model.Blockquote
+import nl.jjkester.crt.api.model.Code
+import nl.jjkester.crt.api.model.CodeBlock
+import nl.jjkester.crt.api.model.Container
+import nl.jjkester.crt.api.model.Divider
+import nl.jjkester.crt.api.model.Emphasis
+import nl.jjkester.crt.api.model.Heading
+import nl.jjkester.crt.api.model.Link
+import nl.jjkester.crt.api.model.ListItem
+import nl.jjkester.crt.api.model.Node
+import nl.jjkester.crt.api.model.OrderedList
+import nl.jjkester.crt.api.model.Paragraph
+import nl.jjkester.crt.api.model.StrongEmphasis
+import nl.jjkester.crt.api.model.Text
+import nl.jjkester.crt.api.model.UnorderedList
 
+/**
+ * Interface for easy implementation of the rendering of nodes.
+ *
+ * This interface specifies abstract methods for transforming all kinds of nodes. Transformers operate as visitors on
+ * the tree structure representing the rich text to render.
+ *
+ * This interface can be used when the type of visual output is equal for both block and span nodes.
+ *
+ * @param T Type of visual output.
+ * @see BlockTransformer Equivalent for only block nodes.
+ * @see SpanTransformer Equivalent for only span nodes.
+ */
 public interface Transformer<out T> : BlockTransformer<T>, SpanTransformer<T>
 
 public fun <T> Transformer<T>.transform(node: Node): T = when (node) {

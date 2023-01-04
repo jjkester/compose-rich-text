@@ -29,7 +29,7 @@ public abstract class nl/jjkester/crt/common/enumeration/EnumerationFactory {
 	public final fun fixed (Ljava/lang/String;[Ljava/lang/String;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public static synthetic fun fixed$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Ljava/lang/String;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun getAlphanumeric ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public final fun getFixed ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun getBulleted ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun lowercaseLetters ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun lowercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public static synthetic fun lowercaseLetters$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;

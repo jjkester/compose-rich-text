@@ -2,11 +2,11 @@ package nl.jjkester.crt.compose.renderer
 
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.withStyle
-import nl.jjkester.crt.api.model.tree.Code
-import nl.jjkester.crt.api.model.tree.Emphasis
-import nl.jjkester.crt.api.model.tree.Link
-import nl.jjkester.crt.api.model.tree.StrongEmphasis
-import nl.jjkester.crt.api.model.tree.Text
+import nl.jjkester.crt.api.model.Code
+import nl.jjkester.crt.api.model.Emphasis
+import nl.jjkester.crt.api.model.Link
+import nl.jjkester.crt.api.model.StrongEmphasis
+import nl.jjkester.crt.api.model.Text
 import nl.jjkester.crt.compose.style.RichTextStyle
 import nl.jjkester.crt.compose.text.AnnotatedStringExtras
 import nl.jjkester.crt.compose.text.ClickOffset

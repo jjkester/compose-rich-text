@@ -1,7 +1,7 @@
 package nl.jjkester.crt.markdown
 
-import nl.jjkester.crt.api.model.tree.ListItem
-import nl.jjkester.crt.api.model.tree.Node
+import nl.jjkester.crt.api.model.ListItem
+import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.common.logging.logger
 import org.commonmark.node.Block as CommonMarkBlock
 import org.commonmark.node.ListItem as CommonMarkListItem

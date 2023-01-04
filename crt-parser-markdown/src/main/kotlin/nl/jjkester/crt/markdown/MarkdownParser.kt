@@ -1,7 +1,7 @@
 package nl.jjkester.crt.markdown
 
 import nl.jjkester.crt.api.factory.DefaultNodeFactory
-import nl.jjkester.crt.api.model.tree.Node
+import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserMetrics
 import java.io.InputStream

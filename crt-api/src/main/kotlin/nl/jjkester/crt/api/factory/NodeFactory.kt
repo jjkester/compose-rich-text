@@ -1,23 +1,30 @@
 package nl.jjkester.crt.api.factory
 
 import nl.jjkester.crt.api.model.Language
-import nl.jjkester.crt.api.model.tree.Blockquote
-import nl.jjkester.crt.api.model.tree.Code
-import nl.jjkester.crt.api.model.tree.CodeBlock
-import nl.jjkester.crt.api.model.tree.Container
-import nl.jjkester.crt.api.model.tree.Divider
-import nl.jjkester.crt.api.model.tree.Emphasis
-import nl.jjkester.crt.api.model.tree.Heading
-import nl.jjkester.crt.api.model.tree.Link
-import nl.jjkester.crt.api.model.tree.ListItem
-import nl.jjkester.crt.api.model.tree.Node
-import nl.jjkester.crt.api.model.tree.NodeMetadata
-import nl.jjkester.crt.api.model.tree.OrderedList
-import nl.jjkester.crt.api.model.tree.Paragraph
-import nl.jjkester.crt.api.model.tree.StrongEmphasis
-import nl.jjkester.crt.api.model.tree.Text
-import nl.jjkester.crt.api.model.tree.UnorderedList
+import nl.jjkester.crt.api.model.Blockquote
+import nl.jjkester.crt.api.model.Code
+import nl.jjkester.crt.api.model.CodeBlock
+import nl.jjkester.crt.api.model.Container
+import nl.jjkester.crt.api.model.Divider
+import nl.jjkester.crt.api.model.Emphasis
+import nl.jjkester.crt.api.model.Heading
+import nl.jjkester.crt.api.model.Link
+import nl.jjkester.crt.api.model.ListItem
+import nl.jjkester.crt.api.model.Node
+import nl.jjkester.crt.api.model.NodeMetadata
+import nl.jjkester.crt.api.model.OrderedList
+import nl.jjkester.crt.api.model.Paragraph
+import nl.jjkester.crt.api.model.StrongEmphasis
+import nl.jjkester.crt.api.model.Text
+import nl.jjkester.crt.api.model.UnorderedList
 
+/**
+ * Factory for creating internal model nodes.
+ *
+ * Factory implementations can alter the creation of nodes.
+ *
+ * @see DefaultNodeFactory Default implementation proxying node constructors.
+ */
 public interface NodeFactory {
 
     public fun blockquote(
@@ -110,7 +117,7 @@ public fun NodeFactory.heading(
     level: Int,
     children: List<Node.Span> = emptyList(),
     metadata: NodeMetadata? = null
-): Heading = heading(Heading.Level.fromInt(level) ?: Heading.Level.Six, children, metadata)
+): Heading = heading(Heading.Level.fromIntOrNull(level) ?: Heading.Level.Six, children, metadata)
 
 public fun NodeFactory.link(
     destination: String,

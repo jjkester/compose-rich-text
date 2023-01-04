@@ -1,6 +1,6 @@
 package nl.jjkester.crt.markdown
 
-import nl.jjkester.crt.api.model.tree.Node
+import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.ParserModule
 import org.commonmark.parser.Parser.ParserExtension
 import org.commonmark.node.Node as CommonMarkNode

@@ -31,8 +31,8 @@ public final class nl/jjkester/crt/markdown/MarkdownParserModule$DefaultImpls {
 }
 
 public final class nl/jjkester/crt/markdown/MarkdownParserResult : nl/jjkester/crt/api/parser/ParserResult {
-	public fun <init> (Lnl/jjkester/crt/api/model/tree/Node;Lnl/jjkester/crt/api/parser/ParserMetrics;)V
+	public fun <init> (Lnl/jjkester/crt/api/model/Node;Lnl/jjkester/crt/api/parser/ParserMetrics;)V
 	public fun getMetrics ()Lnl/jjkester/crt/api/parser/ParserMetrics;
-	public fun getRootNode ()Lnl/jjkester/crt/api/model/tree/Node;
+	public fun getRootNode ()Lnl/jjkester/crt/api/model/Node;
 }
 

@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
-import nl.jjkester.crt.api.model.tree.Container
+import nl.jjkester.crt.api.model.Container
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.compose.internal.text.LocalSpanBaseStyle
 import nl.jjkester.crt.compose.internal.text.LocalSpanClickHandler

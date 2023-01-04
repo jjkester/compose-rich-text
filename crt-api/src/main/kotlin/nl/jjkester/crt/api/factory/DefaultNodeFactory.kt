@@ -1,23 +1,26 @@
 package nl.jjkester.crt.api.factory
 
-import nl.jjkester.crt.api.model.tree.Blockquote
-import nl.jjkester.crt.api.model.tree.Code
-import nl.jjkester.crt.api.model.tree.CodeBlock
+import nl.jjkester.crt.api.model.Blockquote
+import nl.jjkester.crt.api.model.Code
+import nl.jjkester.crt.api.model.CodeBlock
 import nl.jjkester.crt.api.model.Language
-import nl.jjkester.crt.api.model.tree.Container
-import nl.jjkester.crt.api.model.tree.Divider
-import nl.jjkester.crt.api.model.tree.Emphasis
-import nl.jjkester.crt.api.model.tree.Heading
-import nl.jjkester.crt.api.model.tree.Link
-import nl.jjkester.crt.api.model.tree.ListItem
-import nl.jjkester.crt.api.model.tree.Node
-import nl.jjkester.crt.api.model.tree.NodeMetadata
-import nl.jjkester.crt.api.model.tree.OrderedList
-import nl.jjkester.crt.api.model.tree.Paragraph
-import nl.jjkester.crt.api.model.tree.StrongEmphasis
-import nl.jjkester.crt.api.model.tree.Text
-import nl.jjkester.crt.api.model.tree.UnorderedList
+import nl.jjkester.crt.api.model.Container
+import nl.jjkester.crt.api.model.Divider
+import nl.jjkester.crt.api.model.Emphasis
+import nl.jjkester.crt.api.model.Heading
+import nl.jjkester.crt.api.model.Link
+import nl.jjkester.crt.api.model.ListItem
+import nl.jjkester.crt.api.model.Node
+import nl.jjkester.crt.api.model.NodeMetadata
+import nl.jjkester.crt.api.model.OrderedList
+import nl.jjkester.crt.api.model.Paragraph
+import nl.jjkester.crt.api.model.StrongEmphasis
+import nl.jjkester.crt.api.model.Text
+import nl.jjkester.crt.api.model.UnorderedList
 
+/**
+ * Node factory implementation that directly calls the node constructor without any customizations.
+ */
 public object DefaultNodeFactory : NodeFactory {
 
     override fun blockquote(
