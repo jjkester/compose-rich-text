@@ -31,3 +31,8 @@ android {
         kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
     }
 }
+
+dependencies {
+    implementation platform(libs.compose.bom)
+    androidTestImplementation platform(libs.compose.bom)
+}
