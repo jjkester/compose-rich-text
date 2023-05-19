@@ -1,9 +1,5 @@
 package nl.jjkester.crt.demo
 
-import android.content.ActivityNotFoundException
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import androidx.annotation.RawRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,31 +10,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import nl.jjkester.crt.compose.style.BlockquoteStyle
 import nl.jjkester.crt.compose.style.RichTextStyle
 import nl.jjkester.crt.compose.style.rememberBasicRichTextStyle
-
-@Composable
-fun rememberIntentClickHandler(uri: String): () -> Unit {
-    val context = LocalContext.current
-    return remember(context) { { context.openLink(uri) } }
-}
-
-@Composable
-fun rememberIntentClickHandler(): (String) -> Unit {
-    val context = LocalContext.current
-    return remember(context) { { context.openLink(it) } }
-}
+import java.io.InputStream
 
 @Composable
 fun rememberSnackbarIntentClickHandler(): (String) -> Unit {
-    val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current
     val snackbarHostState = LocalSnackbarHostState.current
     val coroutineScope = rememberCoroutineScope()
 
-    return remember(context, snackbarHostState) {
+    return remember(uriHandler, snackbarHostState) {
         {
             coroutineScope.launch {
                 val action = snackbarHostState.showSnackbar(
@@ -48,26 +34,18 @@ fun rememberSnackbarIntentClickHandler(): (String) -> Unit {
                 )
 
                 if (action == SnackbarResult.ActionPerformed) {
-                    context.openLink(it)
+                    uriHandler.openUri(it)
                 }
             }
         }
     }
 }
 
-fun Context.openLink(uri: String, fallback: () -> Unit = {}) {
-    try {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(uri)))
-    } catch (e: ActivityNotFoundException) {
-        fallback()
-    }
-}
-
 @Composable
-fun readRawResource(@RawRes id: Int): String =
-    LocalContext.current.resources.openRawResource(id)
-        .reader()
-        .use { it.readText() }
+fun openRawResource(@RawRes id: Int): InputStream {
+    val context = LocalContext.current
+    return remember(context, id) { context.resources.openRawResource(id) }
+}
 
 @Composable
 fun rememberMaterialRichTextStyle(): RichTextStyle {

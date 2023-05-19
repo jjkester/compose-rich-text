@@ -33,6 +33,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -42,7 +43,6 @@ import kotlinx.coroutines.launch
 import nl.jjkester.crt.demo.BuildConfig
 import nl.jjkester.crt.demo.components.Jumbotron
 import nl.jjkester.crt.demo.components.NavigationCard
-import nl.jjkester.crt.demo.rememberIntentClickHandler
 import nl.jjkester.crt.demo.showcases.Showcase
 
 @Composable
@@ -165,8 +165,9 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
 
 @Composable
 private fun GitHubButton(modifier: Modifier = Modifier) {
+    val uriHandler = LocalUriHandler.current
     OutlinedButton(
-        onClick = rememberIntentClickHandler("https://github.com/jjkester/compose-rich-text"),
+        onClick = { uriHandler.openUri("https://github.com/jjkester/compose-rich-text") },
         modifier = modifier
     ) {
         Text(

@@ -9,12 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import nl.jjkester.crt.api.model.Container
-import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.compose.internal.text.LocalSpanBaseStyle
 import nl.jjkester.crt.compose.internal.text.LocalSpanClickHandler
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
@@ -26,32 +24,36 @@ import nl.jjkester.crt.compose.style.RichTextStyle
 
 @Composable
 fun RichText(
-    richText: ParsedRichText,
+    state: RichTextState,
     modifier: Modifier = Modifier,
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
     style: TextStyle = TextStyle.Default,
     renderer: ComposeRenderer = rememberRichTextRenderer(),
-    onClick: (String) -> Unit = LocalUriHandler.current::openUri
+    onClick: (String) -> Unit = {}
 ) {
     Box(modifier = modifier) {
         CompositionLocalProvider(
             LocalSpanBaseStyle provides style,
             LocalSpanClickHandler provides onClick,
-            LocalRichTextStyle provides richTextStyle,
-            content = remember(richText, renderer) { renderer.render(richText.node) }
-        )
+            LocalRichTextStyle provides richTextStyle
+        ) {
+            val root = state.rootNode
+            if (root != null) {
+                remember(renderer, root) { renderer.render(root) }.invoke()
+            }
+        }
     }
 }
 
 @Composable
 fun LazyRichText(
-    richText: ParsedRichText,
+    state: RichTextState,
     modifier: Modifier = Modifier,
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
     style: TextStyle = TextStyle.Default,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     renderer: ComposeRenderer = rememberRichTextRenderer(),
-    onClick: (String) -> Unit = LocalUriHandler.current::openUri
+    onClick: (String) -> Unit = {}
 ) {
     CompositionLocalProvider(
         LocalSpanBaseStyle provides style,
@@ -67,12 +69,16 @@ fun LazyRichText(
             verticalArrangement = verticalArrangement,
             contentPadding = contentPadding
         ) {
-            val root = richText.node
+            val root = state.rootNode
 
             if (root is Container) {
-                items(root.children) { renderer.render(it)() }
-            } else {
-                item { renderer.render(root)() }
+                items(root.children) {
+                    remember(renderer, root) { renderer.render(it) }.invoke()
+                }
+            } else if (root != null) {
+                item {
+                    remember(renderer, root) { renderer.render(root) }.invoke()
+                }
             }
         }
     }
@@ -90,9 +96,3 @@ fun rememberRichTextRenderer(transformerFactory: () -> ComposableBlockTransforme
     remember(transformerFactory) {
         ComposeRenderer(transformerFactory())
     }
-
-@Composable
-fun rememberParsedRichText(richText: String, parserFactory: () -> Parser<*>): ParsedRichText {
-    val parser = remember(parserFactory) { parserFactory() }
-    return remember(richText, parser) { ParsedRichText(parser.parse(richText).rootNode) }
-}

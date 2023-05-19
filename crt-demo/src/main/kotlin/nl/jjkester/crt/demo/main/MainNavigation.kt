@@ -2,6 +2,7 @@ package nl.jjkester.crt.demo.main
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
@@ -11,8 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import nl.jjkester.crt.demo.R
 import nl.jjkester.crt.demo.markdown.LazyMarkdown
-import nl.jjkester.crt.demo.readRawResource
-import nl.jjkester.crt.demo.rememberIntentClickHandler
+import nl.jjkester.crt.demo.openRawResource
 import nl.jjkester.crt.demo.showcases.Showcase
 import nl.jjkester.crt.demo.showcases.ShowcaseOverview
 import nl.jjkester.crt.demo.showcases.ShowcaseScaffold
@@ -34,10 +34,11 @@ fun MainNavigation(showcases: List<Showcase>) {
                 title = "Project information",
                 onNavigateBack = { navController.navigateUp() }
             ) {
+                val uriHandler = LocalUriHandler.current
                 LazyMarkdown(
-                    text = readRawResource(id = R.raw.main_readme),
+                    text = openRawResource(id = R.raw.main_readme),
                     contentPadding = PaddingValues(16.dp),
-                    onClick = rememberIntentClickHandler()
+                    onClick = uriHandler::openUri
                 )
             }
         }

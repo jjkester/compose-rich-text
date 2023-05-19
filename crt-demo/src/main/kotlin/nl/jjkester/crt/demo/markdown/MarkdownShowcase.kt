@@ -7,7 +7,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import nl.jjkester.crt.demo.R
-import nl.jjkester.crt.demo.readRawResource
+import nl.jjkester.crt.demo.openRawResource
 import nl.jjkester.crt.demo.rememberSnackbarIntentClickHandler
 import nl.jjkester.crt.demo.showcases.Example
 import nl.jjkester.crt.demo.showcases.Showcase
@@ -21,7 +21,7 @@ val MarkdownShowcase = Showcase(
             description = "The benchmark document of the CommonMark specification"
         ) {
             LazyMarkdown(
-                text = readRawResource(R.raw.markdown_commonmark_benchmark),
+                text = openRawResource(R.raw.markdown_commonmark_benchmark),
                 contentPadding = PaddingValues(16.dp),
                 onClick = rememberSnackbarIntentClickHandler()
             )
@@ -31,7 +31,7 @@ val MarkdownShowcase = Showcase(
             description = "Showing all features in GitHub flavoured Markdown in the same order as the documentation"
         ) {
             Markdown(
-                text = readRawResource(R.raw.markdown_gfm_docs),
+                text = openRawResource(R.raw.markdown_gfm_docs),
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
                     .padding(15.dp),

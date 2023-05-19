@@ -7,19 +7,20 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import nl.jjkester.crt.compose.LazyRichText
 import nl.jjkester.crt.compose.RichText
-import nl.jjkester.crt.compose.rememberParsedRichText
+import nl.jjkester.crt.compose.rememberRichTextState
 import nl.jjkester.crt.demo.rememberMaterialRichTextStyle
 import nl.jjkester.crt.markdown.MarkdownParserFactory
+import java.io.InputStream
 
 @Composable
 fun Markdown(
-    text: String,
+    text: InputStream,
     modifier: Modifier = Modifier,
     style: TextStyle = TextStyle.Default,
     onClick: (String) -> Unit = {}
 ) {
     RichText(
-        richText = rememberParsedRichText(text, MarkdownParserFactory),
+        state = rememberRichTextState(text, MarkdownParserFactory),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
@@ -29,14 +30,14 @@ fun Markdown(
 
 @Composable
 fun LazyMarkdown(
-    text: String,
+    text: InputStream,
     modifier: Modifier = Modifier,
     style: TextStyle = TextStyle.Default,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     onClick: (String) -> Unit = {}
 ) {
     LazyRichText(
-        richText = rememberParsedRichText(text, MarkdownParserFactory),
+        state = rememberRichTextState(text, MarkdownParserFactory),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
