@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
@@ -30,7 +31,7 @@ fun RichText(
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
     style: TextStyle = TextStyle.Default,
     renderer: ComposeRenderer = rememberRichTextRenderer(),
-    onClick: (String) -> Unit = {}
+    onClick: (String) -> Unit = LocalUriHandler.current::openUri
 ) {
     Box(modifier = modifier) {
         CompositionLocalProvider(
@@ -50,7 +51,7 @@ fun LazyRichText(
     style: TextStyle = TextStyle.Default,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     renderer: ComposeRenderer = rememberRichTextRenderer(),
-    onClick: (String) -> Unit = {}
+    onClick: (String) -> Unit = LocalUriHandler.current::openUri
 ) {
     CompositionLocalProvider(
         LocalSpanBaseStyle provides style,
@@ -85,9 +86,10 @@ fun rememberRichTextRenderer(): ComposeRenderer = rememberRichTextRenderer {
 }
 
 @Composable
-fun rememberRichTextRenderer(transformerFactory: () -> ComposableBlockTransformer): ComposeRenderer = remember {
-    ComposeRenderer(transformerFactory())
-}
+fun rememberRichTextRenderer(transformerFactory: () -> ComposableBlockTransformer): ComposeRenderer =
+    remember(transformerFactory) {
+        ComposeRenderer(transformerFactory())
+    }
 
 @Composable
 fun rememberParsedRichText(richText: String, parserFactory: () -> Parser<*>): ParsedRichText {
