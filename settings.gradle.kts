@@ -21,7 +21,7 @@ dependencyResolutionManagement {
             // Versions
             version("agp", "7.4.1")
             version("kotlin", "1.8.21")
-            version("compose-compiler", "1.3.2")
+            version("compose-compiler", "1.4.7")
             version("compose-bom", "2023.05.01")
 
             // Plugins
