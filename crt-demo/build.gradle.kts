@@ -23,12 +23,12 @@ android {
 
 dependencies {
     // App UI
-    implementation("androidx.activity:activity-compose")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
+    implementation("androidx.activity:activity-compose:1.7.1")
+    implementation("androidx.compose.material3:material3:1.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation(libs.compose.ui.toolingPreview)
     debugImplementation(libs.compose.ui.tooling)
-    implementation("androidx.navigation:navigation-compose")
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 
     // Project dependencies
     implementation(project(":crt-api"))
@@ -51,6 +51,7 @@ tasks.register<Copy>("copyProjectReadmeToRawRes") {
 
     from(inputFile)
     into(targetDir)
+    rename(sourceFileName, targetFileName)
 
     inputs.file(inputFile)
     outputs.file(outputFile)
