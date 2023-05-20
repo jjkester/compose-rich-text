@@ -2,10 +2,12 @@ package nl.jjkester.crt.common.enumeration
 
 internal class StaticEnumeration<out T : Any>(
     lazyValue: () -> T,
-    child: Enumeration.Fixed<T>? = null
+    child: Enumeration<T>? = null
 ) : Enumeration.Fixed<T> {
 
-    override val value: T by lazy(lazyValue)
+    private val value: T by lazy(lazyValue)
 
-    override val child: Enumeration.Fixed<T> = child ?: this
+    override val child: Enumeration<T> = child ?: this
+
+    override fun iterator(): Iterator<T> = iterator { while (true) yield(value) }
 }

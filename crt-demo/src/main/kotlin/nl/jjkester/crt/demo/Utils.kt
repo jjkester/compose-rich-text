@@ -52,7 +52,7 @@ fun rememberMaterialRichTextStyle(): RichTextStyle {
     val colorScheme = MaterialTheme.colorScheme
     val typography = MaterialTheme.typography
     val dividerColor = DividerDefaults.color
-    val basicStyle = rememberBasicRichTextStyle(spacing = PaddingValues(16.dp))
+    val basicStyle = rememberBasicRichTextStyle(spacing = PaddingValues(horizontal = 32.dp, vertical = 16.dp))
 
     return remember(colorScheme, typography) {
         basicStyle.copy(

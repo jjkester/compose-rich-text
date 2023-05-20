@@ -92,7 +92,7 @@ class DefaultComposableBlockTransformer(
         CompositionLocalProvider(
             LocalNestedOrderedListEnumeration provides enumeration.child,
             LocalNestedUnorderedListEnumeration provides null,
-            LocalListEnumerator provides enumeration.sequence.iterator()
+            LocalListEnumerator provides enumeration.iterator()
         ) {
             ListContainer(
                 contents = node.children.map { transform(it) }
@@ -112,7 +112,7 @@ class DefaultComposableBlockTransformer(
         CompositionLocalProvider(
             LocalNestedOrderedListEnumeration provides null,
             LocalNestedUnorderedListEnumeration provides enumeration.child,
-            LocalListEnumerator provides generateSequence { enumeration.value }.iterator()
+            LocalListEnumerator provides enumeration.iterator()
         ) {
             ListContainer(
                 contents = node.children.map { transform(it) }
@@ -122,9 +122,9 @@ class DefaultComposableBlockTransformer(
 
     companion object {
         private val LocalNestedUnorderedListEnumeration =
-            compositionLocalOf<Enumeration.Fixed<AnnotatedStringWithExtras>?> { null }
+            compositionLocalOf<Enumeration<AnnotatedStringWithExtras>?> { null }
         private val LocalNestedOrderedListEnumeration =
-            compositionLocalOf<Enumeration.Counting<AnnotatedStringWithExtras>?> { null }
+            compositionLocalOf<Enumeration<AnnotatedStringWithExtras>?> { null }
         private val LocalListEnumerator = compositionLocalOf<Iterator<AnnotatedStringWithExtras>> {
             iterator { AnnotatedString("").withoutExtras() }
         }
