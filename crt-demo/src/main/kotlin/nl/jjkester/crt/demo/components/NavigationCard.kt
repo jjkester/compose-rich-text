@@ -43,8 +43,7 @@ fun NavigationCard(
                 if (description != null) {
                     Text(
                         text = description,
-                        style = MaterialTheme.typography.bodyMedium,
-                        maxLines = 2
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }

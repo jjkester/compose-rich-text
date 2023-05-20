@@ -20,7 +20,7 @@ fun Markdown(
     onClick: (String) -> Unit = {}
 ) {
     RichText(
-        state = rememberRichTextState(text, MarkdownParserFactory),
+        state = rememberRichTextState(text, MarkdownParserFactory::create),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
@@ -37,7 +37,7 @@ fun LazyMarkdown(
     onClick: (String) -> Unit = {}
 ) {
     LazyRichText(
-        state = rememberRichTextState(text, MarkdownParserFactory),
+        state = rememberRichTextState(text, MarkdownParserFactory::create),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,

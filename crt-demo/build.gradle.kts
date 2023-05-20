@@ -30,6 +30,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation("androidx.compose.ui:ui-text-google-fonts")
+    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-alpha03")
 
     // Project dependencies
     implementation(project(":crt-api"))
