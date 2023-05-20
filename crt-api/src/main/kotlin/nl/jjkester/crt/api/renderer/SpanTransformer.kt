@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.renderer
 
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.Emphasis
 import nl.jjkester.crt.api.model.Link
@@ -17,6 +18,7 @@ import nl.jjkester.crt.api.model.Text
  * @see BlockTransformer Equivalent for block nodes.
  * @see Transformer Combination of a block and span transformer.
  */
+@InternalRendererApi
 public interface SpanTransformer<out T> {
 
     /**
@@ -25,6 +27,7 @@ public interface SpanTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun code(node: Code): T
 
     /**
@@ -33,6 +36,7 @@ public interface SpanTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun emphasis(node: Emphasis): T
 
     /**
@@ -41,6 +45,7 @@ public interface SpanTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun link(node: Link): T
 
     /**
@@ -49,6 +54,7 @@ public interface SpanTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun strongEmphasis(node: StrongEmphasis): T
 
     /**
@@ -57,6 +63,7 @@ public interface SpanTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun text(node: Text): T
 }
 
@@ -66,6 +73,7 @@ public interface SpanTransformer<out T> {
  * @param node Node to transform.
  * @return Render of the [node].
  */
+@InternalRendererApi
 public fun <T> SpanTransformer<T>.transformSpan(node: Node.Span): T = when (node) {
     is Code -> code(node)
     is Emphasis -> emphasis(node)

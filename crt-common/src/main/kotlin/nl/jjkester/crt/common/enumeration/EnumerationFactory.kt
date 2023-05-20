@@ -1,10 +1,13 @@
 package nl.jjkester.crt.common.enumeration
 
+import nl.jjkester.crt.api.annotations.InternalRendererApi
+
 /**
  * Factory for enumeration sequence definitions.
  *
  * @param T Type of enumerated values.
  */
+@OptIn(InternalRendererApi::class)
 public abstract class EnumerationFactory<T : Any> {
 
     /**
@@ -29,6 +32,7 @@ public abstract class EnumerationFactory<T : Any> {
      * @param value String value to convert.
      * @return Converted string value.
      */
+    @InternalRendererApi
     protected abstract fun convert(value: String): T
 
     /**

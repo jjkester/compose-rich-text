@@ -10,6 +10,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Dp
 import nl.jjkester.crt.compose.internal.text.Span
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
+import nl.jjkester.crt.compose.text.withoutExtras
 
 @Composable
 internal fun ListContainer(
@@ -36,7 +37,7 @@ internal fun ListItem(
             horizontalArrangement = Arrangement.End
         ) {
             Span(span = marker)
-            Span(span = AnnotatedStringWithExtras(AnnotatedString("\u2004")))
+            Span(span = AnnotatedString("\u2004").withoutExtras())
         }
         Column(
             modifier = Modifier.alignByBaseline()

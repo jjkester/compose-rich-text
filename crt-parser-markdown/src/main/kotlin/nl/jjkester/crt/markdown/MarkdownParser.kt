@@ -1,5 +1,7 @@
 package nl.jjkester.crt.markdown
 
+import nl.jjkester.crt.api.annotations.InternalFactoryApi
+import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.factory.DefaultNodeFactory
 import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
@@ -36,7 +38,7 @@ public class MarkdownParser internal constructor(
         }
     }
 
-    @OptIn(ExperimentalTime::class)
+    @OptIn(ExperimentalTime::class, InternalFactoryApi::class, InternalParserApi::class)
     private inline fun parseInternal(parser: () -> CommonMarkNode?): MarkdownParserResult {
         val parserOutput: CommonMarkNode?
         val parseTime = measureTime { parserOutput = parser() }
@@ -54,6 +56,7 @@ public class MarkdownParser internal constructor(
         )
     }
 
+    @OptIn(InternalParserApi::class)
     private fun transform(node: CommonMarkNode): Node? {
         return parserModules.firstNotNullOfOrNull { it.parse(node, ::transform) }
     }

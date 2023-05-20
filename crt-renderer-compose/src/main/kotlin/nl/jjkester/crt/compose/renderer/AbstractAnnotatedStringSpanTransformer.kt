@@ -1,6 +1,7 @@
 package nl.jjkester.crt.compose.renderer
 
 import androidx.compose.ui.text.AnnotatedString
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.Emphasis
 import nl.jjkester.crt.api.model.Link
@@ -14,25 +15,31 @@ import nl.jjkester.crt.compose.text.withoutExtras
 
 abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTransformer {
 
+    @InternalRendererApi
     final override fun code(node: Code): AnnotatedStringWithExtras = buildAnnotatedStringWithExtras {
         appendCode(node)
     }
 
+    @InternalRendererApi
     final override fun emphasis(node: Emphasis): AnnotatedStringWithExtras = buildAnnotatedStringWithExtras {
         appendEmphasis(node)
     }
 
+    @InternalRendererApi
     final override fun link(node: Link): AnnotatedStringWithExtras = buildAnnotatedStringWithExtras {
         appendLink(node)
     }
 
+    @InternalRendererApi
     final override fun strongEmphasis(node: StrongEmphasis): AnnotatedStringWithExtras =
         buildAnnotatedStringWithExtras {
             appendStrongEmphasis(node)
         }
 
+    @InternalRendererApi
     final override fun text(node: Text): AnnotatedStringWithExtras = AnnotatedString(node.text).withoutExtras()
 
+    @InternalRendererApi
     final override fun transformAll(nodes: List<Node.Span>): AnnotatedStringWithExtras =
         buildAnnotatedStringWithExtras {
             captureExtras {

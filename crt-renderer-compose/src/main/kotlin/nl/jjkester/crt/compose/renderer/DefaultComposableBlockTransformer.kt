@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.AnnotatedString
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Blockquote
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.CodeBlock
@@ -27,6 +28,7 @@ import nl.jjkester.crt.compose.style.LocalRichTextStyle
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
 import nl.jjkester.crt.compose.text.withoutExtras
 
+@OptIn(InternalRendererApi::class)
 class DefaultComposableBlockTransformer(
     private val spanTransformerFactory: @Composable () -> AnnotatedStringSpanTransformer
 ) : ComposableBlockTransformer {

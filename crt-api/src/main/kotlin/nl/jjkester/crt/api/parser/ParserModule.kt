@@ -1,5 +1,7 @@
 package nl.jjkester.crt.api.parser
 
+import nl.jjkester.crt.api.annotations.InternalParserApi
+
 /**
  * Module of a parser.
  *
@@ -18,5 +20,6 @@ public interface ParserModule<T : Any, I : Any> {
      * @param value Value to transform.
      * @param parseNext Function to transform a next element.
      */
+    @InternalParserApi
     public fun parse(value: T, parseNext: (T) -> I?): I?
 }

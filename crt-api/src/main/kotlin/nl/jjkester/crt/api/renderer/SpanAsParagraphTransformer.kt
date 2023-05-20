@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.renderer
 
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.Emphasis
 import nl.jjkester.crt.api.model.Link
@@ -18,6 +19,7 @@ import nl.jjkester.crt.api.model.Text
  * @param T Type of visual output.
  * @param blockTransformer Block transformer to wrap.
  */
+@InternalRendererApi
 public class SpanAsParagraphTransformer<T>(
     blockTransformer: BlockTransformer<T>
 ) : Transformer<T>, BlockTransformer<T> by blockTransformer {

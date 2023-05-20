@@ -1,5 +1,7 @@
 package nl.jjkester.crt.markdown
 
+import nl.jjkester.crt.api.annotations.InternalFactoryApi
+import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.factory.DefaultNodeFactory
 import nl.jjkester.crt.api.factory.NodeFactory
 import nl.jjkester.crt.api.factory.codeBlock
@@ -39,10 +41,12 @@ internal class DefaultMarkdownParserModule(
 
     private val nodeFactory: NodeFactory = DefaultNodeFactory
 
+    @InternalParserApi
     override fun parse(value: CommonMarkNode, parseNext: (CommonMarkNode) -> Node?): Node? {
         return parse(value, MarkdownChildParser(parseNext))
     }
 
+    @OptIn(InternalFactoryApi::class)
     private fun parse(node: CommonMarkNode, childParser: MarkdownChildParser): Node? {
         return when (node) {
             is BlockQuote -> nodeFactory.blockquote(childParser.parseBlockChildren(node))
@@ -66,6 +70,7 @@ internal class DefaultMarkdownParserModule(
         }
     }
 
+    @OptIn(InternalFactoryApi::class)
     private fun parseFallback(node: CommonMarkNode): Node? {
         return when (node) {
             is HtmlBlock -> nodeFactory.paragraph(listOf(nodeFactory.text(node.literal)))

@@ -7,8 +7,8 @@ android {
 }
 
 dependencies {
-    api(project(":crt-api"))
-    api(project(":crt-common"))
+    implementation(project(":crt-api"))
+    implementation(project(":crt-common"))
 
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui.text)

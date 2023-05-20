@@ -8,6 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserResult
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
@@ -17,6 +18,7 @@ import java.io.InputStream
 /**
  * Encapsulates the state for the [RichText] and [LazyRichText] composables.
  */
+@OptIn(InternalRendererApi::class)
 class RichTextState internal constructor(private val parser: Parser<*>, private val renderer: ComposeRenderer) {
 
     internal var result by mutableStateOf<ComposeRenderer.Result?>(null)

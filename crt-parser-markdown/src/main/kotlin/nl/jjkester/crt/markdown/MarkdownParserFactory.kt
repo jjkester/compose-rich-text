@@ -1,10 +1,12 @@
 package nl.jjkester.crt.markdown
 
+import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.parser.AbstractParserFactory
 
 /**
  * Factory for configuring and creating instances of [MarkdownParser].
  */
+@OptIn(InternalParserApi::class)
 public class MarkdownParserFactory : AbstractParserFactory<MarkdownParserModule, MarkdownParserResult>() {
 
     /**

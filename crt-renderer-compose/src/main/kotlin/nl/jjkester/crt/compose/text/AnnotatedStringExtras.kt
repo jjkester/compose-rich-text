@@ -24,7 +24,7 @@ operator fun AnnotatedStringExtras.plus(other: AnnotatedStringExtras): Annotated
 )
 
 fun captureExtras(block: suspend SequenceScope<AnnotatedStringExtras>.() -> Unit): AnnotatedStringExtras =
-    sequence { block() }
+    sequence(block)
         .toList()
         .let { sequence ->
             AnnotatedStringExtras(

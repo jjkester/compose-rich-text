@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.factory
 
+import nl.jjkester.crt.api.annotations.InternalFactoryApi
 import nl.jjkester.crt.api.model.Blockquote
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.CodeBlock
@@ -35,6 +36,7 @@ public interface NodeFactory {
      * @return Created blockquote node.
      * @see Blockquote
      */
+    @InternalFactoryApi
     public fun blockquote(
         children: List<Node.Block> = emptyList(),
         metadata: NodeMetadata? = null
@@ -49,6 +51,7 @@ public interface NodeFactory {
      * @return Created inline code fragment node.
      * @see Code
      */
+    @InternalFactoryApi
     public fun code(
         content: String,
         languageHint: Language? = null,
@@ -64,6 +67,7 @@ public interface NodeFactory {
      * @return Created code fragment block node.
      * @see CodeBlock
      */
+    @InternalFactoryApi
     public fun codeBlock(
         content: String,
         languageHint: Language? = null,
@@ -78,6 +82,7 @@ public interface NodeFactory {
      * @return Created block node.
      * @see Container
      */
+    @InternalFactoryApi
     public fun container(
         children: List<Node.Block> = emptyList(),
         metadata: NodeMetadata? = null
@@ -90,6 +95,7 @@ public interface NodeFactory {
      * @return Created divider node.
      * @see Divider
      */
+    @InternalFactoryApi
     public fun divider(
         metadata: NodeMetadata? = null
     ): Divider
@@ -102,6 +108,7 @@ public interface NodeFactory {
      * @return Created emphasized text node.
      * @see Emphasis
      */
+    @InternalFactoryApi
     public fun emphasis(
         children: List<Node.Span> = emptyList(),
         metadata: NodeMetadata? = null
@@ -116,6 +123,7 @@ public interface NodeFactory {
      * @return Created heading block node.
      * @see Heading
      */
+    @InternalFactoryApi
     public fun heading(
         level: Heading.Level,
         children: List<Node.Span> = emptyList(),
@@ -131,6 +139,7 @@ public interface NodeFactory {
      * @return Created clickable link node.
      * @see Link
      */
+    @InternalFactoryApi
     public fun link(
         destination: Link.Destination,
         children: List<Node.Span> = emptyList(),
@@ -145,6 +154,7 @@ public interface NodeFactory {
      * @return Created list item node.
      * @see ListItem
      */
+    @InternalFactoryApi
     public fun listItem(
         children: List<Node.Block> = emptyList(),
         metadata: NodeMetadata? = null
@@ -158,6 +168,7 @@ public interface NodeFactory {
      * @return Created ordered list node.
      * @see OrderedList
      */
+    @InternalFactoryApi
     public fun orderedList(
         children: List<ListItem> = emptyList(),
         metadata: NodeMetadata? = null
@@ -171,6 +182,7 @@ public interface NodeFactory {
      * @return Created paragraph of text node.
      * @see Paragraph
      */
+    @InternalFactoryApi
     public fun paragraph(
         children: List<Node.Span> = emptyList(),
         metadata: NodeMetadata? = null
@@ -184,6 +196,7 @@ public interface NodeFactory {
      * @return Created strongly emphasized text node.
      * @see StrongEmphasis
      */
+    @InternalFactoryApi
     public fun strongEmphasis(
         children: List<Node.Span> = emptyList(),
         metadata: NodeMetadata? = null
@@ -197,6 +210,7 @@ public interface NodeFactory {
      * @return Created text node.
      * @see Text
      */
+    @InternalFactoryApi
     public fun text(
         content: String,
         metadata: NodeMetadata? = null
@@ -210,6 +224,7 @@ public interface NodeFactory {
      * @return Created unordered list node.
      * @see UnorderedList
      */
+    @InternalFactoryApi
     public fun unorderedList(
         children: List<ListItem> = emptyList(),
         metadata: NodeMetadata? = null
@@ -226,6 +241,7 @@ public interface NodeFactory {
  * @see NodeFactory.code
  * @see Code
  */
+@InternalFactoryApi
 public fun NodeFactory.code(
     content: String,
     languageHint: String? = null,
@@ -242,6 +258,7 @@ public fun NodeFactory.code(
  * @see NodeFactory.codeBlock
  * @see CodeBlock
  */
+@InternalFactoryApi
 public fun NodeFactory.codeBlock(
     content: String,
     languageHint: String? = null,
@@ -258,6 +275,7 @@ public fun NodeFactory.codeBlock(
  * @see NodeFactory.heading
  * @see Heading
  */
+@InternalFactoryApi
 public fun NodeFactory.heading(
     level: Int,
     children: List<Node.Span> = emptyList(),
@@ -274,6 +292,7 @@ public fun NodeFactory.heading(
  * @see NodeFactory.link
  * @see Link
  */
+@InternalFactoryApi
 public fun NodeFactory.link(
     destination: String,
     children: List<Node.Span> = emptyList(),

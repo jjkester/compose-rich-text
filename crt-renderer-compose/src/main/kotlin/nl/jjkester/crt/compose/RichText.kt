@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.compose.internal.text.LocalSpanBaseStyle
 import nl.jjkester.crt.compose.internal.text.LocalSpanClickHandler
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
@@ -39,6 +40,7 @@ import nl.jjkester.crt.compose.style.RichTextStyle
  * @see rememberRichTextState
  * @see LazyRichText Renders rich text lazily, recommended for longer documents.
  */
+@OptIn(InternalRendererApi::class)
 @Composable
 fun RichText(
     state: RichTextState,
@@ -69,6 +71,7 @@ fun RichText(
  * @param onClick Function that is called whenever a link is clicked. The link's URI is passed as a parameter.
  * @see RichText Renders rich text eagerly, recommended for small snippets.
  */
+@OptIn(InternalRendererApi::class)
 @Composable
 fun LazyRichText(
     state: RichTextState,

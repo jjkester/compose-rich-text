@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.renderer
 
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Blockquote
 import nl.jjkester.crt.api.model.CodeBlock
 import nl.jjkester.crt.api.model.Container
@@ -21,6 +22,7 @@ import nl.jjkester.crt.api.model.UnorderedList
  * @see SpanTransformer Equivalent for span nodes.
  * @see Transformer Combination of a block and span transformer.
  */
+@InternalRendererApi
 public interface BlockTransformer<out T> {
 
     /**
@@ -29,6 +31,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun blockquote(node: Blockquote): T
 
     /**
@@ -37,6 +40,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun codeBlock(node: CodeBlock): T
 
     /**
@@ -45,6 +49,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun container(node: Container): T
 
     /**
@@ -53,6 +58,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun divider(node: Divider): T
 
     /**
@@ -61,6 +67,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun heading(node: Heading): T
 
     /**
@@ -69,6 +76,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun listItem(node: ListItem): T
 
     /**
@@ -77,6 +85,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun orderedList(node: OrderedList): T
 
     /**
@@ -85,6 +94,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun paragraph(node: Paragraph): T
 
     /**
@@ -93,6 +103,7 @@ public interface BlockTransformer<out T> {
      * @param node Node to render.
      * @return Rendered node.
      */
+    @InternalRendererApi
     public fun unorderedList(node: UnorderedList): T
 }
 
@@ -102,6 +113,7 @@ public interface BlockTransformer<out T> {
  * @param node Node to transform.
  * @return Render of the [node].
  */
+@InternalRendererApi
 public fun <T> BlockTransformer<T>.transformBlock(node: Node.Block): T = when (node) {
     is Blockquote -> blockquote(node)
     is CodeBlock -> codeBlock(node)

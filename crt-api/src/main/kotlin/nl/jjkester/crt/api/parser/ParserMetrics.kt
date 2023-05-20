@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.parser
 
+import nl.jjkester.crt.api.annotations.InternalParserApi
 import kotlin.time.Duration
 
 /**
@@ -9,7 +10,7 @@ import kotlin.time.Duration
  * @property sourceParseTime Time to parse the source.
  * @property intermediateTransformTime Time to transform the parsed source to the internal model.
  */
-public data class ParserMetrics(
+public data class ParserMetrics @InternalParserApi constructor(
     public val fileReadTime: Duration,
     public val sourceParseTime: Duration,
     public val intermediateTransformTime: Duration

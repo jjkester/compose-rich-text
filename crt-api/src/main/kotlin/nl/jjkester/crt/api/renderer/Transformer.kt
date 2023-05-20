@@ -1,5 +1,6 @@
 package nl.jjkester.crt.api.renderer
 
+import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Blockquote
 import nl.jjkester.crt.api.model.Code
 import nl.jjkester.crt.api.model.CodeBlock
@@ -28,6 +29,7 @@ import nl.jjkester.crt.api.model.UnorderedList
  * @see BlockTransformer Equivalent for only block nodes.
  * @see SpanTransformer Equivalent for only span nodes.
  */
+@InternalRendererApi
 public interface Transformer<out T> : BlockTransformer<T>, SpanTransformer<T>
 
 /**
@@ -39,6 +41,7 @@ public interface Transformer<out T> : BlockTransformer<T>, SpanTransformer<T>
  * @param node Node to transform.
  * @return Result of transforming the provided node.
  */
+@InternalRendererApi
 public fun <T> Transformer<T>.transform(node: Node): T = when (node) {
     is Blockquote -> blockquote(node)
     is CodeBlock -> codeBlock(node)
