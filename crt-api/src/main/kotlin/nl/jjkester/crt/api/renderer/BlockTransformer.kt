@@ -102,7 +102,7 @@ public interface BlockTransformer<out T> {
  * @param node Node to transform.
  * @return Render of the [node].
  */
-public fun <T> BlockTransformer<T>.transform(node: Node.Block): T = when (node) {
+public fun <T> BlockTransformer<T>.transformBlock(node: Node.Block): T = when (node) {
     is Blockquote -> blockquote(node)
     is CodeBlock -> codeBlock(node)
     is Container -> container(node)

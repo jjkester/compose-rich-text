@@ -66,7 +66,7 @@ public interface SpanTransformer<out T> {
  * @param node Node to transform.
  * @return Render of the [node].
  */
-public fun <T> SpanTransformer<T>.transform(node: Node.Span): T = when (node) {
+public fun <T> SpanTransformer<T>.transformSpan(node: Node.Span): T = when (node) {
     is Code -> code(node)
     is Emphasis -> emphasis(node)
     is Link -> link(node)

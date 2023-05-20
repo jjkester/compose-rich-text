@@ -14,7 +14,7 @@ import nl.jjkester.crt.api.model.ListItem
 import nl.jjkester.crt.api.model.OrderedList
 import nl.jjkester.crt.api.model.Paragraph
 import nl.jjkester.crt.api.model.UnorderedList
-import nl.jjkester.crt.api.renderer.transform
+import nl.jjkester.crt.api.renderer.transformBlock
 import nl.jjkester.crt.common.enumeration.Enumeration
 import nl.jjkester.crt.compose.internal.document.Blockquote
 import nl.jjkester.crt.compose.internal.document.Container
@@ -39,7 +39,7 @@ class DefaultComposableBlockTransformer(
                 borderStroke = richTextStyle.blockquote.border,
                 inset = richTextStyle.blockInset,
                 space = richTextStyle.blockSpacing,
-                contents = node.children.map { transform(it) }
+                contents = node.children.map { transformBlock(it) }
             )
         }
     }
@@ -53,7 +53,14 @@ class DefaultComposableBlockTransformer(
     override fun container(node: Container): @Composable () -> Unit = {
         Container(
             space = LocalRichTextStyle.current.blockSpacing,
-            contents = node.children.map { transform(it) }
+            contents = node.children.map { transformBlock(it) }
+        )
+    }
+
+    override fun container(children: List<@Composable () -> Unit>): @Composable () -> Unit = {
+        Container(
+            space = LocalRichTextStyle.current.blockSpacing,
+            contents = children
         )
     }
 
@@ -83,7 +90,7 @@ class DefaultComposableBlockTransformer(
         ListItem(
             marker = LocalListEnumerator.current.next(),
             markerSize = LocalRichTextStyle.current.blockInset,
-            contents = node.children.map { transform(it) }
+            contents = node.children.map { transformBlock(it) }
         )
     }
 
@@ -95,7 +102,7 @@ class DefaultComposableBlockTransformer(
             LocalListEnumerator provides enumeration.iterator()
         ) {
             ListContainer(
-                contents = node.children.map { transform(it) }
+                contents = node.children.map { transformBlock(it) }
             )
         }
     }
@@ -115,7 +122,7 @@ class DefaultComposableBlockTransformer(
             LocalListEnumerator provides enumeration.iterator()
         ) {
             ListContainer(
-                contents = node.children.map { transform(it) }
+                contents = node.children.map { transformBlock(it) }
             )
         }
     }
