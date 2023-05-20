@@ -13,6 +13,11 @@ import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
 import nl.jjkester.crt.compose.text.captureExtras
 import nl.jjkester.crt.compose.text.withoutExtras
 
+/**
+ * Transformer for rendering span nodes into annotated strings with extras that abstracts the heavy lifting around
+ * annotated string builders. Implementors of this class have to implement relatively simple append functions taking
+ * in a node, and can call [transformAndAppend] for any child node that needs to be rendered.
+ */
 abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTransformer {
 
     @InternalRendererApi
@@ -47,16 +52,52 @@ abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTrans
             }
         }
 
+    /**
+     * Appends the content of the provided code node to the builder.
+     *
+     * @param node Node to append.
+     * @return Annotated string extras resulting from rendering the [node] and its children.
+     */
     protected abstract fun AnnotatedString.Builder.appendCode(node: Code): AnnotatedStringExtras
 
+    /**
+     * Appends the content of the provided emphasis node to the builder.
+     *
+     * @param node Node to append.
+     * @return Annotated string extras resulting from rendering the [node] and its children.
+     */
     protected abstract fun AnnotatedString.Builder.appendEmphasis(node: Emphasis): AnnotatedStringExtras
 
+    /**
+     * Appends the content of the provided link node to the builder.
+     *
+     * @param node Node to append.
+     * @return Annotated string extras resulting from rendering the [node] and its children.
+     */
     protected abstract fun AnnotatedString.Builder.appendLink(node: Link): AnnotatedStringExtras
 
+    /**
+     * Appends the content of the provided strong emphasis node to the builder.
+     *
+     * @param node Node to append.
+     * @return Annotated string extras resulting from rendering the [node] and its children.
+     */
     protected abstract fun AnnotatedString.Builder.appendStrongEmphasis(node: StrongEmphasis): AnnotatedStringExtras
 
+    /**
+     * Appends the content of the provided text node to the builder.
+     *
+     * @param node Node to append.
+     * @return Annotated string extras resulting from rendering the [node].
+     */
     protected abstract fun AnnotatedString.Builder.appendText(node: Text): AnnotatedStringExtras
 
+    /**
+     * Transforms the provided [node] by calling the appropriate appender.
+     *
+     * @param node Node to render.
+     * @return Annotated string extras resulting from rendering the [node] and its children.
+     */
     protected fun AnnotatedString.Builder.transformAndAppend(node: Node.Span): AnnotatedStringExtras = when (node) {
         is Code -> appendCode(node)
         is Emphasis -> appendEmphasis(node)

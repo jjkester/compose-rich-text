@@ -19,7 +19,7 @@ internal class ClickOffsetHandler(private val clickOffsets: Collection<ClickOffs
         return layoutResult?.let { layoutResult ->
             clickOffsets.find {
                 layoutResult.getOffsetForPosition(offset) in it.offset
-            }?.id
+            }?.target
         }
     }
 }

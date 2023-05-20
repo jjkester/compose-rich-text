@@ -28,6 +28,11 @@ import nl.jjkester.crt.compose.style.LocalRichTextStyle
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
 import nl.jjkester.crt.compose.text.withoutExtras
 
+/**
+ * Transformer for rendering block nodes to composables using the built-in layout.
+ *
+ * @property spanTransformerFactory Factory to create a span transformer from a composable context.
+ */
 @OptIn(InternalRendererApi::class)
 class DefaultComposableBlockTransformer(
     private val spanTransformerFactory: @Composable () -> AnnotatedStringSpanTransformer
@@ -129,7 +134,7 @@ class DefaultComposableBlockTransformer(
         }
     }
 
-    companion object {
+    private companion object {
         private val LocalNestedUnorderedListEnumeration =
             compositionLocalOf<Enumeration<AnnotatedStringWithExtras>?> { null }
         private val LocalNestedOrderedListEnumeration =

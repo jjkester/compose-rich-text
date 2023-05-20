@@ -6,6 +6,9 @@ import nl.jjkester.crt.common.enumeration.EnumerationFactory
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
 import nl.jjkester.crt.compose.text.withoutExtras
 
+/**
+ * Enumeration factory for Compose using annotated string with optional insets and/or clickable text.
+ */
 object ComposeEnumerationFactory : EnumerationFactory<AnnotatedStringWithExtras>() {
 
     @InternalRendererApi

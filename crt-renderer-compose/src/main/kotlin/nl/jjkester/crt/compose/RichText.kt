@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -15,10 +14,6 @@ import androidx.compose.ui.unit.isSpecified
 import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.compose.internal.text.LocalSpanBaseStyle
 import nl.jjkester.crt.compose.internal.text.LocalSpanClickHandler
-import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
-import nl.jjkester.crt.compose.renderer.ComposeRenderer
-import nl.jjkester.crt.compose.renderer.DefaultAnnotatedStringSpanTransformer
-import nl.jjkester.crt.compose.renderer.DefaultComposableBlockTransformer
 import nl.jjkester.crt.compose.style.LocalRichTextStyle
 import nl.jjkester.crt.compose.style.RichTextStyle
 

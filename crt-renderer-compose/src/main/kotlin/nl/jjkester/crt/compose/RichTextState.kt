@@ -2,6 +2,7 @@ package nl.jjkester.crt.compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,6 +20,7 @@ import java.io.InputStream
  * Encapsulates the state for the [RichText] and [LazyRichText] composables.
  */
 @OptIn(InternalRendererApi::class)
+@Stable
 class RichTextState internal constructor(private val parser: Parser<*>, private val renderer: ComposeRenderer) {
 
     internal var result by mutableStateOf<ComposeRenderer.Result?>(null)

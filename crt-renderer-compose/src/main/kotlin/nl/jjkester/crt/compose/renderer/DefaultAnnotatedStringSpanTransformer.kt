@@ -13,6 +13,11 @@ import nl.jjkester.crt.compose.text.ClickOffset
 import nl.jjkester.crt.compose.text.captureExtras
 import nl.jjkester.crt.compose.text.measureOffsetRange
 
+/**
+ * Transformer for rendering span nodes to an annotated string using the built-in layout.
+ *
+ * @property richTextStyle Style to apply.
+ */
 class DefaultAnnotatedStringSpanTransformer(
     private val richTextStyle: RichTextStyle
 ) : AbstractAnnotatedStringSpanTransformer() {

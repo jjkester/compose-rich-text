@@ -1,6 +1,8 @@
 package nl.jjkester.crt.compose.renderer
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.toMutableStateList
 import nl.jjkester.crt.api.annotations.InternalRendererApi
@@ -12,6 +14,9 @@ import nl.jjkester.crt.api.renderer.transform
 import nl.jjkester.crt.api.renderer.transformBlock
 import nl.jjkester.crt.compose.style.LocalRichTextStyle
 
+/**
+ * Renderer to render rich text in Jetpack Compose.
+ */
 @OptIn(InternalRendererApi::class)
 class ComposeRenderer internal constructor(
     private val blockTransformer: ComposableBlockTransformer
@@ -26,7 +31,10 @@ class ComposeRenderer internal constructor(
         transformer.transform(node).let { Result(it, mutableStateListOf(it)) }
     }
 
-    companion object {
+    internal companion object {
+        /**
+         * Default Compose renderer.
+         */
         internal val Default = ComposeRenderer(
             DefaultComposableBlockTransformer {
                 DefaultAnnotatedStringSpanTransformer(LocalRichTextStyle.current)
@@ -34,9 +42,17 @@ class ComposeRenderer internal constructor(
         )
     }
 
+    /**
+     * Result of rendering rich text in Compose.
+     *
+     * @property single Single composable containing the rendered result for the whole rendered text.
+     * @property lazy List of composables containing the rendered result for one or more parts of the rendered text.
+     * This list is suitable for lazy rendering since the outer container, if one were present, is removed.
+     */
     @InternalRendererApi
+    @Immutable
     class Result internal constructor(
-        internal val single: @Composable () -> Unit,
-        internal val lazy: List<@Composable () -> Unit>
+        @Stable internal val single: @Composable () -> Unit,
+        @Stable internal val lazy: List<@Composable () -> Unit>
     )
 }
