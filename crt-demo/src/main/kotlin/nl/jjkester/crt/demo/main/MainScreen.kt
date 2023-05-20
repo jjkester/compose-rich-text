@@ -63,7 +63,9 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
                 )
 
                 NavigationDrawerItem(
-                    label = { Text("Readme") },
+                    label = {
+                        Text("Readme", style = MaterialTheme.typography.labelLarge)
+                    },
                     selected = false,
                     onClick = { onNavigate(Route.Readme) },
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
@@ -77,7 +79,9 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
 
                 showcases.forEachIndexed { index, showcase ->
                     NavigationDrawerItem(
-                        label = { Text(showcase.name) },
+                        label = {
+                            Text(showcase.name, style = MaterialTheme.typography.labelLarge)
+                        },
                         selected = false,
                         onClick = {
                             coroutineScope.launch { drawerState.close() }
@@ -173,9 +177,8 @@ private fun GitHubButton(modifier: Modifier = Modifier) {
         Text(
             buildAnnotatedString {
                 withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                    append("GitHub")
+                    append("GitHub: ")
                 }
-                append("  ")
                 withStyle(SpanStyle(fontWeight = FontWeight.Normal)) {
                     append("jjkester/compose-rich-text")
                 }
@@ -194,16 +197,15 @@ private fun VersionLabel(modifier: Modifier = Modifier) {
         Text(
             text = "Version",
             color = MaterialTheme.colorScheme.secondary,
-            style = MaterialTheme.typography.labelMedium
+            style = MaterialTheme.typography.labelLarge
         )
         Card(
-            modifier = Modifier.alignByBaseline(),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
         ) {
             Text(
                 text = BuildConfig.VERSION_NAME,
                 color = MaterialTheme.colorScheme.secondary,
-                style = MaterialTheme.typography.labelSmall,
+                style = MaterialTheme.typography.labelMedium,
                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
             )
         }

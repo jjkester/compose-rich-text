@@ -34,7 +34,7 @@ fun Jumbotron(
                 if (eyebrow != null) {
                     Text(
                         text = eyebrow,
-                        style = MaterialTheme.typography.labelMedium,
+                        style = MaterialTheme.typography.labelLarge,
                         modifier = Modifier.alpha(.66f)
                     )
                 }
