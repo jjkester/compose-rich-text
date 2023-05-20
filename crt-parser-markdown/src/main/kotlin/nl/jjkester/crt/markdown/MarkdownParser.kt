@@ -5,7 +5,9 @@ import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserMetrics
 import java.io.InputStream
-import kotlin.system.measureTimeMillis
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTime
 import org.commonmark.node.Node as CommonMarkNode
 import org.commonmark.parser.Parser as CommonMarkParser
 
@@ -21,23 +23,24 @@ public class MarkdownParser(
 
     override fun parse(inputStream: InputStream): MarkdownParserResult = parseInternal {
         inputStream.reader().use { reader ->
-             parser.parseReader(reader)
+            parser.parseReader(reader)
         }
     }
 
+    @OptIn(ExperimentalTime::class)
     private inline fun parseInternal(parser: () -> CommonMarkNode?): MarkdownParserResult {
         val parserOutput: CommonMarkNode?
-        val parseTimeMillis = measureTimeMillis { parserOutput = parser() }
+        val parseTime = measureTime { parserOutput = parser() }
 
         val transformOutput: Node?
-        val transformTimeMillis = measureTimeMillis { transformOutput = parserOutput?.let(::transform) }
+        val transformTime = measureTime { transformOutput = parserOutput?.let(::transform) }
 
         return MarkdownParserResult(
             rootNode = transformOutput ?: DefaultNodeFactory.container(),
             metrics = ParserMetrics(
-                fileReadTimeMillis = 0L,
-                sourceParseTimeMillis = parseTimeMillis,
-                intermediateTransformTimeMillis = transformTimeMillis
+                fileReadTime = Duration.ZERO,
+                sourceParseTime = parseTime,
+                intermediateTransformTime = transformTime
             )
         )
     }

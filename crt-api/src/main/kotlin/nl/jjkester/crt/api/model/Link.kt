@@ -6,7 +6,7 @@ package nl.jjkester.crt.api.model
  * Creates a clickable area around the [children] of this node, opening the [destination] when clicked.
  *
  * @property destination Destination of the link when clicked.
- * @property children Emphasized contents. A span only contains other spans.
+ * @property children Clickable contents. A span only contains other spans.
  * @property metadata Optional metadata of this node.
  */
 public class Link(

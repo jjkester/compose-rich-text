@@ -1,20 +1,22 @@
 package nl.jjkester.crt.api.parser
 
+import kotlin.time.Duration
+
 /**
  * Metrics collected during parsing.
  *
- * @property fileReadTimeMillis Time to read the input file, in milliseconds.
- * @property sourceParseTimeMillis Time to parse the source, in milliseconds.
- * @property intermediateTransformTimeMillis Time to transform the parsed source to the internal model, in milliseconds.
+ * @property fileReadTime Time to read the input file.
+ * @property sourceParseTime Time to parse the source.
+ * @property intermediateTransformTime Time to transform the parsed source to the internal model.
  */
 public data class ParserMetrics(
-    public val fileReadTimeMillis: Long,
-    public val sourceParseTimeMillis: Long,
-    public val intermediateTransformTimeMillis: Long
+    public val fileReadTime: Duration,
+    public val sourceParseTime: Duration,
+    public val intermediateTransformTime: Duration
 ) {
 
     /**
      * Total parse time.
      */
-    public val totalTimeMillis: Long = fileReadTimeMillis + sourceParseTimeMillis + intermediateTransformTimeMillis
+    public val totalTime: Duration = fileReadTime + sourceParseTime + intermediateTransformTime
 }
