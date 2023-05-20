@@ -11,7 +11,16 @@ import kotlin.time.measureTime
 import org.commonmark.node.Node as CommonMarkNode
 import org.commonmark.parser.Parser as CommonMarkParser
 
-public class MarkdownParser(
+/**
+ * Compose Rich Text parser for Markdown sources.
+ *
+ * An instance of [MarkdownParser] can be obtained through a [MarkdownParserFactory].
+ *
+ * @property parserModules Markdown parser modules to use while parsing. An empty list of modules will result in an
+ * empty output.
+ * @see MarkdownParserFactory
+ */
+public class MarkdownParser internal constructor(
     private val parserModules: List<MarkdownParserModule>
 ) : Parser<MarkdownParserResult> {
 
