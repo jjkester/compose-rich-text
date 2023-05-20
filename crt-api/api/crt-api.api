@@ -266,17 +266,17 @@ public abstract interface class nl/jjkester/crt/api/parser/ParserFactory {
 }
 
 public final class nl/jjkester/crt/api/parser/ParserMetrics {
-	public fun <init> (JJJ)V
-	public final fun component1 ()J
-	public final fun component2 ()J
-	public final fun component3 ()J
-	public final fun copy (JJJ)Lnl/jjkester/crt/api/parser/ParserMetrics;
-	public static synthetic fun copy$default (Lnl/jjkester/crt/api/parser/ParserMetrics;JJJILjava/lang/Object;)Lnl/jjkester/crt/api/parser/ParserMetrics;
+	public synthetic fun <init> (JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-UwyO8pc ()J
+	public final fun component2-UwyO8pc ()J
+	public final fun component3-UwyO8pc ()J
+	public final fun copy-WzaCiaA (JJJ)Lnl/jjkester/crt/api/parser/ParserMetrics;
+	public static synthetic fun copy-WzaCiaA$default (Lnl/jjkester/crt/api/parser/ParserMetrics;JJJILjava/lang/Object;)Lnl/jjkester/crt/api/parser/ParserMetrics;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getFileReadTimeMillis ()J
-	public final fun getIntermediateTransformTimeMillis ()J
-	public final fun getSourceParseTimeMillis ()J
-	public final fun getTotalTimeMillis ()J
+	public final fun getFileReadTime-UwyO8pc ()J
+	public final fun getIntermediateTransformTime-UwyO8pc ()J
+	public final fun getSourceParseTime-UwyO8pc ()J
+	public final fun getTotalTime-UwyO8pc ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

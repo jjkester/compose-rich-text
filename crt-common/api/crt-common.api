@@ -1,44 +1,55 @@
-public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration {
+public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration : java/lang/Iterable, kotlin/jvm/internal/markers/KMappedMarker {
 	public abstract fun getChild ()Lnl/jjkester/crt/common/enumeration/Enumeration;
+	public abstract fun iterator ()Ljava/util/Iterator;
 }
 
 public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration$Counting : nl/jjkester/crt/common/enumeration/Enumeration {
-	public abstract fun getChild ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public abstract fun getSequence ()Lkotlin/sequences/Sequence;
 }
 
 public abstract interface class nl/jjkester/crt/common/enumeration/Enumeration$Fixed : nl/jjkester/crt/common/enumeration/Enumeration {
-	public abstract fun getChild ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public abstract fun getValue ()Ljava/lang/Object;
 }
 
 public abstract class nl/jjkester/crt/common/enumeration/EnumerationFactory {
 	public fun <init> ()V
-	public final fun bullets ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public final fun bullets (Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public static synthetic fun bullets$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun bullets ()Lnl/jjkester/crt/common/enumeration/Enumeration;
+	public final fun bullets (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration;
+	public final fun bullets (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration;
+	public static synthetic fun bullets$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration;
 	protected abstract fun convert (Ljava/lang/String;)Ljava/lang/Object;
 	public final fun counting (Lkotlin/sequences/Sequence;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public final fun counting (Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public static synthetic fun counting$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun counting (Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun counting (Lkotlin/sequences/Sequence;[Lkotlin/sequences/Sequence;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun counting$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lkotlin/sequences/Sequence;Lnl/jjkester/crt/common/enumeration/Enumeration;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun dashes ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public final fun dashes (Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public static synthetic fun dashes$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun dashes (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun dashes (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public static synthetic fun dashes$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun fixed (Ljava/lang/String;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public final fun fixed (Ljava/lang/String;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun fixed (Ljava/lang/String;Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun fixed (Ljava/lang/String;[Ljava/lang/String;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
-	public static synthetic fun fixed$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Ljava/lang/String;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public static synthetic fun fixed$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Ljava/lang/String;Lnl/jjkester/crt/common/enumeration/Enumeration;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun getAlphanumeric ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun getBulleted ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
 	public final fun lowercaseLetters ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public final fun lowercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public static synthetic fun lowercaseLetters$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun lowercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun lowercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun lowercaseLetters$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun lowercaseRomanNumerals ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun lowercaseRomanNumerals (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun lowercaseRomanNumerals (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun lowercaseRomanNumerals$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun numbers ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public final fun numbers (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public static synthetic fun numbers$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun numbers (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun numbers (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun numbers$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 	public final fun uppercaseLetters ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public final fun uppercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
-	public static synthetic fun uppercaseLetters$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;ILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun uppercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun uppercaseLetters (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun uppercaseLetters$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun uppercaseRomanNumerals ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun uppercaseRomanNumerals (Lnl/jjkester/crt/common/enumeration/Enumeration;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun uppercaseRomanNumerals (Lnl/jjkester/crt/common/enumeration/Enumeration;Z)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public static synthetic fun uppercaseRomanNumerals$default (Lnl/jjkester/crt/common/enumeration/EnumerationFactory;Lnl/jjkester/crt/common/enumeration/Enumeration;ZILjava/lang/Object;)Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
 }
 
 public final class nl/jjkester/crt/common/logging/ExtensionsKt {

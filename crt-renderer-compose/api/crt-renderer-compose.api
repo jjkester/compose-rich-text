@@ -1,0 +1,262 @@
+public final class nl/jjkester/crt/compose/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class nl/jjkester/crt/compose/ParsedRichText {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/ParsedRichText$Companion;
+	public fun <init> (Lnl/jjkester/crt/api/model/Node;)V
+	public final fun getNode ()Lnl/jjkester/crt/api/model/Node;
+}
+
+public final class nl/jjkester/crt/compose/ParsedRichText$Companion {
+	public final fun getEmpty ()Lnl/jjkester/crt/compose/ParsedRichText;
+}
+
+public final class nl/jjkester/crt/compose/RichTextKt {
+	public static final fun LazyRichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/layout/PaddingValues;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+	public static final fun RichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+	public static final fun rememberRichTextRenderer (Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
+	public static final fun rememberRichTextRenderer (Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
+}
+
+public final class nl/jjkester/crt/compose/RichTextState {
+	public static final field $stable I
+	public final fun isLoading ()Z
+}
+
+public final class nl/jjkester/crt/compose/RichTextStateKt {
+	public static final fun rememberRichTextState (Ljava/io/InputStream;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/RichTextState;
+	public static final fun rememberRichTextState (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/RichTextState;
+}
+
+public abstract class nl/jjkester/crt/compose/renderer/AbstractAnnotatedStringSpanTransformer : nl/jjkester/crt/compose/renderer/AnnotatedStringSpanTransformer {
+	public static final field $stable I
+	public fun <init> ()V
+	protected abstract fun appendCode (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/Code;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	protected abstract fun appendEmphasis (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/Emphasis;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	protected abstract fun appendLink (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/Link;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	protected abstract fun appendStrongEmphasis (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/StrongEmphasis;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	protected abstract fun appendText (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/Text;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	public synthetic fun code (Lnl/jjkester/crt/api/model/Code;)Ljava/lang/Object;
+	public final fun code (Lnl/jjkester/crt/api/model/Code;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	public synthetic fun emphasis (Lnl/jjkester/crt/api/model/Emphasis;)Ljava/lang/Object;
+	public final fun emphasis (Lnl/jjkester/crt/api/model/Emphasis;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	public synthetic fun link (Lnl/jjkester/crt/api/model/Link;)Ljava/lang/Object;
+	public final fun link (Lnl/jjkester/crt/api/model/Link;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	public synthetic fun strongEmphasis (Lnl/jjkester/crt/api/model/StrongEmphasis;)Ljava/lang/Object;
+	public final fun strongEmphasis (Lnl/jjkester/crt/api/model/StrongEmphasis;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	public synthetic fun text (Lnl/jjkester/crt/api/model/Text;)Ljava/lang/Object;
+	public final fun text (Lnl/jjkester/crt/api/model/Text;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	public final fun transformAll (Ljava/util/List;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+	protected final fun transformAndAppend (Landroidx/compose/ui/text/AnnotatedString$Builder;Lnl/jjkester/crt/api/model/Node$Span;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+}
+
+public abstract interface class nl/jjkester/crt/compose/renderer/AnnotatedStringSpanTransformer : nl/jjkester/crt/api/renderer/SpanTransformer {
+	public abstract fun transformAll (Ljava/util/List;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+}
+
+public abstract interface class nl/jjkester/crt/compose/renderer/ComposableBlockTransformer : nl/jjkester/crt/api/renderer/BlockTransformer {
+}
+
+public final class nl/jjkester/crt/compose/renderer/ComposableSingletons$DefaultComposableBlockTransformerKt {
+	public static final field INSTANCE Lnl/jjkester/crt/compose/renderer/ComposableSingletons$DefaultComposableBlockTransformerKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$crt_renderer_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class nl/jjkester/crt/compose/renderer/ComposeRenderer : nl/jjkester/crt/api/renderer/Renderer {
+	public static final field $stable I
+	public fun <init> (Lnl/jjkester/crt/compose/renderer/ComposableBlockTransformer;)V
+	public synthetic fun render (Lnl/jjkester/crt/api/model/Node;)Ljava/lang/Object;
+	public fun render (Lnl/jjkester/crt/api/model/Node;)Lkotlin/jvm/functions/Function2;
+}
+
+public final class nl/jjkester/crt/compose/renderer/DefaultAnnotatedStringSpanTransformer : nl/jjkester/crt/compose/renderer/AbstractAnnotatedStringSpanTransformer {
+	public static final field $stable I
+	public fun <init> (Lnl/jjkester/crt/compose/style/RichTextStyle;)V
+}
+
+public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer : nl/jjkester/crt/compose/renderer/ComposableBlockTransformer {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer$Companion;
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Ljava/lang/Object;
+	public fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Ljava/lang/Object;
+	public fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun container (Lnl/jjkester/crt/api/model/Container;)Ljava/lang/Object;
+	public fun container (Lnl/jjkester/crt/api/model/Container;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun divider (Lnl/jjkester/crt/api/model/Divider;)Ljava/lang/Object;
+	public fun divider (Lnl/jjkester/crt/api/model/Divider;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun heading (Lnl/jjkester/crt/api/model/Heading;)Ljava/lang/Object;
+	public fun heading (Lnl/jjkester/crt/api/model/Heading;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun listItem (Lnl/jjkester/crt/api/model/ListItem;)Ljava/lang/Object;
+	public fun listItem (Lnl/jjkester/crt/api/model/ListItem;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun orderedList (Lnl/jjkester/crt/api/model/OrderedList;)Ljava/lang/Object;
+	public fun orderedList (Lnl/jjkester/crt/api/model/OrderedList;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun paragraph (Lnl/jjkester/crt/api/model/Paragraph;)Ljava/lang/Object;
+	public fun paragraph (Lnl/jjkester/crt/api/model/Paragraph;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun unorderedList (Lnl/jjkester/crt/api/model/UnorderedList;)Ljava/lang/Object;
+	public fun unorderedList (Lnl/jjkester/crt/api/model/UnorderedList;)Lkotlin/jvm/functions/Function2;
+}
+
+public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer$Companion {
+}
+
+public final class nl/jjkester/crt/compose/style/BasicRichTextStyleKt {
+	public static final fun rememberBasicRichTextStyle (Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/style/RichTextStyle;
+}
+
+public final class nl/jjkester/crt/compose/style/BlockquoteStyle {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/style/BlockquoteStyle$Companion;
+	public fun <init> ()V
+	public fun <init> (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/BorderStroke;)V
+	public synthetic fun <init> (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/BorderStroke;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component2 ()Landroidx/compose/foundation/BorderStroke;
+	public final fun copy (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/BorderStroke;)Lnl/jjkester/crt/compose/style/BlockquoteStyle;
+	public static synthetic fun copy$default (Lnl/jjkester/crt/compose/style/BlockquoteStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/BorderStroke;ILjava/lang/Object;)Lnl/jjkester/crt/compose/style/BlockquoteStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Landroidx/compose/foundation/BorderStroke;
+	public final fun getText ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class nl/jjkester/crt/compose/style/BlockquoteStyle$Companion {
+	public final fun getDefault ()Lnl/jjkester/crt/compose/style/BlockquoteStyle;
+}
+
+public final class nl/jjkester/crt/compose/style/ComposeEnumerationFactory : nl/jjkester/crt/common/enumeration/EnumerationFactory {
+	public static final field $stable I
+	public static final field INSTANCE Lnl/jjkester/crt/compose/style/ComposeEnumerationFactory;
+	public synthetic fun convert (Ljava/lang/String;)Ljava/lang/Object;
+}
+
+public final class nl/jjkester/crt/compose/style/EnumerationStyle {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/style/EnumerationStyle$Companion;
+	public fun <init> ()V
+	public fun <init> (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)V
+	public synthetic fun <init> (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun component2 ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public final fun copy (Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;)Lnl/jjkester/crt/compose/style/EnumerationStyle;
+	public static synthetic fun copy$default (Lnl/jjkester/crt/compose/style/EnumerationStyle;Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;ILjava/lang/Object;)Lnl/jjkester/crt/compose/style/EnumerationStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOrdered ()Lnl/jjkester/crt/common/enumeration/Enumeration$Counting;
+	public final fun getUnordered ()Lnl/jjkester/crt/common/enumeration/Enumeration$Fixed;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class nl/jjkester/crt/compose/style/EnumerationStyle$Companion {
+	public final fun getDefault ()Lnl/jjkester/crt/compose/style/EnumerationStyle;
+}
+
+public final class nl/jjkester/crt/compose/style/RichTextStyle {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/style/RichTextStyle$Companion;
+	public synthetic fun <init> (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/style/BlockquoteStyle;Lnl/jjkester/crt/compose/style/EnumerationStyle;Landroidx/compose/foundation/BorderStroke;FFLandroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/style/BlockquoteStyle;Lnl/jjkester/crt/compose/style/EnumerationStyle;Landroidx/compose/foundation/BorderStroke;FFLandroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component10 ()Landroidx/compose/foundation/BorderStroke;
+	public final fun component11-D9Ej5fM ()F
+	public final fun component12-D9Ej5fM ()F
+	public final fun component13 ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun component14 ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun component15 ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun component16 ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun component2 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8 ()Lnl/jjkester/crt/compose/style/BlockquoteStyle;
+	public final fun component9 ()Lnl/jjkester/crt/compose/style/EnumerationStyle;
+	public final fun copy-7LhMbNw (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/style/BlockquoteStyle;Lnl/jjkester/crt/compose/style/EnumerationStyle;Landroidx/compose/foundation/BorderStroke;FFLandroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;)Lnl/jjkester/crt/compose/style/RichTextStyle;
+	public static synthetic fun copy-7LhMbNw$default (Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/style/BlockquoteStyle;Lnl/jjkester/crt/compose/style/EnumerationStyle;Landroidx/compose/foundation/BorderStroke;FFLandroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;Landroidx/compose/ui/text/SpanStyle;ILjava/lang/Object;)Lnl/jjkester/crt/compose/style/RichTextStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlockInset-D9Ej5fM ()F
+	public final fun getBlockSpacing-D9Ej5fM ()F
+	public final fun getBlockquote ()Lnl/jjkester/crt/compose/style/BlockquoteStyle;
+	public final fun getCode ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun getDivider ()Landroidx/compose/foundation/BorderStroke;
+	public final fun getEmphasis ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun getEnumeration ()Lnl/jjkester/crt/compose/style/EnumerationStyle;
+	public final fun getH1 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getH2 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getH3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getH4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getH5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getH6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getLink ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun getParagraph ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getStrongEmphasis ()Landroidx/compose/ui/text/SpanStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class nl/jjkester/crt/compose/style/RichTextStyle$Companion {
+	public final fun getDefault ()Lnl/jjkester/crt/compose/style/RichTextStyle;
+}
+
+public final class nl/jjkester/crt/compose/style/RichTextStyleKt {
+	public static final fun getLocalRichTextStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class nl/jjkester/crt/compose/text/AnnotatedStringExtras {
+	public static final field $stable I
+	public static final field Companion Lnl/jjkester/crt/compose/text/AnnotatedStringExtras$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/Map;Ljava/util/Collection;)V
+	public synthetic fun <init> (Ljava/util/Map;Ljava/util/Collection;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getClickOffsets ()Ljava/util/Collection;
+	public final fun getInlineContent ()Ljava/util/Map;
+}
+
+public final class nl/jjkester/crt/compose/text/AnnotatedStringExtras$Companion {
+	public final fun clickOffset (Lnl/jjkester/crt/compose/text/ClickOffset;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	public final fun getEmpty ()Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	public final fun inlineContent (Ljava/lang/String;Landroidx/compose/foundation/text/InlineTextContent;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+}
+
+public final class nl/jjkester/crt/compose/text/AnnotatedStringExtrasKt {
+	public static final fun captureExtras (Lkotlin/jvm/functions/Function2;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+	public static final fun plus (Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;)Lnl/jjkester/crt/compose/text/AnnotatedStringExtras;
+}
+
+public final class nl/jjkester/crt/compose/text/AnnotatedStringWithExtras {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/text/AnnotatedString;Ljava/util/Map;Ljava/util/Collection;)V
+	public synthetic fun <init> (Landroidx/compose/ui/text/AnnotatedString;Ljava/util/Map;Ljava/util/Collection;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnnotatedString ()Landroidx/compose/ui/text/AnnotatedString;
+	public final fun getClickOffsets ()Ljava/util/Collection;
+	public final fun getInlineContent ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class nl/jjkester/crt/compose/text/AnnotatedStringWithExtrasKt {
+	public static final fun withoutExtras (Landroidx/compose/ui/text/AnnotatedString;)Lnl/jjkester/crt/compose/text/AnnotatedStringWithExtras;
+}
+
+public final class nl/jjkester/crt/compose/text/ClickOffset {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lkotlin/ranges/IntRange;)V
+	public final fun getId ()Ljava/lang/String;
+	public final fun getOffset ()Lkotlin/ranges/IntRange;
+}
+
+public final class nl/jjkester/crt/compose/text/MeasureOffsetRangeKt {
+	public static final fun measureOffsetRange (Landroidx/compose/ui/text/AnnotatedString$Builder;Lkotlin/jvm/functions/Function1;)Lkotlin/ranges/IntRange;
+}
+
