@@ -7,6 +7,7 @@ import org.slf4j.helpers.LegacyAbstractLogger
 import org.slf4j.helpers.MessageFormatter
 
 internal class AndroidLogger(private val tag: String) : LegacyAbstractLogger() {
+    init { name = tag }
     override fun isTraceEnabled(): Boolean = isLoggable(Log.VERBOSE)
     override fun isDebugEnabled(): Boolean = isLoggable(Log.DEBUG)
     override fun isInfoEnabled(): Boolean = isLoggable(Log.INFO)

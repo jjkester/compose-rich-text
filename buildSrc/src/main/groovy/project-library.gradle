@@ -27,6 +27,10 @@ tasks.named("javadocJar") {
     from tasks.named("dokkaJavadoc")
 }
 
+test {
+    useJUnitPlatform()
+}
+
 publishing {
     publications {
         release(MavenPublication) {

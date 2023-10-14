@@ -33,6 +33,7 @@ dependencyResolutionManagement {
             plugin("kotlinx-binaryCompatibilityValidator", "org.jetbrains.kotlinx.binary-compatibility-validator").version("0.13.1")
 
             // Libraries
+            library("kotlin-reflect", "org.jetbrains.kotlin", "kotlin-reflect").versionRef("kotlin")
             library("compose-bom", "androidx.compose", "compose-bom").versionRef("compose-bom")
             library("compose-ui-text", "androidx.compose.ui", "ui-text").withoutVersion()
             library("compose-ui", "androidx.compose.ui", "ui").withoutVersion()
@@ -42,6 +43,11 @@ dependencyResolutionManagement {
             library("compose-ui-tooling", "androidx.compose.ui", "ui-tooling").withoutVersion()
             library("compose-ui-toolingPreview", "androidx.compose.ui", "ui-tooling-preview").withoutVersion()
             library("slf4j-api", "org.slf4j", "slf4j-api").version("2.0.7")
+
+            // Testing libraries
+            library("test-junit-jupiter", "org.junit.jupiter", "junit-jupiter").version("5.10.0")
+            library("test-assertk", "com.willowtreeapps.assertk", "assertk").version("0.27.0")
+            library("test-mockito", "org.mockito.kotlin", "mockito-kotlin").version("4.1.0")
         }
     }
 }

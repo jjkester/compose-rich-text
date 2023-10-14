@@ -34,6 +34,12 @@ android {
         kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
     }
 
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
     publishing {
         singleVariant('release') {
             withSourcesJar()

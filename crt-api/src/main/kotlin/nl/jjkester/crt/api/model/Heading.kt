@@ -25,6 +25,8 @@ public class Heading(
             return other.index.compareTo(index)
         }
 
+        override fun toString(): String = "Level($index)"
+
         public companion object {
 
             /**
