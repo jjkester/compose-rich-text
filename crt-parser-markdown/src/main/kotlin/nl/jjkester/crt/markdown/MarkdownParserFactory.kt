@@ -2,6 +2,8 @@ package nl.jjkester.crt.markdown
 
 import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.parser.AbstractParserFactory
+import org.commonmark.Extension
+import org.commonmark.parser.Parser
 
 /**
  * Factory for configuring and creating instances of [MarkdownParser].
@@ -15,7 +17,7 @@ public class MarkdownParserFactory : AbstractParserFactory<MarkdownParserModule,
     public var textFallback: Boolean = true
 
     override fun create(): MarkdownParser {
-        return MarkdownParser(collectModules())
+        return MarkdownParser(collectModules(), ::buildCommonMarkParser)
     }
 
     private fun collectModules(): List<MarkdownParserModule> = if (modules.isEmpty()) {
@@ -29,6 +31,10 @@ public class MarkdownParserFactory : AbstractParserFactory<MarkdownParserModule,
 
         listOf(modules, fallbackModules).flatten()
     }
+
+    private fun buildCommonMarkParser(extensions: List<Extension>) = Parser.Builder()
+        .extensions(extensions)
+        .build()
 
     public companion object {
 

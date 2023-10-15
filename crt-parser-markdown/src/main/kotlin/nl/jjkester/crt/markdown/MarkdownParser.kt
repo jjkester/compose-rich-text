@@ -20,13 +20,17 @@ import org.commonmark.parser.Parser as CommonMarkParser
  *
  * @property parserModules Markdown parser modules to use while parsing. An empty list of modules will result in an
  * empty output.
+ * @param commonMarkParserFactory Factory to create a configured CommonMark parser given the provided extensions.
  * @see MarkdownParserFactory
  */
 public class MarkdownParser internal constructor(
-    private val parserModules: List<MarkdownParserModule>
+    internal val parserModules: List<MarkdownParserModule>,
+    commonMarkParserFactory: (List<CommonMarkParser.ParserExtension>) -> CommonMarkParser
 ) : Parser<MarkdownParserResult> {
 
-    private val parser: CommonMarkParser by lazy { buildParser() }
+    private val parser: CommonMarkParser by lazy {
+        commonMarkParserFactory(parserModules.mapNotNull(MarkdownParserModule::extension))
+    }
 
     override fun parse(input: String): MarkdownParserResult = parseInternal {
         parser.parse(input)
@@ -59,11 +63,5 @@ public class MarkdownParser internal constructor(
     @OptIn(InternalParserApi::class)
     private fun transform(node: CommonMarkNode): Node? {
         return parserModules.firstNotNullOfOrNull { it.parse(node, ::transform) }
-    }
-
-    private fun buildParser(): CommonMarkParser {
-        return CommonMarkParser.Builder()
-            .extensions(parserModules.mapNotNull(MarkdownParserModule::extension))
-            .build()
     }
 }

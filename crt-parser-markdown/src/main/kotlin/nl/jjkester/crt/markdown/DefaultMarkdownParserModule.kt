@@ -36,14 +36,14 @@ import kotlin.reflect.KClass
 import org.commonmark.node.Node as CommonMarkNode
 
 internal class DefaultMarkdownParserModule(
-    private val textFallback: Boolean
+    internal val textFallback: Boolean,
+    private val nodeFactory: NodeFactory = DefaultNodeFactory,
+    private val childParserFactory: ((CommonMarkNode) -> Node?) -> MarkdownChildParser = ::MarkdownChildParser
 ) : MarkdownParserModule {
-
-    private val nodeFactory: NodeFactory = DefaultNodeFactory
 
     @InternalParserApi
     override fun parse(value: CommonMarkNode, parseNext: (CommonMarkNode) -> Node?): Node? {
-        return parse(value, MarkdownChildParser(parseNext))
+        return parse(value, childParserFactory(parseNext))
     }
 
     @OptIn(InternalFactoryApi::class)
