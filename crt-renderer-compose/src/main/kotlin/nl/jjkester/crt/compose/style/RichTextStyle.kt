@@ -122,44 +122,52 @@ val LocalRichTextStyle = compositionLocalOf { RichTextStyle.Default }
  * [RichTextStyle.blockInset], is set based on the provided [spacing] values. The end value from the provided [spacing]
  * is ignored.
  *
+ * @param color The base color to be used for text.
  * @param spacing Spacing values for the rich text style.
  * @return Rich text style using relative font sizes and the provided [spacing].
  */
 @Composable
-fun rememberBasicRichTextStyle(spacing: PaddingValues): RichTextStyle {
+fun rememberBasicRichTextStyle(color: Color, spacing: PaddingValues): RichTextStyle {
     val layoutDirection = LocalLayoutDirection.current
-    return remember(layoutDirection, spacing) {
+    return remember(layoutDirection, color, spacing) {
         RichTextStyle(
             h1 = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = 2.em
+                fontSize = 2.em,
+                color = color
             ),
             h2 = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = 1.5.em
+                fontSize = 1.5.em,
+                color = color
             ),
             h3 = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = 1.25.em
+                fontSize = 1.25.em,
+                color = color
             ),
             h4 = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = 1.1.em
+                fontSize = 1.1.em,
+                color = color
             ),
             h5 = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = 1.em
+                fontSize = 1.em,
+                color = color
             ),
             h6 = TextStyle(
                 textDecoration = TextDecoration.Underline,
-                fontSize = 1.em
+                fontSize = 1.em,
+                color = color
             ),
             paragraph = TextStyle(
                 fontSize = 1.em,
+                color = color
             ),
             blockquote = BlockquoteStyle(
-                text = TextStyle(color = Color.Gray),
-                border = BorderStroke(2.dp, Color.Gray),
+                text = TextStyle(color = color.run { copy(alpha = alpha * .70f) }),
+                border = BorderStroke(2.dp, color.run { copy(alpha = alpha * .70f) }),
             ),
             enumeration = EnumerationStyle(
                 ordered = ComposeEnumerationFactory.alphanumeric,
@@ -169,8 +177,8 @@ fun rememberBasicRichTextStyle(spacing: PaddingValues): RichTextStyle {
             blockInset = spacing.calculateStartPadding(layoutDirection),
             emphasis = SpanStyle(fontStyle = FontStyle.Italic),
             strongEmphasis = SpanStyle(fontWeight = FontWeight.Bold),
-            code = SpanStyle(fontFamily = FontFamily.Monospace),
-            link = SpanStyle(color = Color.Blue, textDecoration = TextDecoration.Underline)
+            code = SpanStyle(fontFamily = FontFamily.Monospace, color = color),
+            link = SpanStyle(color = color, textDecoration = TextDecoration.Underline)
         )
     }
 }

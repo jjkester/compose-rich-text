@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import nl.jjkester.crt.compose.internal.text.Span
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
@@ -26,6 +27,7 @@ internal fun ListContainer(
 internal fun ListItem(
     marker: AnnotatedStringWithExtras,
     markerSize: Dp,
+    style: TextStyle,
     contents: List<@Composable () -> Unit>,
     modifier: Modifier = Modifier
 ) {
@@ -36,8 +38,8 @@ internal fun ListItem(
                 .alignByBaseline(),
             horizontalArrangement = Arrangement.End
         ) {
-            Span(span = marker)
-            Span(span = AnnotatedString("\u2004").withoutExtras())
+            Span(span = marker, style = style)
+            Span(span = AnnotatedString("\u2004").withoutExtras(), style = style)
         }
         Column(
             modifier = Modifier.alignByBaseline()

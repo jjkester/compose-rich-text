@@ -1,10 +1,8 @@
 package nl.jjkester.crt.demo
 
 import android.os.Build
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Typography
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
@@ -19,7 +17,11 @@ fun DemoTheme(content: @Composable () -> Unit) {
         colorScheme = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             lightColorScheme()
         } else {
-            dynamicLightColorScheme(LocalContext.current)
+            if (isSystemInDarkTheme()) {
+                dynamicDarkColorScheme(LocalContext.current)
+            } else {
+                dynamicLightColorScheme(LocalContext.current)
+            }
         },
         typography = Typography().run {
             copy(

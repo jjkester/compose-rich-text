@@ -81,6 +81,7 @@ public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransf
 	public fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Ljava/lang/Object;
 	public fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Lkotlin/jvm/functions/Function2;
+	public synthetic fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function0;
 	public fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun container (Lnl/jjkester/crt/api/model/Container;)Ljava/lang/Object;
 	public fun container (Lnl/jjkester/crt/api/model/Container;)Lkotlin/jvm/functions/Function2;
@@ -196,7 +197,7 @@ public final class nl/jjkester/crt/compose/style/RichTextStyle$Companion {
 
 public final class nl/jjkester/crt/compose/style/RichTextStyleKt {
 	public static final fun getLocalRichTextStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
-	public static final fun rememberBasicRichTextStyle (Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/style/RichTextStyle;
+	public static final fun rememberBasicRichTextStyle-Iv8Zu3U (JLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/style/RichTextStyle;
 }
 
 public final class nl/jjkester/crt/compose/text/AnnotatedStringExtras {

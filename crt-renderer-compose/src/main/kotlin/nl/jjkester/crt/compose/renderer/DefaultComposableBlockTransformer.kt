@@ -97,6 +97,7 @@ class DefaultComposableBlockTransformer(
         ListItem(
             marker = LocalListEnumerator.current.next(),
             markerSize = LocalRichTextStyle.current.blockInset,
+            style = LocalRichTextStyle.current.paragraph,
             contents = node.children.map { transformBlock(it) }
         )
     }
