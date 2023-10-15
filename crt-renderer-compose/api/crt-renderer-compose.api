@@ -5,22 +5,9 @@ public final class nl/jjkester/crt/compose/BuildConfig {
 	public fun <init> ()V
 }
 
-public final class nl/jjkester/crt/compose/ParsedRichText {
-	public static final field $stable I
-	public static final field Companion Lnl/jjkester/crt/compose/ParsedRichText$Companion;
-	public fun <init> (Lnl/jjkester/crt/api/model/Node;)V
-	public final fun getNode ()Lnl/jjkester/crt/api/model/Node;
-}
-
-public final class nl/jjkester/crt/compose/ParsedRichText$Companion {
-	public final fun getEmpty ()Lnl/jjkester/crt/compose/ParsedRichText;
-}
-
 public final class nl/jjkester/crt/compose/RichTextKt {
-	public static final fun LazyRichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/layout/PaddingValues;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
-	public static final fun RichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
-	public static final fun rememberRichTextRenderer (Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
-	public static final fun rememberRichTextRenderer (Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
+	public static final fun LazyRichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+	public static final fun RichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class nl/jjkester/crt/compose/RichTextState {
@@ -29,8 +16,10 @@ public final class nl/jjkester/crt/compose/RichTextState {
 }
 
 public final class nl/jjkester/crt/compose/RichTextStateKt {
-	public static final fun rememberRichTextState (Ljava/io/InputStream;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/RichTextState;
-	public static final fun rememberRichTextState (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/RichTextState;
+	public static final fun rememberRichTextRenderer (Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
+	public static final fun rememberRichTextRenderer (Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
+	public static final fun rememberRichTextState (Ljava/io/InputStream;Lkotlin/jvm/functions/Function0;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Landroidx/compose/runtime/Composer;II)Lnl/jjkester/crt/compose/RichTextState;
+	public static final fun rememberRichTextState (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Landroidx/compose/runtime/Composer;II)Lnl/jjkester/crt/compose/RichTextState;
 }
 
 public abstract class nl/jjkester/crt/compose/renderer/AbstractAnnotatedStringSpanTransformer : nl/jjkester/crt/compose/renderer/AnnotatedStringSpanTransformer {
@@ -60,6 +49,7 @@ public abstract interface class nl/jjkester/crt/compose/renderer/AnnotatedString
 }
 
 public abstract interface class nl/jjkester/crt/compose/renderer/ComposableBlockTransformer : nl/jjkester/crt/api/renderer/BlockTransformer {
+	public abstract fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function2;
 }
 
 public final class nl/jjkester/crt/compose/renderer/ComposableSingletons$DefaultComposableBlockTransformerKt {
@@ -71,9 +61,12 @@ public final class nl/jjkester/crt/compose/renderer/ComposableSingletons$Default
 
 public final class nl/jjkester/crt/compose/renderer/ComposeRenderer : nl/jjkester/crt/api/renderer/Renderer {
 	public static final field $stable I
-	public fun <init> (Lnl/jjkester/crt/compose/renderer/ComposableBlockTransformer;)V
 	public synthetic fun render (Lnl/jjkester/crt/api/model/Node;)Ljava/lang/Object;
-	public fun render (Lnl/jjkester/crt/api/model/Node;)Lkotlin/jvm/functions/Function2;
+	public fun render (Lnl/jjkester/crt/api/model/Node;)Lnl/jjkester/crt/compose/renderer/ComposeRenderer$Result;
+}
+
+public final class nl/jjkester/crt/compose/renderer/ComposeRenderer$Result {
+	public static final field $stable I
 }
 
 public final class nl/jjkester/crt/compose/renderer/DefaultAnnotatedStringSpanTransformer : nl/jjkester/crt/compose/renderer/AbstractAnnotatedStringSpanTransformer {
@@ -83,12 +76,12 @@ public final class nl/jjkester/crt/compose/renderer/DefaultAnnotatedStringSpanTr
 
 public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer : nl/jjkester/crt/compose/renderer/ComposableBlockTransformer {
 	public static final field $stable I
-	public static final field Companion Lnl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer$Companion;
 	public fun <init> (Lkotlin/jvm/functions/Function2;)V
 	public synthetic fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Ljava/lang/Object;
 	public fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Ljava/lang/Object;
 	public fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Lkotlin/jvm/functions/Function2;
+	public fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun container (Lnl/jjkester/crt/api/model/Container;)Ljava/lang/Object;
 	public fun container (Lnl/jjkester/crt/api/model/Container;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun divider (Lnl/jjkester/crt/api/model/Divider;)Ljava/lang/Object;
@@ -103,13 +96,6 @@ public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransf
 	public fun paragraph (Lnl/jjkester/crt/api/model/Paragraph;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun unorderedList (Lnl/jjkester/crt/api/model/UnorderedList;)Ljava/lang/Object;
 	public fun unorderedList (Lnl/jjkester/crt/api/model/UnorderedList;)Lkotlin/jvm/functions/Function2;
-}
-
-public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransformer$Companion {
-}
-
-public final class nl/jjkester/crt/compose/style/BasicRichTextStyleKt {
-	public static final fun rememberBasicRichTextStyle (Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/style/RichTextStyle;
 }
 
 public final class nl/jjkester/crt/compose/style/BlockquoteStyle {
@@ -210,6 +196,7 @@ public final class nl/jjkester/crt/compose/style/RichTextStyle$Companion {
 
 public final class nl/jjkester/crt/compose/style/RichTextStyleKt {
 	public static final fun getLocalRichTextStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun rememberBasicRichTextStyle (Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/style/RichTextStyle;
 }
 
 public final class nl/jjkester/crt/compose/text/AnnotatedStringExtras {
@@ -252,8 +239,8 @@ public final class nl/jjkester/crt/compose/text/AnnotatedStringWithExtrasKt {
 public final class nl/jjkester/crt/compose/text/ClickOffset {
 	public static final field $stable I
 	public fun <init> (Ljava/lang/String;Lkotlin/ranges/IntRange;)V
-	public final fun getId ()Ljava/lang/String;
 	public final fun getOffset ()Lkotlin/ranges/IntRange;
+	public final fun getTarget ()Ljava/lang/String;
 }
 
 public final class nl/jjkester/crt/compose/text/MeasureOffsetRangeKt {
