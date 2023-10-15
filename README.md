@@ -16,6 +16,7 @@ output.
 
 - Markdown ([CommonMark](https://commonmark.org/) spec)
   - Except embedded HTML
+  - Except images
 
 #### Target outputs
 
@@ -27,6 +28,7 @@ output.
 
 - Proper documentation, both in code and published online
 - Release artifact(s)
+- DSL for writing rich text in Kotlin
 - Support some HTML tags as input
 - Support some HTML tags embedded in Markdown
 - Support Markdown tables
