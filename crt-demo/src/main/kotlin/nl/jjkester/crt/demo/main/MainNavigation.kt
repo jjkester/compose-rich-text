@@ -5,12 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import nl.jjkester.crt.demo.R
+import nl.jjkester.crt.demo.editor.EditorScreen
 import nl.jjkester.crt.demo.markdown.LazyMarkdown
 import nl.jjkester.crt.demo.openRawResource
 import nl.jjkester.crt.demo.showcases.Showcase
@@ -21,15 +20,15 @@ import nl.jjkester.crt.demo.showcases.ShowcaseScaffold
 fun MainNavigation(showcases: List<Showcase>) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, Route.Index.value) {
-        composable(Route.Index.value) {
+    NavHost(navController = navController, Route.Index.route) {
+        composable(Route.Index.route) {
             MainScreen(
                 showcases = showcases,
                 onNavigate = navController::navigateForward
             )
         }
 
-        composable(Route.Readme.value) {
+        composable(Route.Readme.route) {
             ShowcaseScaffold(
                 title = "Project information",
                 onNavigateBack = { navController.navigateUp() }
@@ -44,10 +43,8 @@ fun MainNavigation(showcases: List<Showcase>) {
         }
 
         composable(
-            route = "showcase/{showcaseIndex}",
-            arguments = listOf(
-                navArgument("showcaseIndex") { type = NavType.IntType }
-            )
+            route = Route.ShowcaseOverview.routeTemplate,
+            arguments = Route.ShowcaseOverview.navArguments
         ) { backStackEntry ->
             val showcaseIndex = backStackEntry.arguments!!.getInt("showcaseIndex")
             val showcase = showcases[showcaseIndex]
@@ -61,17 +58,15 @@ fun MainNavigation(showcases: List<Showcase>) {
                     onExampleClick = { example ->
                         val exampleIndex = showcase.examples.indexOf(example)
                         navController.navigateForward(Route.ShowcaseExample(showcaseIndex, exampleIndex))
-                    }
+                    },
+                    onEditorClick = { navController.navigateForward(Route.ShowcaseEditor(showcaseIndex)) }
                 )
             }
         }
 
         composable(
-            route = "showcase/{showcaseIndex}/example/{exampleIndex}",
-            arguments = listOf(
-                navArgument("showcaseIndex") { type = NavType.IntType },
-                navArgument("exampleIndex") { type = NavType.IntType }
-            )
+            route = Route.ShowcaseExample.routeTemplate,
+            arguments = Route.ShowcaseExample.navArguments
         ) { backStackEntry ->
             val showcaseIndex = backStackEntry.arguments!!.getInt("showcaseIndex")
             val exampleIndex = backStackEntry.arguments!!.getInt("exampleIndex")
@@ -84,9 +79,26 @@ fun MainNavigation(showcases: List<Showcase>) {
                 content = example.content
             )
         }
+
+        composable(
+            route = Route.ShowcaseEditor.routeTemplate,
+            arguments = Route.ShowcaseEditor.navArguments
+        ) { backStackEntry ->
+            val showcaseIndex = backStackEntry.arguments!!.getInt("showcaseIndex")
+            val showcase = showcases[showcaseIndex]
+
+            showcase.editorFormat?.also { editorFormat ->
+                ShowcaseScaffold(
+                    title = "${showcase.name} editor",
+                    onNavigateBack = { navController.navigateUp() }
+                ) {
+                    EditorScreen(editorFormat)
+                }
+            }
+        }
     }
 }
 
 private fun NavController.navigateForward(route: Route) {
-    navigate(route.value)
+    navigate(route.route)
 }

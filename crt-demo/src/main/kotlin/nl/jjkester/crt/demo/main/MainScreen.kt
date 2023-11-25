@@ -91,6 +91,26 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
                     )
                 }
 
+                Text(
+                    text = "Try yourself",
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
+                )
+
+                showcases.forEachIndexed { index, showcase ->
+                    NavigationDrawerItem(
+                        label = {
+                            Text(showcase.name, style = MaterialTheme.typography.labelLarge)
+                        },
+                        selected = false,
+                        onClick = {
+                            coroutineScope.launch { drawerState.close() }
+                            onNavigate(Route.ShowcaseEditor(index))
+                        },
+                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                    )
+                }
+
                 Spacer(modifier = Modifier.weight(1f))
 
                 GitHubButton(

@@ -3,10 +3,7 @@ package nl.jjkester.crt.demo
 import androidx.annotation.RawRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.material3.DividerDefaults
-import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -19,9 +16,8 @@ import nl.jjkester.crt.compose.style.rememberBasicRichTextStyle
 import java.io.InputStream
 
 @Composable
-fun rememberSnackbarIntentClickHandler(): (String) -> Unit {
+fun rememberSnackbarIntentClickHandler(snackbarHostState: SnackbarHostState): (String) -> Unit {
     val uriHandler = LocalUriHandler.current
-    val snackbarHostState = LocalSnackbarHostState.current
     val coroutineScope = rememberCoroutineScope()
 
     return remember(uriHandler, snackbarHostState) {

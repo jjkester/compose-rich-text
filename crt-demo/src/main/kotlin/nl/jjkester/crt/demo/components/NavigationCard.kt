@@ -14,6 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -21,6 +23,7 @@ fun NavigationCard(
     title: String,
     modifier: Modifier = Modifier,
     description: String? = null,
+    icon: ImageVector = Icons.Default.ArrowForward,
     onClick: () -> Unit
 ) {
     Card(
@@ -47,7 +50,10 @@ fun NavigationCard(
                     )
                 }
             }
-            Icon(Icons.Default.ArrowForward, null)
+            Icon(
+                imageVector = icon,
+                contentDescription = null
+            )
         }
     }
 }

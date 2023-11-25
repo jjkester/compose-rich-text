@@ -6,7 +6,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import nl.jjkester.crt.demo.LocalSnackbarHostState
 import nl.jjkester.crt.demo.R
+import nl.jjkester.crt.demo.editor.EditorFormat
 import nl.jjkester.crt.demo.openRawResource
 import nl.jjkester.crt.demo.rememberSnackbarIntentClickHandler
 import nl.jjkester.crt.demo.showcases.Example
@@ -23,7 +25,7 @@ val MarkdownShowcase = Showcase(
             LazyMarkdown(
                 text = openRawResource(R.raw.markdown_commonmark_benchmark),
                 contentPadding = PaddingValues(16.dp),
-                onClick = rememberSnackbarIntentClickHandler()
+                onClick = rememberSnackbarIntentClickHandler(LocalSnackbarHostState.current)
             )
         },
         Example(
@@ -35,8 +37,9 @@ val MarkdownShowcase = Showcase(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
                     .padding(15.dp),
-                onClick = rememberSnackbarIntentClickHandler()
+                onClick = rememberSnackbarIntentClickHandler(LocalSnackbarHostState.current)
             )
         }
-    )
+    ),
+    editorFormat = EditorFormat.Markdown
 )
