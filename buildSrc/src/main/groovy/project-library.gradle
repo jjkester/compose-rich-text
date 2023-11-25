@@ -7,20 +7,13 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
     withSourcesJar()
     withJavadocJar()
 }
 
 kotlin {
+    jvmToolchain(17)
     explicitApi()
-}
-
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 tasks.named("javadocJar") {
@@ -34,9 +27,9 @@ test {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId project.group
-            artifactId project.name
-            version project.version
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
 
             afterEvaluate {
                 from components.java

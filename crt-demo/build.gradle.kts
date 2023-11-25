@@ -1,16 +1,33 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    `project-android-application`
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
     namespace = "nl.jjkester.crt.demo"
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "nl.jjkester.crt.demo"
         versionCode = 1
         versionName = "${project.version}"
+
+        minSdk = 24
+        targetSdk = 34
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["disableAnalytics"] = "true"
+    }
+
+    buildFeatures {
+        buildConfig = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlinOptions {
@@ -21,16 +38,21 @@ android {
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
     // App UI
-    implementation("androidx.activity:activity-compose:1.7.1")
-    implementation("androidx.compose.material3:material3:1.1.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation(platform(libs.compose.bom))
+    implementation(libs.jetpack.activity)
+    implementation("androidx.compose.material3:material3")
+    implementation(libs.jetpack.viewmodel)
     implementation(libs.compose.ui.toolingPreview)
     debugImplementation(libs.compose.ui.tooling)
-    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation(libs.jetpack.navigation)
     implementation("androidx.compose.ui:ui-text-google-fonts")
-    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-alpha03")
+    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-alpha05")
 
     // Project dependencies
     implementation(project(":crt-api"))

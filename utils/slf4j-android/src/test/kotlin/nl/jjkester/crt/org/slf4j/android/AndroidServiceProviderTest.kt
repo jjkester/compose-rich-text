@@ -4,6 +4,7 @@ import assertk.all
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isInstanceOf
+import assertk.assertions.isNotEmpty
 import org.junit.jupiter.api.Test
 import org.slf4j.helpers.BasicMarkerFactory
 import org.slf4j.spi.MDCAdapter
@@ -34,6 +35,9 @@ class AndroidServiceProviderTest {
 
     @Test
     fun getRequestedApiVersion() {
-        assertThat(systemUnderTest.requestedApiVersion).isEqualTo(BuildConfig.SLF4J_API_VERSION)
+        assertThat(systemUnderTest.requestedApiVersion).all {
+            isNotEmpty()
+            isEqualTo(BuildConfig.SLF4J_API_VERSION)
+        }
     }
 }

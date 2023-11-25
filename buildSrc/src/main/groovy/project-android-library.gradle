@@ -7,27 +7,18 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdk = 34
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+        minSdk = 24
+        targetSdk = 34
 
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
         testInstrumentationRunnerArguments disableAnalytics: 'true'
     }
 
     buildFeatures {
-        compose true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
+        compose = true
     }
 
     composeOptions {
@@ -48,21 +39,20 @@ android {
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 publishing {
     publications {
         release(MavenPublication) {
-            groupId project.group
-            artifactId project.name
-            version project.version
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
 
             afterEvaluate {
                 from components.release
             }
         }
     }
-}
-
-dependencies {
-    implementation platform(libs.compose.bom)
-    androidTestImplementation platform(libs.compose.bom)
 }

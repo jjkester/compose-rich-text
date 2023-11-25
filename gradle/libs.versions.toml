@@ -1,0 +1,42 @@
+[versions]
+agp = "8.1.4"
+kotlin = "1.9.20"
+dokka = "1.9.10"
+kotlinx-binaryCompatibilityValidator = "0.13.1"
+compose-compiler = "1.5.4"
+compose-bom = "2023.10.01"
+jetpack-activity = "1.8.1"
+jetpack-lifecycle = "2.6.2"
+jetpack-navigation = "2.7.5"
+slf4j-api = "2.0.7"
+test-junit-jupiter = "5.10.0"
+test-assertk = "0.27.0"
+test-mockito = "5.1.0"
+
+[libraries]
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-text = { module = "androidx.compose.ui:ui-text" }
+compose-runtime = { module = "androidx.compose.runtime:runtime" }
+compose-foundation = { module = "androidx.compose.foundation:foundation" }
+compose-ui-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
+jetpack-activity = { module = "androidx.activity:activity-compose", version.ref = "jetpack-activity" }
+jetpack-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jetpack-lifecycle" }
+jetpack-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "jetpack-navigation" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j-api" }
+test-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-junit-jupiter" }
+test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "test-assertk" }
+test-mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "test-mockito" }
+
+[bundles]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+kotlinx-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinx-binaryCompatibilityValidator" }

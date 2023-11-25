@@ -10,6 +10,7 @@ dependencies {
     implementation(project(":crt-api"))
     implementation(project(":crt-common"))
 
+    implementation(platform(libs.compose.bom))
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui.text)
 

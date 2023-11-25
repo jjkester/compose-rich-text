@@ -1,10 +1,3 @@
-public final class nl/jjkester/crt/compose/BuildConfig {
-	public static final field BUILD_TYPE Ljava/lang/String;
-	public static final field DEBUG Z
-	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
-	public fun <init> ()V
-}
-
 public final class nl/jjkester/crt/compose/RichTextKt {
 	public static final fun LazyRichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 	public static final fun RichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
@@ -81,7 +74,6 @@ public final class nl/jjkester/crt/compose/renderer/DefaultComposableBlockTransf
 	public fun blockquote (Lnl/jjkester/crt/api/model/Blockquote;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Ljava/lang/Object;
 	public fun codeBlock (Lnl/jjkester/crt/api/model/CodeBlock;)Lkotlin/jvm/functions/Function2;
-	public synthetic fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function0;
 	public fun container (Ljava/util/List;)Lkotlin/jvm/functions/Function2;
 	public synthetic fun container (Lnl/jjkester/crt/api/model/Container;)Ljava/lang/Object;
 	public fun container (Lnl/jjkester/crt/api/model/Container;)Lkotlin/jvm/functions/Function2;
