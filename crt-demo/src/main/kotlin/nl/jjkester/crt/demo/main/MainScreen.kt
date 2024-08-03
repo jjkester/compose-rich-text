@@ -1,13 +1,14 @@
 package nl.jjkester.crt.demo.main
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -54,72 +55,74 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
         drawerState = drawerState,
         drawerContent = {
             ModalDrawerSheet {
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Project information",
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
-                )
-
-                NavigationDrawerItem(
-                    label = {
-                        Text("Readme", style = MaterialTheme.typography.labelLarge)
-                    },
-                    selected = false,
-                    onClick = { onNavigate(Route.Readme) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                )
-
-                Text(
-                    text = "Showcases",
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
-                )
-
-                showcases.forEachIndexed { index, showcase ->
-                    NavigationDrawerItem(
-                        label = {
-                            Text(showcase.name, style = MaterialTheme.typography.labelLarge)
-                        },
-                        selected = false,
-                        onClick = {
-                            coroutineScope.launch { drawerState.close() }
-                            onNavigate(Route.ShowcaseOverview(index))
-                        },
-                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                    )
-                }
-
-                Text(
-                    text = "Try yourself",
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
-                )
-
-                showcases.forEachIndexed { index, showcase ->
-                    NavigationDrawerItem(
-                        label = {
-                            Text(showcase.name, style = MaterialTheme.typography.labelLarge)
-                        },
-                        selected = false,
-                        onClick = {
-                            coroutineScope.launch { drawerState.close() }
-                            onNavigate(Route.ShowcaseEditor(index))
-                        },
-                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                    )
-                }
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                GitHubButton(
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 28.dp, vertical = 12.dp)
-                )
+                        .safeDrawingPadding()
+                        .padding(vertical = 16.dp)
+                ) {
+                    Text(
+                        text = "Project information",
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
+                    )
 
-                Spacer(modifier = Modifier.height(16.dp))
+                    NavigationDrawerItem(
+                        label = {
+                            Text("Readme", style = MaterialTheme.typography.labelLarge)
+                        },
+                        selected = false,
+                        onClick = { onNavigate(Route.Readme) },
+                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                    )
+
+                    Text(
+                        text = "Showcases",
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
+                    )
+
+                    showcases.forEachIndexed { index, showcase ->
+                        NavigationDrawerItem(
+                            label = {
+                                Text(showcase.name, style = MaterialTheme.typography.labelLarge)
+                            },
+                            selected = false,
+                            onClick = {
+                                coroutineScope.launch { drawerState.close() }
+                                onNavigate(Route.ShowcaseOverview(index))
+                            },
+                            modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                        )
+                    }
+
+                    Text(
+                        text = "Try yourself",
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(horizontal = 28.dp, vertical = 12.dp)
+                    )
+
+                    showcases.forEachIndexed { index, showcase ->
+                        NavigationDrawerItem(
+                            label = {
+                                Text(showcase.name, style = MaterialTheme.typography.labelLarge)
+                            },
+                            selected = false,
+                            onClick = {
+                                coroutineScope.launch { drawerState.close() }
+                                onNavigate(Route.ShowcaseEditor(index))
+                            },
+                            modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
+
+                    GitHubButton(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 28.dp, vertical = 12.dp)
+                    )
+                }
             }
         }
     ) {
@@ -142,46 +145,44 @@ fun MainScreen(showcases: List<Showcase>, onNavigate: (Route) -> Unit) {
                 )
             },
         ) { paddingValues ->
-            Box(
+            Column(
                 modifier = Modifier
+                    .consumeWindowInsets(paddingValues)
                     .padding(paddingValues)
+                    .safeDrawingPadding()
                     .nestedScroll(topAppBarScrollBehavior.nestedScrollConnection)
                     .verticalScroll(rememberScrollState())
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(32.dp)
             ) {
+                Jumbotron(
+                    title = "Compose Rich Text",
+                    subtitle = "Rich text rendering for Jetpack Compose"
+                )
+
+                NavigationCard(
+                    title = "Project information",
+                    description = "Read the project README, rendered from Markdown",
+                    onClick = { onNavigate(Route.Readme) },
+                )
+
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(32.dp)
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Jumbotron(
-                        title = "Compose Rich Text",
-                        subtitle = "Rich text rendering for Jetpack Compose"
-                    )
+                    Text(text = "Showcases", style = MaterialTheme.typography.headlineMedium)
 
-                    NavigationCard(
-                        title = "Project information",
-                        description = "Read the project README, rendered from Markdown",
-                        onClick = { onNavigate(Route.Readme) },
-                    )
-
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        Text(text = "Showcases", style = MaterialTheme.typography.headlineMedium)
-
-                        showcases.forEachIndexed { index, showcase ->
-                            NavigationCard(
-                                title = showcase.name,
-                                description = showcase.description,
-                                onClick = { onNavigate(Route.ShowcaseOverview(index)) },
-                            )
-                        }
+                    showcases.forEachIndexed { index, showcase ->
+                        NavigationCard(
+                            title = showcase.name,
+                            description = showcase.description,
+                            onClick = { onNavigate(Route.ShowcaseOverview(index)) },
+                        )
                     }
-
-                    GitHubButton(modifier = Modifier.fillMaxWidth())
                 }
+
+                GitHubButton(modifier = Modifier.fillMaxWidth())
             }
         }
     }

@@ -1,7 +1,6 @@
 package nl.jjkester.crt.demo.showcases
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,7 +16,7 @@ import nl.jjkester.crt.demo.components.NavigationCard
 @Composable
 fun ShowcaseOverview(showcase: Showcase, onExampleClick: (Example) -> Unit, onEditorClick: () -> Unit) {
     LazyColumn(
-        contentPadding = PaddingValues(16.dp),
+        contentPadding = showcaseContentPadding,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {

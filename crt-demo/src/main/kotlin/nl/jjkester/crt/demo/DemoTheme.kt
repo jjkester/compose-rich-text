@@ -15,7 +15,11 @@ import androidx.compose.ui.text.googlefonts.GoogleFont
 fun DemoTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            lightColorScheme()
+            if (isSystemInDarkTheme()) {
+                lightColorScheme()
+            } else {
+                darkColorScheme()
+            }
         } else {
             if (isSystemInDarkTheme()) {
                 dynamicDarkColorScheme(LocalContext.current)

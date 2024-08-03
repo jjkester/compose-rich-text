@@ -2,10 +2,10 @@
 
     <application
         android:name=".DemoApplication"
-        android:label="CRT"
-        android:theme="@android:style/Theme.NoTitleBar">
+        android:label="CRT">
         <activity
             android:name=".DemoActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

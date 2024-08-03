@@ -14,17 +14,17 @@ sealed class EditorLayoutState(val showEditor: Boolean, val showPreview: Boolean
     /**
      * Display only the editor pane.
      */
-    object Editor : EditorLayoutState(true, false)
+    data object Editor : EditorLayoutState(true, false)
 
     /**
      * Display only the preview pane.
      */
-    object Preview : EditorLayoutState(false, true)
+    data object Preview : EditorLayoutState(false, true)
 
     /**
      * Display both the editor and preview pane.
      */
-    object Split : EditorLayoutState(true, true)
+    data object Split : EditorLayoutState(true, true)
 }
 
 object EditorLayoutStateSaver : Saver<EditorLayoutState, Array<Boolean>> {

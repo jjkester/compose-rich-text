@@ -1,11 +1,27 @@
 package nl.jjkester.crt.demo.editor
 
-import androidx.compose.animation.*
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
@@ -14,20 +30,36 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.min
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.compose.RichText
 import nl.jjkester.crt.compose.rememberRichTextState
 import nl.jjkester.crt.demo.rememberMaterialRichTextStyle
 import nl.jjkester.crt.demo.rememberSnackbarIntentClickHandler
+import nl.jjkester.crt.demo.showcases.showcaseContentPadding
 import nl.jjkester.crt.markdown.MarkdownParserFactory
 
 @Composable
@@ -53,19 +85,28 @@ fun EditorScreen(editorFormat: EditorFormat) {
         )
 
         if (isHorizontal) {
+            val density = LocalDensity.current
+            val (editorButtonsHeight, setEditorButtonsHeight) = remember { mutableStateOf(0.dp) }
+
             Row(modifier = Modifier.fillMaxSize()) {
                 if (editorWeight > 0) {
                     EditorPane(
                         value = value,
                         onValueChange = setValue,
-                        modifier = Modifier.fillMaxHeight().weight(editorWeight)
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .weight(editorWeight),
+                        contentPadding = PaddingValues(bottom = editorButtonsHeight)
                     )
                 }
                 if (previewWeight > 0) {
                     PreviewPane(
                         source = value,
                         editorFormat = editorFormat,
-                        modifier = Modifier.fillMaxHeight().weight(previewWeight)
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .weight(previewWeight),
+                        contentPadding = PaddingValues(bottom = editorButtonsHeight)
                     )
                 }
             }
@@ -73,7 +114,13 @@ fun EditorScreen(editorFormat: EditorFormat) {
                 layoutState = layoutState,
                 isHorizontal = isHorizontal,
                 onLayoutStateChange = setLayoutState,
-                modifier = Modifier.align(Alignment.BottomCenter)
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .onSizeChanged { size ->
+                        with(density) {
+                            setEditorButtonsHeight(size.height.toDp() - min(size.height.toDp(), 16.dp))
+                        }
+                    }
             )
         } else {
             Column(modifier = Modifier.fillMaxSize()) {
@@ -81,14 +128,18 @@ fun EditorScreen(editorFormat: EditorFormat) {
                     EditorPane(
                         value = value,
                         onValueChange = setValue,
-                        modifier = Modifier.fillMaxWidth().weight(editorWeight)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(editorWeight)
                     )
                 }
                 if (previewWeight > 0) {
                     PreviewPane(
                         source = value,
                         editorFormat = editorFormat,
-                        modifier = Modifier.fillMaxWidth().weight(previewWeight)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(previewWeight)
                     )
                 }
                 EditorButtons(
@@ -113,6 +164,7 @@ private fun EditorButtons(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
+            .safeDrawingPadding()
     ) {
         Button(
             onClick = { onLayoutStateChange(layoutState.toggle()) },
@@ -155,7 +207,12 @@ private fun EditorButtons(
 }
 
 @Composable
-private fun EditorPane(value: String, onValueChange: (String) -> Unit, modifier: Modifier = Modifier) {
+private fun EditorPane(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
+) {
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused = interactionSource.collectIsFocusedAsState().value
     val textStyle = TextStyle() + rememberMaterialRichTextStyle().code
@@ -169,7 +226,13 @@ private fun EditorPane(value: String, onValueChange: (String) -> Unit, modifier:
         cursorBrush = SolidColor(textStyle.color)
     ) { innerTextField ->
         Surface(tonalElevation = 8.dp) {
-            Box(modifier = Modifier.padding(16.dp)) {
+            Box(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .consumeWindowInsets(contentPadding)
+                    .padding(showcaseContentPadding)
+                    .padding(contentPadding)
+            ) {
                 innerTextField()
                 AnimatedVisibility(
                     visible = value.isEmpty() && !isFocused,
@@ -187,7 +250,12 @@ private fun EditorPane(value: String, onValueChange: (String) -> Unit, modifier:
 }
 
 @Composable
-private fun PreviewPane(source: String, editorFormat: EditorFormat, modifier: Modifier = Modifier) {
+private fun PreviewPane(
+    source: String,
+    editorFormat: EditorFormat,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
+) {
     val parserFactory = rememberParserFactory(editorFormat)
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -195,7 +263,7 @@ private fun PreviewPane(source: String, editorFormat: EditorFormat, modifier: Mo
         modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         contentWindowInsets = WindowInsets(0, 0, 0, 0)
-    ) { contentPadding ->
+    ) { paddingValues ->
         Surface(
             color = MaterialTheme.colorScheme.background
         ) {
@@ -203,7 +271,12 @@ private fun PreviewPane(source: String, editorFormat: EditorFormat, modifier: Mo
                 state = rememberRichTextState(source, parserFactory),
                 onClick = rememberSnackbarIntentClickHandler(snackbarHostState),
                 richTextStyle = rememberMaterialRichTextStyle(),
-                modifier = Modifier.padding(contentPadding).verticalScroll(rememberScrollState()).padding(16.dp)
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .verticalScroll(rememberScrollState())
+                    .consumeWindowInsets(contentPadding)
+                    .padding(showcaseContentPadding)
+                    .padding(contentPadding)
             )
         }
     }
@@ -219,5 +292,5 @@ private fun rememberParserFactory(editorFormat: EditorFormat): () -> Parser<*> =
 @Preview
 @Composable
 private fun EditorScreenPreview() {
-    EditorScreen(EditorFormat.values().first())
+    EditorScreen(EditorFormat.entries.first())
 }

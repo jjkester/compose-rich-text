@@ -1,9 +1,8 @@
 package nl.jjkester.crt.demo.main
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,12 +14,17 @@ import nl.jjkester.crt.demo.openRawResource
 import nl.jjkester.crt.demo.showcases.Showcase
 import nl.jjkester.crt.demo.showcases.ShowcaseOverview
 import nl.jjkester.crt.demo.showcases.ShowcaseScaffold
+import nl.jjkester.crt.demo.showcases.showcaseContentPadding
 
 @Composable
-fun MainNavigation(showcases: List<Showcase>) {
+fun MainNavigation(showcases: List<Showcase>, modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, Route.Index.route) {
+    NavHost(
+        navController = navController,
+        startDestination = Route.Index.route,
+        modifier = modifier
+    ) {
         composable(Route.Index.route) {
             MainScreen(
                 showcases = showcases,
@@ -36,7 +40,7 @@ fun MainNavigation(showcases: List<Showcase>) {
                 val uriHandler = LocalUriHandler.current
                 LazyMarkdown(
                     text = openRawResource(id = R.raw.main_readme),
-                    contentPadding = PaddingValues(16.dp),
+                    contentPadding = showcaseContentPadding,
                     onClick = uriHandler::openUri
                 )
             }
