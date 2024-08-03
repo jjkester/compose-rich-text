@@ -34,7 +34,7 @@ import nl.jjkester.crt.compose.text.withoutExtras
  * @property spanTransformerFactory Factory to create a span transformer from a composable context.
  */
 @OptIn(InternalRendererApi::class)
-class DefaultComposableBlockTransformer(
+public class DefaultComposableBlockTransformer(
     private val spanTransformerFactory: @Composable () -> AnnotatedStringSpanTransformer
 ) : ComposableBlockTransformer {
 

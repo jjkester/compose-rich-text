@@ -21,7 +21,7 @@ import java.io.InputStream
  */
 @OptIn(InternalRendererApi::class)
 @Stable
-class RichTextState internal constructor(private val parser: Parser<*>, private val renderer: ComposeRenderer) {
+public class RichTextState internal constructor(private val parser: Parser<*>, private val renderer: ComposeRenderer) {
 
     internal var result by mutableStateOf<ComposeRenderer.Result?>(null)
         private set
@@ -30,7 +30,7 @@ class RichTextState internal constructor(private val parser: Parser<*>, private 
      * Whether a new state is loading. This value may be used to display a loading indication while the rich text is
      * parsed and pre-rendered.
      */
-    var isLoading by mutableStateOf(false)
+    public var isLoading: Boolean by mutableStateOf(false)
         private set
 
     internal suspend fun updateSource(string: String) {
@@ -71,7 +71,7 @@ class RichTextState internal constructor(private val parser: Parser<*>, private 
  * @return State holder for the rich text composables.
  */
 @Composable
-fun rememberRichTextState(
+public fun rememberRichTextState(
     source: String,
     parserFactory: () -> Parser<*>,
     renderer: ComposeRenderer = rememberRichTextRenderer()
@@ -87,7 +87,7 @@ fun rememberRichTextState(
  * @return State holder for the rich text composables.
  */
 @Composable
-fun rememberRichTextState(
+public fun rememberRichTextState(
     source: InputStream,
     parserFactory: () -> Parser<*>,
     renderer: ComposeRenderer = rememberRichTextRenderer()
@@ -110,7 +110,7 @@ private fun rememberRichTextState(
  * @return Default Compose Rich Text renderer.
  */
 @Composable
-fun rememberRichTextRenderer(): ComposeRenderer = ComposeRenderer.Default
+public fun rememberRichTextRenderer(): ComposeRenderer = ComposeRenderer.Default
 
 /**
  * Creates a Compose Rich Text renderer with customized rendering. The [ComposableBlockTransformer] returned by the
@@ -120,7 +120,7 @@ fun rememberRichTextRenderer(): ComposeRenderer = ComposeRenderer.Default
  * @return Compose Rich Text renderer using the provided [ComposableBlockTransformer].
  */
 @Composable
-fun rememberRichTextRenderer(transformerFactory: () -> ComposableBlockTransformer): ComposeRenderer =
+public fun rememberRichTextRenderer(transformerFactory: () -> ComposableBlockTransformer): ComposeRenderer =
     remember(transformerFactory) {
         ComposeRenderer(transformerFactory())
     }

@@ -6,7 +6,7 @@ package nl.jjkester.crt.compose.text
  * @property target Target where the clickable text is linking to.
  * @property offset Location of the clickable text in the [androidx.compose.ui.text.AnnotatedString].
  */
-class ClickOffset(
+public data class ClickOffset internal constructor(
     val target: String,
     val offset: IntRange
 )

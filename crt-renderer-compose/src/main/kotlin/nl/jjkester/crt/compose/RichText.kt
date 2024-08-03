@@ -37,7 +37,7 @@ import nl.jjkester.crt.compose.style.RichTextStyle
  */
 @OptIn(InternalRendererApi::class)
 @Composable
-fun RichText(
+public fun RichText(
     state: RichTextState,
     modifier: Modifier = Modifier,
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
@@ -68,7 +68,7 @@ fun RichText(
  */
 @OptIn(InternalRendererApi::class)
 @Composable
-fun LazyRichText(
+public fun LazyRichText(
     state: RichTextState,
     modifier: Modifier = Modifier,
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,

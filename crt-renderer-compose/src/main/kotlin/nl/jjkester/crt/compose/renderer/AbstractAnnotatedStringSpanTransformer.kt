@@ -11,6 +11,7 @@ import nl.jjkester.crt.api.model.Text
 import nl.jjkester.crt.compose.text.AnnotatedStringExtras
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
 import nl.jjkester.crt.compose.text.captureExtras
+import nl.jjkester.crt.compose.text.withExtras
 import nl.jjkester.crt.compose.text.withoutExtras
 
 /**
@@ -18,7 +19,7 @@ import nl.jjkester.crt.compose.text.withoutExtras
  * annotated string builders. Implementors of this class have to implement relatively simple append functions taking
  * in a node, and can call [transformAndAppend] for any child node that needs to be rendered.
  */
-abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTransformer {
+public abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTransformer {
 
     @InternalRendererApi
     final override fun code(node: Code): AnnotatedStringWithExtras = buildAnnotatedStringWithExtras {
@@ -109,10 +110,6 @@ abstract class AbstractAnnotatedStringSpanTransformer : AnnotatedStringSpanTrans
     private inline fun buildAnnotatedStringWithExtras(block: AnnotatedString.Builder.() -> AnnotatedStringExtras): AnnotatedStringWithExtras {
         val builder = AnnotatedString.Builder()
         val extras = builder.block()
-        return AnnotatedStringWithExtras(
-            annotatedString = builder.toAnnotatedString(),
-            inlineContent = extras.inlineContent,
-            clickOffsets = extras.clickOffsets
-        )
+        return builder.toAnnotatedString().withExtras(extras)
     }
 }

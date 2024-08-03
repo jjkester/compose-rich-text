@@ -11,12 +11,12 @@ import androidx.compose.ui.text.AnnotatedString
  * @property clickOffsets Collection of clickable texts for the annotated string.
  * @see AnnotatedStringExtras
  */
-class AnnotatedStringWithExtras(
-    val annotatedString: AnnotatedString,
-    val inlineContent: Map<String, InlineTextContent> = emptyMap(),
-    val clickOffsets: Collection<ClickOffset> = emptyList()
+public class AnnotatedStringWithExtras internal constructor(
+    internal val annotatedString: AnnotatedString,
+    internal val inlineContent: Map<String, InlineTextContent> = emptyMap(),
+    internal val clickOffsets: Collection<ClickOffset> = emptyList()
 ) {
-    override fun toString() = annotatedString.toString()
+    override fun toString(): String = annotatedString.toString()
 
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
@@ -35,6 +35,12 @@ class AnnotatedStringWithExtras(
 }
 
 /**
+ * Creates an [AnnotatedStringWithExtras] from an [AnnotatedString] and the provided [extras].
+ */
+public fun AnnotatedString.withExtras(extras: AnnotatedStringExtras): AnnotatedStringWithExtras =
+    AnnotatedStringWithExtras(this, extras.inlineContent, extras.clickOffsets)
+
+/**
  * Creates an [AnnotatedStringWithExtras] without extras from a regular [AnnotatedString].
  */
-fun AnnotatedString.withoutExtras(): AnnotatedStringWithExtras = AnnotatedStringWithExtras(this)
+public fun AnnotatedString.withoutExtras(): AnnotatedStringWithExtras = AnnotatedStringWithExtras(this)

@@ -9,7 +9,7 @@ import nl.jjkester.crt.compose.text.withoutExtras
 /**
  * Enumeration factory for Compose using annotated string with optional insets and/or clickable text.
  */
-object ComposeEnumerationFactory : EnumerationFactory<AnnotatedStringWithExtras>() {
+public object ComposeEnumerationFactory : EnumerationFactory<AnnotatedStringWithExtras>() {
 
     @InternalRendererApi
     override fun convert(value: String): AnnotatedStringWithExtras = AnnotatedString(value).withoutExtras()

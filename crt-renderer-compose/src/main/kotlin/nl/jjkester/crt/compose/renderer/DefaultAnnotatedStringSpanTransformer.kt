@@ -18,7 +18,7 @@ import nl.jjkester.crt.compose.text.measureOffsetRange
  *
  * @property richTextStyle Style to apply.
  */
-class DefaultAnnotatedStringSpanTransformer(
+public class DefaultAnnotatedStringSpanTransformer(
     private val richTextStyle: RichTextStyle
 ) : AbstractAnnotatedStringSpanTransformer() {
 

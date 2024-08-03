@@ -8,7 +8,7 @@ import nl.jjkester.crt.api.renderer.BlockTransformer
  * Transformer for rendering block nodes into composables.
  */
 @OptIn(InternalRendererApi::class)
-interface ComposableBlockTransformer : BlockTransformer<@Composable () -> Unit> {
+public interface ComposableBlockTransformer : BlockTransformer<@Composable () -> Unit> {
 
     /**
      * Renders a container, accepting pre-rendered [children]
@@ -16,5 +16,5 @@ interface ComposableBlockTransformer : BlockTransformer<@Composable () -> Unit> 
      * @param children Pre-rendered children.
      * @return Rendered node.
      */
-    fun container(children: List<@Composable () -> Unit>): @Composable () -> Unit
+    public fun container(children: List<@Composable () -> Unit>): @Composable () -> Unit
 }

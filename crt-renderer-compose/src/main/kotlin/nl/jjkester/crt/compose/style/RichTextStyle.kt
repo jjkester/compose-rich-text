@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
@@ -44,7 +45,7 @@ import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
  * @see rememberBasicRichTextStyle
  */
 @Immutable
-data class RichTextStyle(
+public data class RichTextStyle(
     val h1: TextStyle = TextStyle.Default,
     val h2: TextStyle = TextStyle.Default,
     val h3: TextStyle = TextStyle.Default,
@@ -62,12 +63,12 @@ data class RichTextStyle(
     val code: SpanStyle = TextStyle.Default.toSpanStyle(),
     val link: SpanStyle = TextStyle.Default.toSpanStyle()
 ) {
-    companion object {
+    public companion object {
         /**
          * Default rich text style that does not apply any styling.
          */
         @Stable
-        val Default = RichTextStyle()
+        public val Default: RichTextStyle = RichTextStyle()
     }
 }
 
@@ -78,16 +79,16 @@ data class RichTextStyle(
  * @property border Border stroke for the start of blockquotes.
  */
 @Immutable
-data class BlockquoteStyle(
+public data class BlockquoteStyle(
     val text: TextStyle = TextStyle.Default,
     val border: BorderStroke? = null
 ) {
-    companion object {
+    public companion object {
         /**
          * Default blockquote style that does not apply any styling.
          */
         @Stable
-        val Default = BlockquoteStyle()
+        public val Default: BlockquoteStyle = BlockquoteStyle()
     }
 }
 
@@ -98,23 +99,23 @@ data class BlockquoteStyle(
  * @property unordered Enumeration sequence for unordered lists.
  */
 @Immutable
-data class EnumerationStyle(
+public data class EnumerationStyle(
     val ordered: Enumeration.Counting<AnnotatedStringWithExtras> = ComposeEnumerationFactory.alphanumeric,
     val unordered: Enumeration.Fixed<AnnotatedStringWithExtras> = ComposeEnumerationFactory.bulleted
 ) {
-    companion object {
+    public companion object {
         /**
          * Default enumeration style that does not apply any styling.
          */
         @Stable
-        val Default = EnumerationStyle()
+        public val Default: EnumerationStyle = EnumerationStyle()
     }
 }
 
 /**
  * Composition local for providing the rich text style for a composition.
  */
-val LocalRichTextStyle = compositionLocalOf { RichTextStyle.Default }
+public val LocalRichTextStyle: ProvidableCompositionLocal<RichTextStyle> = compositionLocalOf { RichTextStyle.Default }
 
 /**
  * Creates and remembers a basic [RichTextStyle] on top of the base [TextStyle]. Text sizes have been defined relative
@@ -127,7 +128,7 @@ val LocalRichTextStyle = compositionLocalOf { RichTextStyle.Default }
  * @return Rich text style using relative font sizes and the provided [spacing].
  */
 @Composable
-fun rememberBasicRichTextStyle(color: Color, spacing: PaddingValues): RichTextStyle {
+public fun rememberBasicRichTextStyle(color: Color, spacing: PaddingValues): RichTextStyle {
     val layoutDirection = LocalLayoutDirection.current
     return remember(layoutDirection, color, spacing) {
         RichTextStyle(

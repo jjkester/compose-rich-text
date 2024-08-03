@@ -18,7 +18,7 @@ import nl.jjkester.crt.compose.style.LocalRichTextStyle
  * Renderer to render rich text in Jetpack Compose.
  */
 @OptIn(InternalRendererApi::class)
-class ComposeRenderer internal constructor(
+public class ComposeRenderer internal constructor(
     private val blockTransformer: ComposableBlockTransformer
 ) : Renderer<ComposeRenderer.Result> {
 
@@ -51,7 +51,7 @@ class ComposeRenderer internal constructor(
      */
     @InternalRendererApi
     @Immutable
-    class Result internal constructor(
+    public class Result internal constructor(
         @Stable internal val single: @Composable () -> Unit,
         @Stable internal val lazy: List<@Composable () -> Unit>
     )

@@ -9,16 +9,16 @@ import androidx.compose.foundation.text.InlineTextContent
  * @property clickOffsets Collection of clickable texts for the annotated string.
  * @see AnnotatedStringWithExtras
  */
-class AnnotatedStringExtras(
-    val inlineContent: Map<String, InlineTextContent> = emptyMap(),
-    val clickOffsets: Collection<ClickOffset> = emptyList()
+public class AnnotatedStringExtras internal constructor(
+    internal val inlineContent: Map<String, InlineTextContent> = emptyMap(),
+    internal val clickOffsets: Collection<ClickOffset> = emptyList()
 ) {
-    companion object {
+    public companion object {
 
         /**
          * Instance without any extras.
          */
-        val Empty: AnnotatedStringExtras = AnnotatedStringExtras()
+        public val Empty: AnnotatedStringExtras = AnnotatedStringExtras()
 
         /**
          * Creates an instance containing just an inline content replacement entry to replace the [placeholder] with the
@@ -28,7 +28,7 @@ class AnnotatedStringExtras(
          * @param content Content to replace the [placeholder] with.
          * @return [AnnotatedStringExtras] with the provided replacement.
          */
-        fun inlineContent(placeholder: String, content: InlineTextContent): AnnotatedStringExtras =
+        public fun inlineContent(placeholder: String, content: InlineTextContent): AnnotatedStringExtras =
             AnnotatedStringExtras(inlineContent = mapOf(placeholder to content))
 
         /**
@@ -37,7 +37,7 @@ class AnnotatedStringExtras(
          * @param clickOffset Click offset representing the clickable area.
          * @return [AnnotatedStringExtras] with the provided clickable area.
          */
-        fun clickOffset(clickOffset: ClickOffset): AnnotatedStringExtras =
+        public fun clickOffset(clickOffset: ClickOffset): AnnotatedStringExtras =
             AnnotatedStringExtras(clickOffsets = listOf(clickOffset))
     }
 }
@@ -45,10 +45,11 @@ class AnnotatedStringExtras(
 /**
  * Combines two instances of [AnnotatedStringExtras].
  */
-operator fun AnnotatedStringExtras.plus(other: AnnotatedStringExtras): AnnotatedStringExtras = AnnotatedStringExtras(
-    inlineContent = inlineContent + other.inlineContent,
-    clickOffsets = clickOffsets + other.clickOffsets
-)
+public operator fun AnnotatedStringExtras.plus(other: AnnotatedStringExtras): AnnotatedStringExtras =
+    AnnotatedStringExtras(
+        inlineContent = inlineContent + other.inlineContent,
+        clickOffsets = clickOffsets + other.clickOffsets
+    )
 
 /**
  * Function to ease working with [androidx.compose.ui.text.AnnotatedString] builders and capturing
@@ -57,7 +58,7 @@ operator fun AnnotatedStringExtras.plus(other: AnnotatedStringExtras): Annotated
  * Within [block], [SequenceScope.yield] can be called to register the extras, removing the need for manually keeping
  * a mutable collection.
  */
-fun captureExtras(block: suspend SequenceScope<AnnotatedStringExtras>.() -> Unit): AnnotatedStringExtras =
+public fun captureExtras(block: suspend SequenceScope<AnnotatedStringExtras>.() -> Unit): AnnotatedStringExtras =
     sequence(block)
         .toList()
         .let { sequence ->
