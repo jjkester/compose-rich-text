@@ -8,7 +8,7 @@ import nl.jjkester.crt.demo.LocalSnackbarHostState
 import nl.jjkester.crt.demo.R
 import nl.jjkester.crt.demo.editor.EditorFormat
 import nl.jjkester.crt.demo.openRawResource
-import nl.jjkester.crt.demo.rememberSnackbarIntentClickHandler
+import nl.jjkester.crt.demo.rememberSnackbarIntentLinkHandler
 import nl.jjkester.crt.demo.showcases.Example
 import nl.jjkester.crt.demo.showcases.Showcase
 import nl.jjkester.crt.demo.showcases.showcaseContentPadding
@@ -24,7 +24,7 @@ val MarkdownShowcase = Showcase(
             LazyMarkdown(
                 text = openRawResource(R.raw.markdown_commonmark_benchmark),
                 contentPadding = showcaseContentPadding,
-                onClick = rememberSnackbarIntentClickHandler(LocalSnackbarHostState.current)
+                linkHandler = rememberSnackbarIntentLinkHandler(LocalSnackbarHostState.current)
             )
         },
         Example(
@@ -36,7 +36,7 @@ val MarkdownShowcase = Showcase(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
                     .padding(showcaseContentPadding),
-                onClick = rememberSnackbarIntentClickHandler(LocalSnackbarHostState.current)
+                linkHandler = rememberSnackbarIntentLinkHandler(LocalSnackbarHostState.current)
             )
         }
     ),

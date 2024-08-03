@@ -31,5 +31,6 @@ output.
 - DSL for writing rich text in Kotlin
 - Support some HTML tags as input
 - Support some HTML tags embedded in Markdown
+- Support links within documents
 - Support Markdown tables
 - Target [Compose Multiplatform](https://www.jetbrains.com/lp/compose-mpp/), if possible

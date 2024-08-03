@@ -58,7 +58,6 @@ import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.compose.RichText
 import nl.jjkester.crt.compose.rememberRichTextState
 import nl.jjkester.crt.demo.rememberMaterialRichTextStyle
-import nl.jjkester.crt.demo.rememberSnackbarIntentClickHandler
 import nl.jjkester.crt.demo.showcases.showcaseContentPadding
 import nl.jjkester.crt.markdown.MarkdownParserFactory
 
@@ -269,7 +268,6 @@ private fun PreviewPane(
         ) {
             RichText(
                 state = rememberRichTextState(source, parserFactory),
-                onClick = rememberSnackbarIntentClickHandler(snackbarHostState),
                 richTextStyle = rememberMaterialRichTextStyle(),
                 modifier = Modifier
                     .padding(paddingValues)

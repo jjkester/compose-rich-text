@@ -37,11 +37,9 @@ fun MainNavigation(showcases: List<Showcase>, modifier: Modifier = Modifier) {
                 title = "Project information",
                 onNavigateBack = { navController.navigateUp() }
             ) {
-                val uriHandler = LocalUriHandler.current
                 LazyMarkdown(
                     text = openRawResource(id = R.raw.main_readme),
-                    contentPadding = showcaseContentPadding,
-                    onClick = uriHandler::openUri
+                    contentPadding = showcaseContentPadding
                 )
             }
         }

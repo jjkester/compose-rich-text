@@ -16,9 +16,9 @@ test-mockito = "5.1.0"
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
 compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-text = { module = "androidx.compose.ui:ui-text" }
+compose-ui-text = { module = "androidx.compose.ui:ui-text", version = "1.7.0-beta06" } # TODO: Remove explicit version once part of BOM
 compose-runtime = { module = "androidx.compose.runtime:runtime" }
-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version = "1.7.0-beta06" } # TODO: Remove explicit version once part of BOM
 compose-ui-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }

@@ -13,9 +13,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.compose.internal.text.LocalSpanBaseStyle
-import nl.jjkester.crt.compose.internal.text.LocalSpanClickHandler
 import nl.jjkester.crt.compose.style.LocalRichTextStyle
 import nl.jjkester.crt.compose.style.RichTextStyle
+import nl.jjkester.crt.compose.text.LinkHandler
+import nl.jjkester.crt.compose.text.LocalLinkHandler
 
 /**
  * Composable for rendering rich text. The content is provided by the [state]. A [RichTextState] instance can be
@@ -31,7 +32,7 @@ import nl.jjkester.crt.compose.style.RichTextStyle
  * @param modifier Modifier for this component.
  * @param richTextStyle Styling for the rich text inside the component.
  * @param style Base text style. The [richTextStyle] will inherit from this style.
- * @param onClick Function that is called whenever a link is clicked. The link's URI is passed as a parameter.
+ * @param linkHandler Handler determining the actions for clicking on links.
  * @see rememberRichTextState
  * @see LazyRichText Renders rich text lazily, recommended for longer documents.
  */
@@ -42,13 +43,13 @@ public fun RichText(
     modifier: Modifier = Modifier,
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
     style: TextStyle = TextStyle.Default,
-    onClick: (uri: String) -> Unit = {}
+    linkHandler: LinkHandler = LocalLinkHandler.current
 ) {
     Box(modifier = modifier) {
         CompositionLocalProvider(
             LocalSpanBaseStyle provides style,
-            LocalSpanClickHandler provides onClick,
-            LocalRichTextStyle provides richTextStyle
+            LocalRichTextStyle provides richTextStyle,
+            LocalLinkHandler provides linkHandler
         ) {
             state.result?.single?.invoke()
         }
@@ -63,7 +64,7 @@ public fun RichText(
  * @param style Base text style. The [richTextStyle] will inherit from this style.
  * @param contentPadding Padding around the whole content. Avoids visible padding at the top and bottom when the content
  * is not scrolled all the way to the edge.
- * @param onClick Function that is called whenever a link is clicked. The link's URI is passed as a parameter.
+ * @param linkHandler Handler determining the actions for clicking on links.
  * @see RichText Renders rich text eagerly, recommended for small snippets.
  */
 @OptIn(InternalRendererApi::class)
@@ -74,12 +75,12 @@ public fun LazyRichText(
     richTextStyle: RichTextStyle = LocalRichTextStyle.current,
     style: TextStyle = TextStyle.Default,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    onClick: (uri: String) -> Unit = {}
+    linkHandler: LinkHandler = LocalLinkHandler.current
 ) {
     CompositionLocalProvider(
         LocalSpanBaseStyle provides style,
-        LocalSpanClickHandler provides onClick,
-        LocalRichTextStyle provides richTextStyle
+        LocalRichTextStyle provides richTextStyle,
+        LocalLinkHandler provides linkHandler
     ) {
         val verticalArrangement = Arrangement.spacedBy(richTextStyle.blockSpacing)
             .takeIf { it.spacing.isSpecified }

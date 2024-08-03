@@ -10,8 +10,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
-import nl.jjkester.crt.compose.text.clickableText
-import nl.jjkester.crt.compose.text.rememberClickOffsetHandler
 
 @Composable
 internal fun Span(
@@ -24,7 +22,6 @@ internal fun Span(
     maxLines: Int = Int.MAX_VALUE
 ) {
     val mergedStyle = LocalTextStyle.current.merge(style)
-    val clickOffsetHandler = rememberClickOffsetHandler(span.clickOffsets)
 
     BasicText(
         text = buildAnnotatedString {
@@ -34,21 +31,14 @@ internal fun Span(
                 }
             }
         },
-        modifier = modifier.clickableText(clickOffsetHandler, LocalSpanClickHandler.current),
+        modifier = modifier,
         style = LocalSpanBaseStyle.current,
-        onTextLayout = {
-            clickOffsetHandler.onTextLayout(it)
-            onTextLayout(it)
-        },
+        onTextLayout = onTextLayout,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         inlineContent = span.inlineContent
     )
-}
-
-internal val LocalSpanClickHandler = compositionLocalOf<(String) -> Unit> {
-    error("No span click handler set")
 }
 
 internal val LocalSpanBaseStyle = compositionLocalOf<TextStyle> {
