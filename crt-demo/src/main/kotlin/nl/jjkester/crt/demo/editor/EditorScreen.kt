@@ -10,9 +10,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -142,9 +142,9 @@ private fun EditorButtons(
                 Icon(
                     imageVector = Icons.Default.run {
                         if (targetIsSplit) {
-                            if (isHorizontal) KeyboardArrowRight else KeyboardArrowDown
+                            if (isHorizontal) Icons.AutoMirrored.Filled.KeyboardArrowRight else KeyboardArrowDown
                         } else {
-                            if (isHorizontal) KeyboardArrowLeft else KeyboardArrowUp
+                            if (isHorizontal) Icons.AutoMirrored.Filled.KeyboardArrowLeft else KeyboardArrowUp
                         }
                     },
                     contentDescription = "Side-by-side"

@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -23,23 +24,14 @@ android {
 
     buildFeatures {
         buildConfig = true
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
-    kotlinOptions {
-        freeCompilerArgs += listOf(
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi",
-        )
     }
 }
 
 kotlin {
     jvmToolchain(17)
+    compilerOptions.freeCompilerArgs = listOf(
+        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+    )
 }
 
 dependencies {
@@ -52,7 +44,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.jetpack.navigation)
     implementation("androidx.compose.ui:ui-text-google-fonts")
-    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-alpha05")
+    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-beta01")
 
     // Project dependencies
     implementation(project(":crt-api"))

@@ -1,13 +1,12 @@
 [versions]
-agp = "8.1.4"
-kotlin = "1.9.20"
-dokka = "1.9.10"
-kotlinx-binaryCompatibilityValidator = "0.13.1"
-compose-compiler = "1.5.4"
-compose-bom = "2023.10.01"
-jetpack-activity = "1.8.1"
-jetpack-lifecycle = "2.6.2"
-jetpack-navigation = "2.7.5"
+agp = "8.5.1"
+kotlin = "2.0.0"
+dokka = "1.9.20"
+kotlinx-binaryCompatibilityValidator = "0.16.3"
+compose-bom = "2024.06.00"
+jetpack-activity = "1.9.1"
+jetpack-lifecycle = "2.8.4"
+jetpack-navigation = "2.7.7"
 slf4j-api = "2.0.7"
 test-junit-jupiter = "5.10.0"
 test-assertk = "0.27.0"
@@ -38,5 +37,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlinx-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinx-binaryCompatibilityValidator" }

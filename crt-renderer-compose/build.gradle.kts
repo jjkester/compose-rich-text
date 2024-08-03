@@ -1,5 +1,6 @@
 plugins {
     `project-android-library`
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
