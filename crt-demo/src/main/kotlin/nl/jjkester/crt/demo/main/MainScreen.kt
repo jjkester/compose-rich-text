@@ -217,15 +217,13 @@ private fun VersionLabel(modifier: Modifier = Modifier) {
     ) {
         Text(
             text = "Version",
-            color = MaterialTheme.colorScheme.secondary,
             style = MaterialTheme.typography.labelLarge
         )
         Card(
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
         ) {
             Text(
                 text = BuildConfig.VERSION_NAME,
-                color = MaterialTheme.colorScheme.secondary,
                 style = MaterialTheme.typography.labelMedium,
                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
             )

@@ -1,5 +1,6 @@
 package nl.jjkester.crt.demo
 
+import DemoTheme
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -26,7 +27,7 @@ class DemoActivity : ComponentActivity() {
                 )
             }
 
-            DemoTheme {
+            DemoTheme(dynamicColor = false) {
                 MainNavigation(showcases = showcases)
             }
         }
