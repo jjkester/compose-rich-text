@@ -8,13 +8,11 @@ import androidx.compose.ui.text.AnnotatedString
  *
  * @property annotatedString [AnnotatedString] for which the extras are defined.
  * @property inlineContent Replacement map of inline content for the annotated string.
- * @property clickOffsets Collection of clickable texts for the annotated string.
  * @see AnnotatedStringExtras
  */
 public class AnnotatedStringWithExtras internal constructor(
     internal val annotatedString: AnnotatedString,
-    internal val inlineContent: Map<String, InlineTextContent> = emptyMap(),
-    internal val clickOffsets: Collection<ClickOffset> = emptyList()
+    internal val inlineContent: Map<String, InlineTextContent> = emptyMap()
 ) {
     override fun toString(): String = annotatedString.toString()
 
@@ -22,14 +20,12 @@ public class AnnotatedStringWithExtras internal constructor(
         this === other -> true
         other !is AnnotatedStringWithExtras -> false
         annotatedString != other.annotatedString -> false
-        inlineContent != other.inlineContent -> false
-        else -> clickOffsets == other.clickOffsets
+        else -> inlineContent == other.inlineContent
     }
 
     override fun hashCode(): Int {
         var result = annotatedString.hashCode()
         result = 31 * result + inlineContent.hashCode()
-        result = 31 * result + clickOffsets.hashCode()
         return result
     }
 }
@@ -38,7 +34,7 @@ public class AnnotatedStringWithExtras internal constructor(
  * Creates an [AnnotatedStringWithExtras] from an [AnnotatedString] and the provided [extras].
  */
 public fun AnnotatedString.withExtras(extras: AnnotatedStringExtras): AnnotatedStringWithExtras =
-    AnnotatedStringWithExtras(this, extras.inlineContent, extras.clickOffsets)
+    AnnotatedStringWithExtras(this, extras.inlineContent)
 
 /**
  * Creates an [AnnotatedStringWithExtras] without extras from a regular [AnnotatedString].

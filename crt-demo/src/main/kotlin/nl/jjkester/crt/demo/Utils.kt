@@ -9,28 +9,32 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import nl.jjkester.crt.compose.style.RichTextStyle
 import nl.jjkester.crt.compose.style.rememberBasicRichTextStyle
+import nl.jjkester.crt.compose.text.LinkHandler
 import java.io.InputStream
 
 @Composable
-fun rememberSnackbarIntentClickHandler(snackbarHostState: SnackbarHostState): (String) -> Unit {
+fun rememberSnackbarIntentLinkHandler(snackbarHostState: SnackbarHostState): LinkHandler {
     val uriHandler = LocalUriHandler.current
     val coroutineScope = rememberCoroutineScope()
 
     return remember(uriHandler, snackbarHostState) {
-        {
-            coroutineScope.launch {
-                val action = snackbarHostState.showSnackbar(
-                    message = it,
-                    actionLabel = "Open",
-                    withDismissAction = true
-                )
+        LinkHandler { destination ->
+            {
+                coroutineScope.launch {
+                    val action = snackbarHostState.showSnackbar(
+                        message = destination.value,
+                        actionLabel = "Open",
+                        withDismissAction = true
+                    )
 
-                if (action == SnackbarResult.ActionPerformed) {
-                    uriHandler.openUri(it)
+                    if (action == SnackbarResult.ActionPerformed) {
+                        uriHandler.openUri(destination.value)
+                    }
                 }
             }
         }
@@ -76,7 +80,11 @@ fun rememberMaterialRichTextStyle(): RichTextStyle {
                     width = DividerDefaults.Thickness,
                     color = dividerColor
                 ),
-                link = link.copy(color = colorScheme.primary)
+                link = TextLinkStyles(
+                    style = link.style?.copy(color = colorScheme.primary),
+                    focusedStyle = link.style?.copy(color = colorScheme.secondary),
+                    hoveredStyle = link.style?.copy(color = colorScheme.secondary)
+                )
             )
         }
     }

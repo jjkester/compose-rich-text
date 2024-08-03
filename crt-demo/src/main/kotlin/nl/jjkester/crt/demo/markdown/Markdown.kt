@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.dp
 import nl.jjkester.crt.compose.LazyRichText
 import nl.jjkester.crt.compose.RichText
 import nl.jjkester.crt.compose.rememberRichTextState
+import nl.jjkester.crt.compose.text.LinkHandler
 import nl.jjkester.crt.demo.rememberMaterialRichTextStyle
 import nl.jjkester.crt.markdown.MarkdownParserFactory
 import java.io.InputStream
@@ -17,14 +18,14 @@ fun Markdown(
     text: InputStream,
     modifier: Modifier = Modifier,
     style: TextStyle = TextStyle.Default,
-    onClick: (String) -> Unit = {}
+    linkHandler: LinkHandler = LinkHandler.Default
 ) {
     RichText(
         state = rememberRichTextState(text, MarkdownParserFactory::create),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
-        onClick = onClick
+        linkHandler = linkHandler
     )
 }
 
@@ -34,7 +35,7 @@ fun LazyMarkdown(
     modifier: Modifier = Modifier,
     style: TextStyle = TextStyle.Default,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    onClick: (String) -> Unit = {}
+    linkHandler: LinkHandler = LinkHandler.Default
 ) {
     LazyRichText(
         state = rememberRichTextState(text, MarkdownParserFactory::create),
@@ -42,6 +43,6 @@ fun LazyMarkdown(
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
         contentPadding = contentPadding,
-        onClick = onClick
+        linkHandler = linkHandler
     )
 }

@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -41,7 +42,7 @@ import nl.jjkester.crt.compose.text.AnnotatedStringWithExtras
  * @property emphasis Span style for emphasis.
  * @property strongEmphasis Span style for strong emphasis.
  * @property code Span style for code.
- * @property link Span style for links.
+ * @property link Style for links.
  * @see rememberBasicRichTextStyle
  */
 @Immutable
@@ -61,7 +62,7 @@ public data class RichTextStyle(
     val emphasis: SpanStyle = TextStyle.Default.toSpanStyle(),
     val strongEmphasis: SpanStyle = TextStyle.Default.toSpanStyle(),
     val code: SpanStyle = TextStyle.Default.toSpanStyle(),
-    val link: SpanStyle = TextStyle.Default.toSpanStyle()
+    val link: TextLinkStyles = TextLinkStyles()
 ) {
     public companion object {
         /**
@@ -179,7 +180,11 @@ public fun rememberBasicRichTextStyle(color: Color, spacing: PaddingValues): Ric
             emphasis = SpanStyle(fontStyle = FontStyle.Italic),
             strongEmphasis = SpanStyle(fontWeight = FontWeight.Bold),
             code = SpanStyle(fontFamily = FontFamily.Monospace, color = color),
-            link = SpanStyle(color = color, textDecoration = TextDecoration.Underline)
+            link = TextLinkStyles(
+                style = SpanStyle(color = color, textDecoration = TextDecoration.Underline),
+                focusedStyle = SpanStyle(color = color.copy(alpha = .70f)),
+                hoveredStyle = SpanStyle(color = color.copy(alpha = .70f)),
+            )
         )
     }
 }

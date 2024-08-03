@@ -13,6 +13,7 @@ import nl.jjkester.crt.api.renderer.SpanAsParagraphTransformer
 import nl.jjkester.crt.api.renderer.transform
 import nl.jjkester.crt.api.renderer.transformBlock
 import nl.jjkester.crt.compose.style.LocalRichTextStyle
+import nl.jjkester.crt.compose.text.LocalLinkHandler
 
 /**
  * Renderer to render rich text in Jetpack Compose.
@@ -37,7 +38,7 @@ public class ComposeRenderer internal constructor(
          */
         internal val Default = ComposeRenderer(
             DefaultComposableBlockTransformer {
-                DefaultAnnotatedStringSpanTransformer(LocalRichTextStyle.current)
+                DefaultAnnotatedStringSpanTransformer(LocalRichTextStyle.current, LocalLinkHandler.current)
             }
         )
     }
