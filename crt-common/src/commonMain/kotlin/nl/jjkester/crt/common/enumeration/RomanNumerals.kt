@@ -2,8 +2,10 @@
 
 package nl.jjkester.crt.common.enumeration
 
+import kotlin.jvm.JvmName
+
 private val encoding by lazy(LazyThreadSafetyMode.NONE) {
-    sortedMapOf(
+    listOf(
         1 to "I",
         5 to "V",
         10 to "X",
@@ -12,20 +14,18 @@ private val encoding by lazy(LazyThreadSafetyMode.NONE) {
         500 to "D",
         1000 to "M",
     )
-        .entries
         .windowed(3, partialWindows = false)
-        .filter { (first, second, third) -> second.key == first.key * 5 && third.key == first.key * 10 }
+        .filter { (first, second, third) -> second.first == first.first * 5 && third.first == first.first * 10 }
         .flatMap { (ones, fives, tens) ->
             listOf(
-                ones.key to ones.value,
-                fives.key - ones.key to ones.value + fives.value,
-                fives.key to fives.value,
-                tens.key - ones.key to ones.value + tens.value,
-                tens.key to tens.value
+                ones.first to ones.second,
+                fives.first - ones.first to ones.second + fives.second,
+                fives.first to fives.second,
+                tens.first - ones.first to ones.second + tens.second,
+                tens.first to tens.second
             )
         }
-        .toMap()
-        .toSortedMap { first, second -> second.compareTo(first) }
+        .sortedByDescending { it.first }
 }
 
 internal fun UInt.toRomanNumeralString(): String {

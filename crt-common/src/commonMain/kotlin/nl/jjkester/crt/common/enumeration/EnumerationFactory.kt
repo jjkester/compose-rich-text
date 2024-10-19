@@ -1,6 +1,7 @@
 package nl.jjkester.crt.common.enumeration
 
 import nl.jjkester.crt.api.annotations.InternalRendererApi
+import kotlin.jvm.JvmOverloads
 
 /**
  * Factory for enumeration sequence definitions.
