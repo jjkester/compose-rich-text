@@ -20,6 +20,7 @@ dependencyResolutionManagement {
 include(":crt-api")
 include(":crt-common")
 include(":crt-demo")
+include(":crt-dsl")
 include(":crt-parser-markdown")
 include(":crt-renderer-compose")
 include(":utils:slf4j-android")
