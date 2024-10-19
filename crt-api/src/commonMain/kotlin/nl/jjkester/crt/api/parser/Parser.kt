@@ -1,6 +1,6 @@
 package nl.jjkester.crt.api.parser
 
-import java.io.InputStream
+import kotlinx.io.Source
 
 /**
  * Parser for parsing rich text in a specific format to the internal model.
@@ -17,9 +17,9 @@ public interface Parser<out R : ParserResult> {
     public fun parse(input: String): R
 
     /**
-     * Parses rich text from an input stream.
+     * Parses rich text from an input source.
      *
-     * @param inputStream Input stream of the rich text to parse.
+     * @param source Source of the rich text to parse.
      */
-    public fun parse(inputStream: InputStream): R
+    public fun parse(source: Source): R
 }

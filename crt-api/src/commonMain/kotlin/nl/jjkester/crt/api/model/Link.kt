@@ -1,5 +1,7 @@
 package nl.jjkester.crt.api.model
 
+import kotlin.jvm.JvmInline
+
 /**
  * Node representing a clickable link.
  *

@@ -1,0 +1,42 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+    id 'org.jetbrains.dokka'
+    id 'org.jetbrains.kotlinx.binary-compatibility-validator'
+    id 'maven-publish'
+}
+
+kotlin {
+    jvmToolchain(17)
+    explicitApi()
+
+    jvm() {
+        testRuns.all {
+            executionTask.configure {
+                useJUnitPlatform()
+            }
+        }
+    }
+
+    wasmJs {
+        browser()
+    }
+}
+
+tasks.register("dokkaJavadocJar", Jar) {
+    group("documentation")
+    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.dokkaJavadoc)
+    archiveClassifier.set("javadoc")
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            artifact(tasks.dokkaJavadocJar)
+        }
+    }
+}
