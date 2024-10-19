@@ -1,24 +1,25 @@
 [versions]
-agp = "8.5.1"
-kotlin = "2.0.0"
+agp = "8.5.2"
+kotlin = "2.0.20"
 dokka = "1.9.20"
 kotlinx-binaryCompatibilityValidator = "0.16.3"
-compose-bom = "2024.06.00"
-jetpack-activity = "1.9.1"
-jetpack-lifecycle = "2.8.4"
-jetpack-navigation = "2.7.7"
+compose-bom = "2024.10.00"
+jetpack-activity = "1.9.3"
+jetpack-lifecycle = "2.8.6"
+jetpack-navigation = "2.8.3"
 slf4j-api = "2.0.7"
 test-junit-jupiter = "5.10.0"
-test-assertk = "0.27.0"
+test-assertk = "0.28.1"
 test-mockito = "5.1.0"
+test-screenshot = "0.0.1-alpha07"
 
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
 compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-text = { module = "androidx.compose.ui:ui-text", version = "1.7.0-beta06" } # TODO: Remove explicit version once part of BOM
+compose-ui-text = { module = "androidx.compose.ui:ui-text" }
 compose-runtime = { module = "androidx.compose.runtime:runtime" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version = "1.7.0-beta06" } # TODO: Remove explicit version once part of BOM
+compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-ui-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
@@ -35,6 +36,7 @@ test-mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "te
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+android-screenshot = { id = "com.android.compose.screenshot", version.ref = "test-screenshot" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

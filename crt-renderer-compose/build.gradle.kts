@@ -1,10 +1,14 @@
 plugins {
     `project-android-library`
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.android.screenshot)
 }
 
 android {
     namespace = "nl.jjkester.crt.compose"
+
+    @Suppress("UnstableApiUsage")
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
 dependencies {
@@ -15,8 +19,6 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui.text)
 
-    // For preview
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.toolingPreview)
-    debugImplementation(libs.compose.ui.tooling)
+    screenshotTestImplementation(project(":crt-dsl"))
+    screenshotTestImplementation(libs.compose.ui.tooling)
 }
