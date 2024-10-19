@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import nl.jjkester.crt.api.annotations.InternalRendererApi
+import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserResult
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
@@ -20,18 +21,25 @@ import java.io.InputStream
  * Encapsulates the state for the [RichText] and [LazyRichText] composables.
  */
 @OptIn(InternalRendererApi::class)
-@Stable
-public class RichTextState internal constructor(private val parser: Parser<*>, private val renderer: ComposeRenderer) {
+public abstract class RichTextState internal constructor(protected val renderer: ComposeRenderer) {
 
     internal var result by mutableStateOf<ComposeRenderer.Result?>(null)
-        private set
+        protected set
 
     /**
      * Whether a new state is loading. This value may be used to display a loading indication while the rich text is
      * parsed and pre-rendered.
      */
     public var isLoading: Boolean by mutableStateOf(false)
-        private set
+        protected set
+}
+
+@OptIn(InternalRendererApi::class)
+@Stable
+public class ParserRichTextState internal constructor(
+    private val parser: Parser<*>,
+    renderer: ComposeRenderer
+) : RichTextState(renderer) {
 
     internal suspend fun updateSource(string: String) {
         updateSource {
@@ -58,6 +66,17 @@ public class RichTextState internal constructor(private val parser: Parser<*>, p
         } finally {
             isLoading = false
         }
+    }
+}
+
+@OptIn(InternalRendererApi::class)
+@Stable
+public class NodeRichTextState internal constructor(
+    rootNode: Node,
+    renderer: ComposeRenderer
+) : RichTextState(renderer) {
+    init {
+        result = renderer.render(rootNode)
     }
 }
 
@@ -97,12 +116,26 @@ public fun rememberRichTextState(
 private fun rememberRichTextState(
     parserFactory: () -> Parser<*>,
     renderer: ComposeRenderer,
-    updateSource: suspend RichTextState.() -> Unit
-): RichTextState = remember(parserFactory, renderer) { RichTextState(parserFactory(), renderer) }.also { state ->
+    updateSource: suspend ParserRichTextState.() -> Unit
+): RichTextState = remember(parserFactory, renderer) { ParserRichTextState(parserFactory(), renderer) }.also { state ->
     LaunchedEffect(state, updateSource) {
         state.updateSource()
     }
 }
+
+/**
+ * Renders rich text and remembers it in the composition. Optionally a custom [renderer] can be passed to customize the
+ * rendering of the parsed text.
+ *
+ * @param rootNode Node to render.
+ * @param renderer Compose rich text renderer to use.
+ * @return State holder for the rich text composables.
+ */
+@Composable
+public fun rememberRichTextState(
+    rootNode: Node,
+    renderer: ComposeRenderer = rememberRichTextRenderer()
+): RichTextState = remember(rootNode, renderer) { NodeRichTextState(rootNode, renderer) }
 
 /**
  * Creates a default Compose Rich Text renderer.
