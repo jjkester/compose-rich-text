@@ -1,11 +1,23 @@
+public final class nl/jjkester/crt/compose/NodeRichTextState : nl/jjkester/crt/compose/RichTextState {
+	public static final field $stable I
+	public fun getResult ()Lnl/jjkester/crt/compose/renderer/ComposeRenderer$Result;
+	public fun isLoading ()Z
+}
+
+public final class nl/jjkester/crt/compose/ParserRichTextState : nl/jjkester/crt/compose/RichTextState {
+	public static final field $stable I
+	public fun getResult ()Lnl/jjkester/crt/compose/renderer/ComposeRenderer$Result;
+	public fun isLoading ()Z
+}
+
 public final class nl/jjkester/crt/compose/RichTextKt {
 	public static final fun LazyRichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/foundation/layout/PaddingValues;Lnl/jjkester/crt/compose/text/LinkHandler;Landroidx/compose/runtime/Composer;II)V
 	public static final fun RichText (Lnl/jjkester/crt/compose/RichTextState;Landroidx/compose/ui/Modifier;Lnl/jjkester/crt/compose/style/RichTextStyle;Landroidx/compose/ui/text/TextStyle;Lnl/jjkester/crt/compose/text/LinkHandler;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class nl/jjkester/crt/compose/RichTextState {
-	public static final field $stable I
-	public final fun isLoading ()Z
+public abstract interface class nl/jjkester/crt/compose/RichTextState {
+	public abstract fun getResult ()Lnl/jjkester/crt/compose/renderer/ComposeRenderer$Result;
+	public abstract fun isLoading ()Z
 }
 
 public final class nl/jjkester/crt/compose/RichTextStateKt {
@@ -13,6 +25,7 @@ public final class nl/jjkester/crt/compose/RichTextStateKt {
 	public static final fun rememberRichTextRenderer (Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)Lnl/jjkester/crt/compose/renderer/ComposeRenderer;
 	public static final fun rememberRichTextState (Ljava/io/InputStream;Lkotlin/jvm/functions/Function0;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Landroidx/compose/runtime/Composer;II)Lnl/jjkester/crt/compose/RichTextState;
 	public static final fun rememberRichTextState (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Landroidx/compose/runtime/Composer;II)Lnl/jjkester/crt/compose/RichTextState;
+	public static final fun rememberRichTextState (Lnl/jjkester/crt/api/model/Node;Lnl/jjkester/crt/compose/renderer/ComposeRenderer;Landroidx/compose/runtime/Composer;II)Lnl/jjkester/crt/compose/RichTextState;
 }
 
 public abstract class nl/jjkester/crt/compose/renderer/AbstractAnnotatedStringSpanTransformer : nl/jjkester/crt/compose/renderer/AnnotatedStringSpanTransformer {

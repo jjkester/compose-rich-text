@@ -21,25 +21,29 @@ import java.io.InputStream
  * Encapsulates the state for the [RichText] and [LazyRichText] composables.
  */
 @OptIn(InternalRendererApi::class)
-public abstract class RichTextState internal constructor(protected val renderer: ComposeRenderer) {
+public interface RichTextState {
 
-    internal var result by mutableStateOf<ComposeRenderer.Result?>(null)
-        protected set
+    public val result: ComposeRenderer.Result?
 
     /**
      * Whether a new state is loading. This value may be used to display a loading indication while the rich text is
      * parsed and pre-rendered.
      */
-    public var isLoading: Boolean by mutableStateOf(false)
-        protected set
+    public val isLoading: Boolean
 }
 
 @OptIn(InternalRendererApi::class)
 @Stable
 public class ParserRichTextState internal constructor(
     private val parser: Parser<*>,
-    renderer: ComposeRenderer
-) : RichTextState(renderer) {
+    private val renderer: ComposeRenderer
+) : RichTextState {
+
+    public override var result: ComposeRenderer.Result? by mutableStateOf<ComposeRenderer.Result?>(null)
+        private set
+
+    public override var isLoading: Boolean by mutableStateOf(false)
+        private set
 
     internal suspend fun updateSource(string: String) {
         updateSource {
@@ -74,10 +78,14 @@ public class ParserRichTextState internal constructor(
 public class NodeRichTextState internal constructor(
     rootNode: Node,
     renderer: ComposeRenderer
-) : RichTextState(renderer) {
-    init {
-        result = renderer.render(rootNode)
+) : RichTextState {
+
+    override val result: ComposeRenderer.Result? by lazy {
+        renderer.render(rootNode)
     }
+
+    override val isLoading: Boolean
+        get() = false
 }
 
 /**

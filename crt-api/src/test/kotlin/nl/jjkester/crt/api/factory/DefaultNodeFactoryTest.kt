@@ -5,7 +5,7 @@ import assertk.assertThat
 import assertk.assertions.isEmpty
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNull
-import assertk.assertions.isSameAs
+import assertk.assertions.isSameInstanceAs
 import nl.jjkester.crt.api.annotations.InternalFactoryApi
 import nl.jjkester.crt.api.model.*
 import org.junit.jupiter.api.Test
@@ -36,7 +36,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -65,7 +65,7 @@ class DefaultNodeFactoryTest {
         assertThat(result).all {
             transform { it.content }.isEqualTo(content)
             transform { it.languageHint }.isEqualTo(language)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
             transform { it.children }.isEmpty()
         }
     }
@@ -95,7 +95,7 @@ class DefaultNodeFactoryTest {
         assertThat(result).all {
             transform { it.content }.isEqualTo(content)
             transform { it.languageHint }.isEqualTo(language)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
             transform { it.children }.isEmpty()
         }
     }
@@ -119,7 +119,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -140,7 +140,7 @@ class DefaultNodeFactoryTest {
         val result = systemUnderTest.divider(metadata)
 
         assertThat(result).all {
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
             transform { it.children }.isEmpty()
         }
     }
@@ -164,7 +164,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -191,7 +191,7 @@ class DefaultNodeFactoryTest {
         assertThat(result).all {
             transform { it.level }.isEqualTo(level)
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -219,7 +219,7 @@ class DefaultNodeFactoryTest {
         assertThat(result).all {
             transform { it.destination }.isEqualTo(destination)
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -242,7 +242,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -265,7 +265,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -288,7 +288,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -311,7 +311,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 
@@ -337,7 +337,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.text }.isEqualTo(content)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
             transform { it.children }.isEmpty()
         }
     }
@@ -361,7 +361,7 @@ class DefaultNodeFactoryTest {
 
         assertThat(result).all {
             transform { it.children }.isEqualTo(children)
-            transform { it.metadata }.isSameAs(metadata)
+            transform { it.metadata }.isSameInstanceAs(metadata)
         }
     }
 

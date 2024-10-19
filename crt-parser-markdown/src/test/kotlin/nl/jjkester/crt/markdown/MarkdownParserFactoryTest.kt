@@ -56,7 +56,7 @@ class MarkdownParserFactoryTest {
             transform { it.parserModules }
                 .all {
                     hasSize(2)
-                    first().isSameAs(module)
+                    first().isSameInstanceAs(module)
                     transform { it.last() }
                         .isInstanceOf<DefaultMarkdownParserModule>()
                         .transform { it.textFallback }.isTrue()
@@ -80,7 +80,7 @@ class MarkdownParserFactoryTest {
         }
 
         assertThat(result).all {
-            transform { it.parserModules }.single().isSameAs(module)
+            transform { it.parserModules }.single().isSameInstanceAs(module)
         }
     }
 }

@@ -1,0 +1,44 @@
+public abstract interface class nl/jjkester/crt/dsl/BlockScope {
+	public abstract fun blockquote (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun code (Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun code (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun divider ()V
+	public abstract fun heading (ILkotlin/jvm/functions/Function1;)V
+	public abstract fun orderedList (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun paragraph (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun unorderedList (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class nl/jjkester/crt/dsl/BlockScope$DefaultImpls {
+	public static synthetic fun code$default (Lnl/jjkester/crt/dsl/BlockScope;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static synthetic fun code$default (Lnl/jjkester/crt/dsl/BlockScope;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public final class nl/jjkester/crt/dsl/DslKt {
+	public static final fun buildRichText (Lkotlin/jvm/functions/Function1;)Lnl/jjkester/crt/api/model/Node;
+}
+
+public abstract interface class nl/jjkester/crt/dsl/LeafScope {
+	public abstract fun unaryPlus (Ljava/lang/String;)V
+}
+
+public abstract interface class nl/jjkester/crt/dsl/ListScope {
+	public abstract fun listItem (Lkotlin/jvm/functions/Function1;)V
+}
+
+public abstract interface class nl/jjkester/crt/dsl/SpanScope {
+	public abstract fun code (Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun code (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun emphasis (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun link (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun strongEmphasis (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun text (Ljava/lang/String;)V
+	public abstract fun unaryPlus (Ljava/lang/String;)V
+}
+
+public final class nl/jjkester/crt/dsl/SpanScope$DefaultImpls {
+	public static synthetic fun code$default (Lnl/jjkester/crt/dsl/SpanScope;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static synthetic fun code$default (Lnl/jjkester/crt/dsl/SpanScope;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static fun unaryPlus (Lnl/jjkester/crt/dsl/SpanScope;Ljava/lang/String;)V
+}
+

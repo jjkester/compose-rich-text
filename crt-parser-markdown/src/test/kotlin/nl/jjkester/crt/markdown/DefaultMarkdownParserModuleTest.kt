@@ -3,7 +3,7 @@ package nl.jjkester.crt.markdown
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNull
-import assertk.assertions.isSameAs
+import assertk.assertions.isSameInstanceAs
 import nl.jjkester.crt.api.annotations.InternalFactoryApi
 import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.factory.*
@@ -71,7 +71,7 @@ internal class DefaultMarkdownParserModuleTest {
         val result = systemUnderTest.parse(markdownNode) { null }
 
         assertThat(result).apply {
-            if (fallback) isSameAs(paragraph) else isNull()
+            if (fallback) isSameInstanceAs(paragraph) else isNull()
         }
 
         if (fallback) {
@@ -96,7 +96,7 @@ internal class DefaultMarkdownParserModuleTest {
         val result = systemUnderTest.parse(markdownNode) { null }
 
         assertThat(result).apply {
-            if (fallback) isSameAs(node) else isNull()
+            if (fallback) isSameInstanceAs(node) else isNull()
         }
 
         if (fallback) verify(nodeFactory).text("html literal")
@@ -120,7 +120,7 @@ internal class DefaultMarkdownParserModuleTest {
         val result = systemUnderTest.parse(markdownNode) { null }
 
         assertThat(result).apply {
-            if (fallback) isSameAs(link) else isNull()
+            if (fallback) isSameInstanceAs(link) else isNull()
         }
 
         if (fallback) {
@@ -147,7 +147,7 @@ internal class DefaultMarkdownParserModuleTest {
         val result = systemUnderTest.parse(markdownNode) { null }
 
         assertThat(result).apply {
-            if (fallback) isSameAs(link) else isNull()
+            if (fallback) isSameInstanceAs(link) else isNull()
         }
 
         if (fallback) {

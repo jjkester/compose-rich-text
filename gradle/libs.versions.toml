@@ -16,13 +16,16 @@ test-screenshot = "0.0.1-alpha07"
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-text = { module = "androidx.compose.ui:ui-text" }
-compose-runtime = { module = "androidx.compose.runtime:runtime" }
-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-ui-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-textGoogleFonts = { module = "androidx.compose.ui:ui-text-google-fonts" }
+compose-runtime = { module = "androidx.compose.runtime:runtime" }
+compose-runtime-tracing = { module = "androidx.compose.runtime:runtime-tracing" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
 jetpack-activity = { module = "androidx.activity:activity-compose", version.ref = "jetpack-activity" }
 jetpack-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jetpack-lifecycle" }
 jetpack-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "jetpack-navigation" }

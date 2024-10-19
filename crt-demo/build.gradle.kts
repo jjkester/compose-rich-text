@@ -38,15 +38,13 @@ dependencies {
     // App UI
     implementation(platform(libs.compose.bom))
     implementation(libs.jetpack.activity)
-    implementation("androidx.compose.material3:material3")
-    implementation(libs.compose.foundation) // TODO: Only necessary for beta version
-    implementation(libs.compose.ui.text) // TODO: Only necessary for beta version
+    implementation(libs.compose.material3)
     implementation(libs.jetpack.viewmodel)
     implementation(libs.compose.ui.toolingPreview)
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.jetpack.navigation)
-    implementation("androidx.compose.ui:ui-text-google-fonts")
-    implementation("androidx.compose.runtime:runtime-tracing:1.0.0-beta01")
+    implementation(libs.compose.ui.textGoogleFonts)
+    implementation(libs.compose.runtime.tracing)
 
     // Project dependencies
     implementation(project(":crt-api"))

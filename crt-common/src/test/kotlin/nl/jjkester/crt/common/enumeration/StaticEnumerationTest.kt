@@ -3,7 +3,7 @@ package nl.jjkester.crt.common.enumeration
 import assertk.all
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import assertk.assertions.isSameAs
+import assertk.assertions.isSameInstanceAs
 import org.junit.jupiter.api.Test
 
 class StaticEnumerationTest {
@@ -14,7 +14,7 @@ class StaticEnumerationTest {
         val enumeration = StaticEnumeration({ "parent" }, child)
 
         assertThat(enumeration).all {
-            transform { it.child }.isSameAs(child)
+            transform { it.child }.isSameInstanceAs(child)
             transform { it.iterator().next() }.isEqualTo("parent")
         }
     }
@@ -24,7 +24,7 @@ class StaticEnumerationTest {
         val enumeration = StaticEnumeration({ "parent" })
 
         assertThat(enumeration).all {
-            transform { it.child }.isSameAs(enumeration)
+            transform { it.child }.isSameInstanceAs(enumeration)
         }
     }
 }
