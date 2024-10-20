@@ -4,6 +4,8 @@ import assertk.all
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isGreaterThan
+import kotlinx.io.Buffer
+import kotlinx.io.writeString
 import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.model.Text
 import org.commonmark.node.Node as CommonMarkNode
@@ -67,12 +69,13 @@ class MarkdownParserTest {
     fun `parsing an input stream`() {
         val markdownNode = mock<CommonMarkNode>()
         val node = Text("result", null)
-        val inputStream = "input".byteInputStream()
 
         commonMarkParser.stub { on { parseReader(any()) } doReturn markdownNode }
         firstParserModule.stub { on { parse(any(), any()) } doReturn node }
 
-        val result = systemUnderTest.parse(inputStream)
+        val result = Buffer().apply { writeString("input") }.use { source ->
+            systemUnderTest.parse(source)
+        }
 
         assertThat(result).all {
             transform { it.rootNode }.isEqualTo(node)

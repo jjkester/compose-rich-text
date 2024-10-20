@@ -13,6 +13,7 @@ import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserResult
+import nl.jjkester.crt.api.parser.parse
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
 import nl.jjkester.crt.compose.renderer.ComposeRenderer
 import java.io.InputStream

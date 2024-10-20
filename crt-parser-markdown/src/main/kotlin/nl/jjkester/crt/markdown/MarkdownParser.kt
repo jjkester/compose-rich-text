@@ -1,12 +1,13 @@
 package nl.jjkester.crt.markdown
 
+import kotlinx.io.Source
+import kotlinx.io.asInputStream
 import nl.jjkester.crt.api.annotations.InternalFactoryApi
 import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.factory.DefaultNodeFactory
 import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserMetrics
-import java.io.InputStream
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
@@ -36,8 +37,8 @@ public class MarkdownParser internal constructor(
         parser.parse(input)
     }
 
-    override fun parse(inputStream: InputStream): MarkdownParserResult = parseInternal {
-        inputStream.reader().use { reader ->
+    override fun parse(source: Source): MarkdownParserResult = parseInternal {
+        source.asInputStream().reader().use { reader ->
             parser.parseReader(reader)
         }
     }
