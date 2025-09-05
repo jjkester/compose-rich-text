@@ -263,8 +263,8 @@ public abstract class nl/jjkester/crt/api/parser/AbstractParserFactory : nl/jjke
 }
 
 public abstract interface class nl/jjkester/crt/api/parser/Parser {
-	public abstract fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/api/parser/ParserResult;
 	public abstract fun parse (Ljava/lang/String;)Lnl/jjkester/crt/api/parser/ParserResult;
+	public abstract fun parse (Lkotlinx/io/Source;)Lnl/jjkester/crt/api/parser/ParserResult;
 }
 
 public abstract interface class nl/jjkester/crt/api/parser/ParserFactory {
@@ -273,6 +273,10 @@ public abstract interface class nl/jjkester/crt/api/parser/ParserFactory {
 	public abstract fun getModules ()Ljava/util/List;
 	public abstract fun setCollectDebugInfo (Z)V
 	public abstract fun setModules (Ljava/util/List;)V
+}
+
+public final class nl/jjkester/crt/api/parser/ParserJvmKt {
+	public static final fun parse (Lnl/jjkester/crt/api/parser/Parser;Ljava/io/InputStream;)Lnl/jjkester/crt/api/parser/ParserResult;
 }
 
 public final class nl/jjkester/crt/api/parser/ParserMetrics {

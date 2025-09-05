@@ -1,8 +1,8 @@
 public final class nl/jjkester/crt/markdown/MarkdownParser : nl/jjkester/crt/api/parser/Parser {
-	public synthetic fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/api/parser/ParserResult;
-	public fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/markdown/MarkdownParserResult;
 	public synthetic fun parse (Ljava/lang/String;)Lnl/jjkester/crt/api/parser/ParserResult;
 	public fun parse (Ljava/lang/String;)Lnl/jjkester/crt/markdown/MarkdownParserResult;
+	public synthetic fun parse (Lkotlinx/io/Source;)Lnl/jjkester/crt/api/parser/ParserResult;
+	public fun parse (Lkotlinx/io/Source;)Lnl/jjkester/crt/markdown/MarkdownParserResult;
 }
 
 public final class nl/jjkester/crt/markdown/MarkdownParserFactory : nl/jjkester/crt/api/parser/AbstractParserFactory {
