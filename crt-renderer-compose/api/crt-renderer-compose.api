@@ -60,9 +60,8 @@ public abstract interface class nl/jjkester/crt/compose/renderer/ComposableBlock
 
 public final class nl/jjkester/crt/compose/renderer/ComposableSingletons$DefaultComposableBlockTransformerKt {
 	public static final field INSTANCE Lnl/jjkester/crt/compose/renderer/ComposableSingletons$DefaultComposableBlockTransformerKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
 	public fun <init> ()V
-	public final fun getLambda-1$crt_renderer_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$964680374$crt_renderer_compose_release ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class nl/jjkester/crt/compose/renderer/ComposeRenderer : nl/jjkester/crt/api/renderer/Renderer {

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 plugins {
     `project-android-library`
 }
@@ -18,11 +20,20 @@ android {
 dependencies {
     api(libs.slf4j.api)
 
+    testImplementation(platform(libs.test.junit.bom))
     testImplementation(libs.test.junit.jupiter)
+    testRuntimeOnly(libs.test.junit.platformLauncher)
     testImplementation(libs.test.assertk)
     testImplementation(libs.test.mockito)
 }
 
-apiValidation {
-    ignoredClasses.add("${android.namespace}.BuildConfig")
+kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation {
+        filters {
+            exclude {
+                byNames.add("${android.namespace}.BuildConfig")
+            }
+        }
+    }
 }

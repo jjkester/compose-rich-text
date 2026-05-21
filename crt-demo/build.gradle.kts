@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "nl.jjkester.crt.demo"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "nl.jjkester.crt.demo"
@@ -16,7 +16,7 @@ android {
         versionName = "${project.version}"
 
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["disableAnalytics"] = "true"
@@ -39,6 +39,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.jetpack.activity)
     implementation(libs.compose.material3)
+    implementation(libs.compose.material.icons)
     implementation(libs.jetpack.viewmodel)
     implementation(libs.compose.ui.toolingPreview)
     debugImplementation(libs.compose.ui.tooling)

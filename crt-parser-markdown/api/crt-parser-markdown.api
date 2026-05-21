@@ -22,7 +22,7 @@ public final class nl/jjkester/crt/markdown/MarkdownParserFactory$Companion {
 }
 
 public abstract interface class nl/jjkester/crt/markdown/MarkdownParserModule : nl/jjkester/crt/api/parser/ParserModule {
-	public abstract fun getExtension ()Lorg/commonmark/parser/Parser$ParserExtension;
+	public fun getExtension ()Lorg/commonmark/parser/Parser$ParserExtension;
 }
 
 public final class nl/jjkester/crt/markdown/MarkdownParserModule$DefaultImpls {

@@ -15,14 +15,14 @@ import nl.jjkester.crt.dsl.BlockScope
 import nl.jjkester.crt.dsl.buildRichText
 
 @Composable
-fun RichTextTestCase(rootNode: Node) {
+internal fun RichTextTestCase(rootNode: Node) {
     val state = rememberRichTextState(rootNode)
     val richTextStyle = rememberBasicRichTextStyle(Color.Black, PaddingValues(8.dp))
     RichText(state = state, linkHandler = TestLinkHandler, richTextStyle = richTextStyle)
 }
 
 @Composable
-fun RichTextTestCase(builder: BlockScope.() -> Unit) {
+internal fun RichTextTestCase(builder: BlockScope.() -> Unit) {
     val rootNode = remember(builder) { buildRichText(builder) }
     RichTextTestCase(rootNode)
 }

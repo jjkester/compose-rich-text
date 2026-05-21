@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import nl.jjkester.crt.compose.test.RichTextTestCase
 
-class RichTextTest {
+internal class RichTextTest {
 
     @Preview(showBackground = true)
     @Composable

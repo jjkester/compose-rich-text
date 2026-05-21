@@ -21,5 +21,7 @@ dependencies {
 
     screenshotTestImplementation(project(":crt-dsl"))
     screenshotTestImplementation(libs.compose.ui.tooling)
+    screenshotTestImplementation(platform(libs.test.junit.bom))
     screenshotTestImplementation(libs.test.junit.jupiter)
+    screenshotTestRuntimeOnly(libs.test.junit.platformLauncher)
 }
