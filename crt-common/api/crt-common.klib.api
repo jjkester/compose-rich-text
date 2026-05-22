@@ -1,0 +1,40 @@
+// Klib ABI Dump
+// Targets: [iosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <nl.jjkester.crt:crt-common>
+sealed interface <#A: out kotlin/Any> nl.jjkester.crt.common.enumeration/Enumeration : kotlin.collections/Iterable<#A> { // nl.jjkester.crt.common.enumeration/Enumeration|null[0]
+    abstract val child // nl.jjkester.crt.common.enumeration/Enumeration.child|{}child[0]
+        abstract fun <get-child>(): nl.jjkester.crt.common.enumeration/Enumeration<#A> // nl.jjkester.crt.common.enumeration/Enumeration.child.<get-child>|<get-child>(){}[0]
+
+    abstract fun iterator(): kotlin.collections/Iterator<#A> // nl.jjkester.crt.common.enumeration/Enumeration.iterator|iterator(){}[0]
+
+    abstract interface <#A1: out kotlin/Any> Counting : nl.jjkester.crt.common.enumeration/Enumeration<#A1> // nl.jjkester.crt.common.enumeration/Enumeration.Counting|null[0]
+
+    abstract interface <#A1: out kotlin/Any> Fixed : nl.jjkester.crt.common.enumeration/Enumeration<#A1> // nl.jjkester.crt.common.enumeration/Enumeration.Fixed|null[0]
+}
+
+abstract class <#A: kotlin/Any> nl.jjkester.crt.common.enumeration/EnumerationFactory { // nl.jjkester.crt.common.enumeration/EnumerationFactory|null[0]
+    constructor <init>() // nl.jjkester.crt.common.enumeration/EnumerationFactory.<init>|<init>(){}[0]
+
+    final val alphanumeric // nl.jjkester.crt.common.enumeration/EnumerationFactory.alphanumeric|{}alphanumeric[0]
+        final fun <get-alphanumeric>(): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.alphanumeric.<get-alphanumeric>|<get-alphanumeric>(){}[0]
+    final val bulleted // nl.jjkester.crt.common.enumeration/EnumerationFactory.bulleted|{}bulleted[0]
+        final fun <get-bulleted>(): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.bulleted.<get-bulleted>|<get-bulleted>(){}[0]
+
+    abstract fun convert(kotlin/String): #A // nl.jjkester.crt.common.enumeration/EnumerationFactory.convert|convert(kotlin.String){}[0]
+    final fun bullets(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.bullets|bullets(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun counting(kotlin.sequences/Sequence<kotlin/String>, kotlin/Array<out kotlin.sequences/Sequence<kotlin/String>>...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.counting|counting(kotlin.sequences.Sequence<kotlin.String>;kotlin.Array<out|kotlin.sequences.Sequence<kotlin.String>>...){}[0]
+    final fun counting(kotlin.sequences/Sequence<kotlin/String>, nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.counting|counting(kotlin.sequences.Sequence<kotlin.String>;nl.jjkester.crt.common.enumeration.Enumeration<1:0>?){}[0]
+    final fun dashes(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.dashes|dashes(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun fixed(kotlin/String, kotlin/Array<out kotlin/String>...): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.fixed|fixed(kotlin.String;kotlin.Array<out|kotlin.String>...){}[0]
+    final fun fixed(kotlin/String, nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ...): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.fixed|fixed(kotlin.String;nl.jjkester.crt.common.enumeration.Enumeration<1:0>?){}[0]
+    final fun lowercaseLetters(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.lowercaseLetters|lowercaseLetters(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun lowercaseRomanNumerals(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.lowercaseRomanNumerals|lowercaseRomanNumerals(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun numbers(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.numbers|numbers(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun uppercaseLetters(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.uppercaseLetters|uppercaseLetters(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+    final fun uppercaseRomanNumerals(nl.jjkester.crt.common.enumeration/Enumeration<#A>? = ..., kotlin/Boolean = ...): nl.jjkester.crt.common.enumeration/Enumeration.Counting<#A> // nl.jjkester.crt.common.enumeration/EnumerationFactory.uppercaseRomanNumerals|uppercaseRomanNumerals(nl.jjkester.crt.common.enumeration.Enumeration<1:0>?;kotlin.Boolean){}[0]
+}

@@ -1,14 +1,25 @@
 plugins {
-    `project-library`
+    id("project-multiplatform-library")
 }
 
-dependencies {
-    api(project(":crt-api"))
-    api(libs.slf4j.api)
+kotlin {
+    jvm()
+    iosArm64()
+    
+    sourceSets {
+        commonMain.dependencies {
+            api(project(":crt-api"))
+        }
+        jvmMain.dependencies {
+            api(libs.slf4j.api)
+        }
+        jvmTest.dependencies {
+            implementation(project.dependencies.platform(libs.test.junit.bom))
+            implementation(libs.test.junit.jupiter)
+            runtimeOnly(libs.test.junit.platformLauncher)
+            implementation(libs.test.assertk)
+            implementation(libs.test.mockito)
+        }
 
-    testImplementation(platform(libs.test.junit.bom))
-    testImplementation(libs.test.junit.jupiter)
-    testRuntimeOnly(libs.test.junit.platformLauncher)
-    testImplementation(libs.test.assertk)
-    testImplementation(libs.test.mockito)
+    }
 }
