@@ -1,7 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
-
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.library)
     id("project-kdoc")
     id("project-publishing")
@@ -48,12 +45,4 @@ dependencies {
 
 kotlin {
     jvmToolchain(17)
-    @OptIn(ExperimentalAbiValidation::class)
-    abiValidation {
-        filters {
-            exclude {
-                byNames.add("${android.namespace}.BuildConfig")
-            }
-        }
-    }
 }

@@ -1,7 +1,6 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose)
     alias(libs.plugins.kotlin.compose)
