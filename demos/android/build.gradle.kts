@@ -1,9 +1,11 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.compose)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.android.screenshot)
 }
 
 android {
@@ -16,7 +18,6 @@ android {
         versionName = "${project.version}"
 
         minSdk = 24
-        targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["disableAnalytics"] = "true"
@@ -25,6 +26,9 @@ android {
     buildFeatures {
         buildConfig = true
     }
+
+    @Suppress("UnstableApiUsage")
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
 kotlin {
@@ -35,6 +39,13 @@ kotlin {
 }
 
 dependencies {
+    // Project dependencies
+    implementation(project(":crt-api"))
+    implementation(project(":crt-common"))
+    implementation(project(":crt-dsl"))
+    implementation(project(":crt-parser-markdown"))
+    implementation(project(":crt-renderer-compose"))
+
     // App UI
     implementation(platform(libs.compose.bom))
     implementation(libs.jetpack.activity)
@@ -47,13 +58,11 @@ dependencies {
     implementation(libs.compose.ui.textGoogleFonts)
     implementation(libs.compose.runtime.tracing)
 
-    // Project dependencies
-    implementation(project(":crt-api"))
-    implementation(project(":crt-common"))
-    implementation(project(":crt-parser-markdown"))
-    implementation(project(":crt-renderer-compose"))
-
+    // Project utils
     implementation(project(":utils:slf4j-android"))
+
+    // Testing
+    screenshotTestImplementation(libs.test.android.screenshot.validationApi)
 }
 
 // Copy project README to resources to use in the demo app
