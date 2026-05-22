@@ -1,16 +1,23 @@
 plugins {
-    `project-library`
+    id("project-library")
 }
 
-dependencies {
-    api(project(":crt-api"))
-    api(project(":crt-common"))
-    implementation("org.commonmark:commonmark:0.19.0")
-
-    testImplementation(platform(libs.test.junit.bom))
-    testImplementation(libs.test.junit.jupiter)
-    testRuntimeOnly(libs.test.junit.platformLauncher)
-    testImplementation(libs.test.assertk)
-    testImplementation(libs.test.mockito)
-    testImplementation(libs.kotlin.reflect)
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            api(project(":crt-api"))
+            api(project(":crt-common"))
+        }
+        jvmMain.dependencies {
+            implementation("org.commonmark:commonmark:0.19.0")
+        }
+        jvmTest.dependencies {
+            implementation(project.dependencies.platform(libs.test.junit.bom))
+            implementation(libs.test.junit.jupiter)
+            runtimeOnly(libs.test.junit.platformLauncher)
+            implementation(libs.test.assertk)
+            implementation(libs.test.mockito)
+            implementation(libs.kotlin.reflect)
+        }
+    }
 }
