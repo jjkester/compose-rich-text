@@ -1,5 +1,7 @@
 package nl.jjkester.crt.api.model
 
+import kotlin.jvm.JvmInline
+
 /**
  * Programming language for code snippets. The language is used for syntax highlighting.
  *

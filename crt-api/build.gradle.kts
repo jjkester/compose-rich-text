@@ -1,12 +1,22 @@
 plugins {
-    `project-library`
+    id("project-multiplatform-library")
 }
 
-dependencies {
-    testImplementation(platform(libs.test.junit.bom))
-    testImplementation(libs.test.junit.jupiter)
-    testRuntimeOnly(libs.test.junit.platformLauncher)
-    testImplementation(libs.test.assertk)
-    testImplementation(libs.test.mockito)
-    testImplementation(libs.kotlin.reflect)
+kotlin {
+    jvm()
+    iosArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.kotlinx.io)
+        }
+        jvmTest.dependencies {
+            implementation(project.dependencies.platform(libs.test.junit.bom))
+            implementation(libs.test.junit.jupiter)
+            runtimeOnly(libs.test.junit.platformLauncher)
+            implementation(libs.test.assertk)
+            implementation(libs.test.mockito)
+            implementation(libs.kotlin.reflect)
+        }
+    }
 }

@@ -1,0 +1,383 @@
+// Klib ABI Dump
+// Targets: [iosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <nl.jjkester.crt:crt-api>
+open annotation class nl.jjkester.crt.api.annotations/InternalFactoryApi : kotlin/Annotation { // nl.jjkester.crt.api.annotations/InternalFactoryApi|null[0]
+    constructor <init>() // nl.jjkester.crt.api.annotations/InternalFactoryApi.<init>|<init>(){}[0]
+}
+
+open annotation class nl.jjkester.crt.api.annotations/InternalParserApi : kotlin/Annotation { // nl.jjkester.crt.api.annotations/InternalParserApi|null[0]
+    constructor <init>() // nl.jjkester.crt.api.annotations/InternalParserApi.<init>|<init>(){}[0]
+}
+
+open annotation class nl.jjkester.crt.api.annotations/InternalRendererApi : kotlin/Annotation { // nl.jjkester.crt.api.annotations/InternalRendererApi|null[0]
+    constructor <init>() // nl.jjkester.crt.api.annotations/InternalRendererApi.<init>|<init>(){}[0]
+}
+
+abstract interface <#A: kotlin/Any, #B: kotlin/Any> nl.jjkester.crt.api.parser/ParserModule { // nl.jjkester.crt.api.parser/ParserModule|null[0]
+    abstract fun parse(#A, kotlin/Function1<#A, #B?>): #B? // nl.jjkester.crt.api.parser/ParserModule.parse|parse(1:0;kotlin.Function1<1:0,1:1?>){}[0]
+}
+
+abstract interface <#A: nl.jjkester.crt.api.parser/ParserModule<*, *>, #B: out nl.jjkester.crt.api.parser/ParserResult> nl.jjkester.crt.api.parser/ParserFactory { // nl.jjkester.crt.api.parser/ParserFactory|null[0]
+    abstract var collectDebugInfo // nl.jjkester.crt.api.parser/ParserFactory.collectDebugInfo|{}collectDebugInfo[0]
+        abstract fun <get-collectDebugInfo>(): kotlin/Boolean // nl.jjkester.crt.api.parser/ParserFactory.collectDebugInfo.<get-collectDebugInfo>|<get-collectDebugInfo>(){}[0]
+        abstract fun <set-collectDebugInfo>(kotlin/Boolean) // nl.jjkester.crt.api.parser/ParserFactory.collectDebugInfo.<set-collectDebugInfo>|<set-collectDebugInfo>(kotlin.Boolean){}[0]
+    abstract var modules // nl.jjkester.crt.api.parser/ParserFactory.modules|{}modules[0]
+        abstract fun <get-modules>(): kotlin.collections/List<#A> // nl.jjkester.crt.api.parser/ParserFactory.modules.<get-modules>|<get-modules>(){}[0]
+        abstract fun <set-modules>(kotlin.collections/List<#A>) // nl.jjkester.crt.api.parser/ParserFactory.modules.<set-modules>|<set-modules>(kotlin.collections.List<1:0>){}[0]
+
+    abstract fun create(): nl.jjkester.crt.api.parser/Parser<#B> // nl.jjkester.crt.api.parser/ParserFactory.create|create(){}[0]
+}
+
+abstract interface <#A: out kotlin/Any?> nl.jjkester.crt.api.renderer/BlockTransformer { // nl.jjkester.crt.api.renderer/BlockTransformer|null[0]
+    abstract fun blockquote(nl.jjkester.crt.api.model/Blockquote): #A // nl.jjkester.crt.api.renderer/BlockTransformer.blockquote|blockquote(nl.jjkester.crt.api.model.Blockquote){}[0]
+    abstract fun codeBlock(nl.jjkester.crt.api.model/CodeBlock): #A // nl.jjkester.crt.api.renderer/BlockTransformer.codeBlock|codeBlock(nl.jjkester.crt.api.model.CodeBlock){}[0]
+    abstract fun container(nl.jjkester.crt.api.model/Container): #A // nl.jjkester.crt.api.renderer/BlockTransformer.container|container(nl.jjkester.crt.api.model.Container){}[0]
+    abstract fun divider(nl.jjkester.crt.api.model/Divider): #A // nl.jjkester.crt.api.renderer/BlockTransformer.divider|divider(nl.jjkester.crt.api.model.Divider){}[0]
+    abstract fun heading(nl.jjkester.crt.api.model/Heading): #A // nl.jjkester.crt.api.renderer/BlockTransformer.heading|heading(nl.jjkester.crt.api.model.Heading){}[0]
+    abstract fun listItem(nl.jjkester.crt.api.model/ListItem): #A // nl.jjkester.crt.api.renderer/BlockTransformer.listItem|listItem(nl.jjkester.crt.api.model.ListItem){}[0]
+    abstract fun orderedList(nl.jjkester.crt.api.model/OrderedList): #A // nl.jjkester.crt.api.renderer/BlockTransformer.orderedList|orderedList(nl.jjkester.crt.api.model.OrderedList){}[0]
+    abstract fun paragraph(nl.jjkester.crt.api.model/Paragraph): #A // nl.jjkester.crt.api.renderer/BlockTransformer.paragraph|paragraph(nl.jjkester.crt.api.model.Paragraph){}[0]
+    abstract fun unorderedList(nl.jjkester.crt.api.model/UnorderedList): #A // nl.jjkester.crt.api.renderer/BlockTransformer.unorderedList|unorderedList(nl.jjkester.crt.api.model.UnorderedList){}[0]
+}
+
+abstract interface <#A: out kotlin/Any?> nl.jjkester.crt.api.renderer/Renderer { // nl.jjkester.crt.api.renderer/Renderer|null[0]
+    abstract fun render(nl.jjkester.crt.api.model/Node): #A // nl.jjkester.crt.api.renderer/Renderer.render|render(nl.jjkester.crt.api.model.Node){}[0]
+}
+
+abstract interface <#A: out kotlin/Any?> nl.jjkester.crt.api.renderer/SpanTransformer { // nl.jjkester.crt.api.renderer/SpanTransformer|null[0]
+    abstract fun code(nl.jjkester.crt.api.model/Code): #A // nl.jjkester.crt.api.renderer/SpanTransformer.code|code(nl.jjkester.crt.api.model.Code){}[0]
+    abstract fun emphasis(nl.jjkester.crt.api.model/Emphasis): #A // nl.jjkester.crt.api.renderer/SpanTransformer.emphasis|emphasis(nl.jjkester.crt.api.model.Emphasis){}[0]
+    abstract fun link(nl.jjkester.crt.api.model/Link): #A // nl.jjkester.crt.api.renderer/SpanTransformer.link|link(nl.jjkester.crt.api.model.Link){}[0]
+    abstract fun strongEmphasis(nl.jjkester.crt.api.model/StrongEmphasis): #A // nl.jjkester.crt.api.renderer/SpanTransformer.strongEmphasis|strongEmphasis(nl.jjkester.crt.api.model.StrongEmphasis){}[0]
+    abstract fun text(nl.jjkester.crt.api.model/Text): #A // nl.jjkester.crt.api.renderer/SpanTransformer.text|text(nl.jjkester.crt.api.model.Text){}[0]
+}
+
+abstract interface <#A: out kotlin/Any?> nl.jjkester.crt.api.renderer/Transformer : nl.jjkester.crt.api.renderer/BlockTransformer<#A>, nl.jjkester.crt.api.renderer/SpanTransformer<#A> // nl.jjkester.crt.api.renderer/Transformer|null[0]
+
+abstract interface <#A: out nl.jjkester.crt.api.parser/ParserResult> nl.jjkester.crt.api.parser/Parser { // nl.jjkester.crt.api.parser/Parser|null[0]
+    abstract fun parse(kotlin/String): #A // nl.jjkester.crt.api.parser/Parser.parse|parse(kotlin.String){}[0]
+    abstract fun parse(kotlinx.io/Source): #A // nl.jjkester.crt.api.parser/Parser.parse|parse(kotlinx.io.Source){}[0]
+}
+
+abstract interface nl.jjkester.crt.api.factory/NodeFactory { // nl.jjkester.crt.api.factory/NodeFactory|null[0]
+    abstract fun blockquote(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Blockquote // nl.jjkester.crt.api.factory/NodeFactory.blockquote|blockquote(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun code(kotlin/String, nl.jjkester.crt.api.model/Language? = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Code // nl.jjkester.crt.api.factory/NodeFactory.code|code(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun codeBlock(kotlin/String, nl.jjkester.crt.api.model/Language? = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/CodeBlock // nl.jjkester.crt.api.factory/NodeFactory.codeBlock|codeBlock(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun container(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Container // nl.jjkester.crt.api.factory/NodeFactory.container|container(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun divider(nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Divider // nl.jjkester.crt.api.factory/NodeFactory.divider|divider(nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun emphasis(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Emphasis // nl.jjkester.crt.api.factory/NodeFactory.emphasis|emphasis(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun heading(nl.jjkester.crt.api.model/Heading.Level, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Heading // nl.jjkester.crt.api.factory/NodeFactory.heading|heading(nl.jjkester.crt.api.model.Heading.Level;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun link(nl.jjkester.crt.api.model/Link.Destination, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Link // nl.jjkester.crt.api.factory/NodeFactory.link|link(nl.jjkester.crt.api.model.Link.Destination;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun listItem(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/ListItem // nl.jjkester.crt.api.factory/NodeFactory.listItem|listItem(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun orderedList(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/OrderedList // nl.jjkester.crt.api.factory/NodeFactory.orderedList|orderedList(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun paragraph(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Paragraph // nl.jjkester.crt.api.factory/NodeFactory.paragraph|paragraph(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun strongEmphasis(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/StrongEmphasis // nl.jjkester.crt.api.factory/NodeFactory.strongEmphasis|strongEmphasis(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun text(kotlin/String, nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Text // nl.jjkester.crt.api.factory/NodeFactory.text|text(kotlin.String;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    abstract fun unorderedList(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/UnorderedList // nl.jjkester.crt.api.factory/NodeFactory.unorderedList|unorderedList(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+}
+
+abstract interface nl.jjkester.crt.api.model/NodeMetadata { // nl.jjkester.crt.api.model/NodeMetadata|null[0]
+    abstract val sourceLocation // nl.jjkester.crt.api.model/NodeMetadata.sourceLocation|{}sourceLocation[0]
+        abstract fun <get-sourceLocation>(): nl.jjkester.crt.api.model/SourceLocation // nl.jjkester.crt.api.model/NodeMetadata.sourceLocation.<get-sourceLocation>|<get-sourceLocation>(){}[0]
+}
+
+abstract interface nl.jjkester.crt.api.parser/ParserResult { // nl.jjkester.crt.api.parser/ParserResult|null[0]
+    abstract val metrics // nl.jjkester.crt.api.parser/ParserResult.metrics|{}metrics[0]
+        abstract fun <get-metrics>(): nl.jjkester.crt.api.parser/ParserMetrics? // nl.jjkester.crt.api.parser/ParserResult.metrics.<get-metrics>|<get-metrics>(){}[0]
+    abstract val rootNode // nl.jjkester.crt.api.parser/ParserResult.rootNode|{}rootNode[0]
+        abstract fun <get-rootNode>(): nl.jjkester.crt.api.model/Node // nl.jjkester.crt.api.parser/ParserResult.rootNode.<get-rootNode>|<get-rootNode>(){}[0]
+}
+
+sealed interface nl.jjkester.crt.api.model/Node { // nl.jjkester.crt.api.model/Node|null[0]
+    abstract val children // nl.jjkester.crt.api.model/Node.children|{}children[0]
+        abstract fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node> // nl.jjkester.crt.api.model/Node.children.<get-children>|<get-children>(){}[0]
+    abstract val metadata // nl.jjkester.crt.api.model/Node.metadata|{}metadata[0]
+        abstract fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Node.metadata.<get-metadata>|<get-metadata>(){}[0]
+
+    sealed interface Block : nl.jjkester.crt.api.model/Node // nl.jjkester.crt.api.model/Node.Block|null[0]
+
+    sealed interface Span : nl.jjkester.crt.api.model/Node { // nl.jjkester.crt.api.model/Node.Span|null[0]
+        abstract val children // nl.jjkester.crt.api.model/Node.Span.children|{}children[0]
+            abstract fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/Node.Span.children.<get-children>|<get-children>(){}[0]
+    }
+}
+
+abstract class <#A: nl.jjkester.crt.api.parser/ParserModule<*, *>, #B: out nl.jjkester.crt.api.parser/ParserResult> nl.jjkester.crt.api.parser/AbstractParserFactory : nl.jjkester.crt.api.parser/ParserFactory<#A, #B> { // nl.jjkester.crt.api.parser/AbstractParserFactory|null[0]
+    constructor <init>() // nl.jjkester.crt.api.parser/AbstractParserFactory.<init>|<init>(){}[0]
+
+    open var collectDebugInfo // nl.jjkester.crt.api.parser/AbstractParserFactory.collectDebugInfo|{}collectDebugInfo[0]
+        open fun <get-collectDebugInfo>(): kotlin/Boolean // nl.jjkester.crt.api.parser/AbstractParserFactory.collectDebugInfo.<get-collectDebugInfo>|<get-collectDebugInfo>(){}[0]
+        open fun <set-collectDebugInfo>(kotlin/Boolean) // nl.jjkester.crt.api.parser/AbstractParserFactory.collectDebugInfo.<set-collectDebugInfo>|<set-collectDebugInfo>(kotlin.Boolean){}[0]
+    open var modules // nl.jjkester.crt.api.parser/AbstractParserFactory.modules|{}modules[0]
+        open fun <get-modules>(): kotlin.collections/List<#A> // nl.jjkester.crt.api.parser/AbstractParserFactory.modules.<get-modules>|<get-modules>(){}[0]
+        open fun <set-modules>(kotlin.collections/List<#A>) // nl.jjkester.crt.api.parser/AbstractParserFactory.modules.<set-modules>|<set-modules>(kotlin.collections.List<1:0>){}[0]
+}
+
+final class <#A: kotlin/Any?> nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer : nl.jjkester.crt.api.renderer/BlockTransformer<#A>, nl.jjkester.crt.api.renderer/Transformer<#A> { // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer|null[0]
+    constructor <init>(nl.jjkester.crt.api.renderer/BlockTransformer<#A>) // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.<init>|<init>(nl.jjkester.crt.api.renderer.BlockTransformer<1:0>){}[0]
+
+    final fun blockquote(nl.jjkester.crt.api.model/Blockquote): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.blockquote|blockquote(nl.jjkester.crt.api.model.Blockquote){}[0]
+    final fun code(nl.jjkester.crt.api.model/Code): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.code|code(nl.jjkester.crt.api.model.Code){}[0]
+    final fun codeBlock(nl.jjkester.crt.api.model/CodeBlock): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.codeBlock|codeBlock(nl.jjkester.crt.api.model.CodeBlock){}[0]
+    final fun container(nl.jjkester.crt.api.model/Container): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.container|container(nl.jjkester.crt.api.model.Container){}[0]
+    final fun divider(nl.jjkester.crt.api.model/Divider): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.divider|divider(nl.jjkester.crt.api.model.Divider){}[0]
+    final fun emphasis(nl.jjkester.crt.api.model/Emphasis): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.emphasis|emphasis(nl.jjkester.crt.api.model.Emphasis){}[0]
+    final fun heading(nl.jjkester.crt.api.model/Heading): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.heading|heading(nl.jjkester.crt.api.model.Heading){}[0]
+    final fun link(nl.jjkester.crt.api.model/Link): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.link|link(nl.jjkester.crt.api.model.Link){}[0]
+    final fun listItem(nl.jjkester.crt.api.model/ListItem): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.listItem|listItem(nl.jjkester.crt.api.model.ListItem){}[0]
+    final fun orderedList(nl.jjkester.crt.api.model/OrderedList): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.orderedList|orderedList(nl.jjkester.crt.api.model.OrderedList){}[0]
+    final fun paragraph(nl.jjkester.crt.api.model/Paragraph): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.paragraph|paragraph(nl.jjkester.crt.api.model.Paragraph){}[0]
+    final fun strongEmphasis(nl.jjkester.crt.api.model/StrongEmphasis): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.strongEmphasis|strongEmphasis(nl.jjkester.crt.api.model.StrongEmphasis){}[0]
+    final fun text(nl.jjkester.crt.api.model/Text): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.text|text(nl.jjkester.crt.api.model.Text){}[0]
+    final fun unorderedList(nl.jjkester.crt.api.model/UnorderedList): #A // nl.jjkester.crt.api.renderer/SpanAsParagraphTransformer.unorderedList|unorderedList(nl.jjkester.crt.api.model.UnorderedList){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Blockquote : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/Blockquote|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Blockquote.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Blockquote.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> // nl.jjkester.crt.api.model/Blockquote.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Blockquote.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Blockquote.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Code : nl.jjkester.crt.api.model/Node.Span { // nl.jjkester.crt.api.model/Code|null[0]
+    constructor <init>(kotlin/String, nl.jjkester.crt.api.model/Language?, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Code.<init>|<init>(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Code.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<kotlin/Nothing> // nl.jjkester.crt.api.model/Code.children.<get-children>|<get-children>(){}[0]
+    final val content // nl.jjkester.crt.api.model/Code.content|{}content[0]
+        final fun <get-content>(): kotlin/String // nl.jjkester.crt.api.model/Code.content.<get-content>|<get-content>(){}[0]
+    final val languageHint // nl.jjkester.crt.api.model/Code.languageHint|{}languageHint[0]
+        final fun <get-languageHint>(): nl.jjkester.crt.api.model/Language? // nl.jjkester.crt.api.model/Code.languageHint.<get-languageHint>|<get-languageHint>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Code.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Code.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/CodeBlock : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/CodeBlock|null[0]
+    constructor <init>(kotlin/String, nl.jjkester.crt.api.model/Language?, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/CodeBlock.<init>|<init>(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/CodeBlock.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<kotlin/Nothing> // nl.jjkester.crt.api.model/CodeBlock.children.<get-children>|<get-children>(){}[0]
+    final val content // nl.jjkester.crt.api.model/CodeBlock.content|{}content[0]
+        final fun <get-content>(): kotlin/String // nl.jjkester.crt.api.model/CodeBlock.content.<get-content>|<get-content>(){}[0]
+    final val languageHint // nl.jjkester.crt.api.model/CodeBlock.languageHint|{}languageHint[0]
+        final fun <get-languageHint>(): nl.jjkester.crt.api.model/Language? // nl.jjkester.crt.api.model/CodeBlock.languageHint.<get-languageHint>|<get-languageHint>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/CodeBlock.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/CodeBlock.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Container : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/Container|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Container.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Container.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> // nl.jjkester.crt.api.model/Container.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Container.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Container.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Divider : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/Divider|null[0]
+    constructor <init>(nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Divider.<init>|<init>(nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Divider.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<kotlin/Nothing> // nl.jjkester.crt.api.model/Divider.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Divider.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Divider.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Emphasis : nl.jjkester.crt.api.model/Node.Span { // nl.jjkester.crt.api.model/Emphasis|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Emphasis.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Emphasis.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/Emphasis.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Emphasis.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Emphasis.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Heading : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/Heading|null[0]
+    constructor <init>(nl.jjkester.crt.api.model/Heading.Level, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Heading.<init>|<init>(nl.jjkester.crt.api.model.Heading.Level;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Heading.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/Heading.children.<get-children>|<get-children>(){}[0]
+    final val level // nl.jjkester.crt.api.model/Heading.level|{}level[0]
+        final fun <get-level>(): nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.level.<get-level>|<get-level>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Heading.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Heading.metadata.<get-metadata>|<get-metadata>(){}[0]
+
+    sealed class Level : kotlin/Comparable<nl.jjkester.crt.api.model/Heading.Level> { // nl.jjkester.crt.api.model/Heading.Level|null[0]
+        open fun compareTo(nl.jjkester.crt.api.model/Heading.Level): kotlin/Int // nl.jjkester.crt.api.model/Heading.Level.compareTo|compareTo(nl.jjkester.crt.api.model.Heading.Level){}[0]
+        open fun toString(): kotlin/String // nl.jjkester.crt.api.model/Heading.Level.toString|toString(){}[0]
+
+        final object Companion { // nl.jjkester.crt.api.model/Heading.Level.Companion|null[0]
+            final fun fromIntOrNull(kotlin/Int): nl.jjkester.crt.api.model/Heading.Level? // nl.jjkester.crt.api.model/Heading.Level.Companion.fromIntOrNull|fromIntOrNull(kotlin.Int){}[0]
+        }
+
+        final object Five : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.Five|null[0]
+
+        final object Four : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.Four|null[0]
+
+        final object One : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.One|null[0]
+
+        final object Six : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.Six|null[0]
+
+        final object Three : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.Three|null[0]
+
+        final object Two : nl.jjkester.crt.api.model/Heading.Level // nl.jjkester.crt.api.model/Heading.Level.Two|null[0]
+    }
+}
+
+final class nl.jjkester.crt.api.model/Link : nl.jjkester.crt.api.model/Node.Span { // nl.jjkester.crt.api.model/Link|null[0]
+    constructor <init>(nl.jjkester.crt.api.model/Link.Destination, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Link.<init>|<init>(nl.jjkester.crt.api.model.Link.Destination;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Link.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/Link.children.<get-children>|<get-children>(){}[0]
+    final val destination // nl.jjkester.crt.api.model/Link.destination|{}destination[0]
+        final fun <get-destination>(): nl.jjkester.crt.api.model/Link.Destination // nl.jjkester.crt.api.model/Link.destination.<get-destination>|<get-destination>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Link.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Link.metadata.<get-metadata>|<get-metadata>(){}[0]
+
+    final value class Destination { // nl.jjkester.crt.api.model/Link.Destination|null[0]
+        constructor <init>(kotlin/String) // nl.jjkester.crt.api.model/Link.Destination.<init>|<init>(kotlin.String){}[0]
+
+        final val value // nl.jjkester.crt.api.model/Link.Destination.value|{}value[0]
+            final fun <get-value>(): kotlin/String // nl.jjkester.crt.api.model/Link.Destination.value.<get-value>|<get-value>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.api.model/Link.Destination.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // nl.jjkester.crt.api.model/Link.Destination.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // nl.jjkester.crt.api.model/Link.Destination.toString|toString(){}[0]
+    }
+}
+
+final class nl.jjkester.crt.api.model/ListItem : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/ListItem|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/ListItem.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/ListItem.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block> // nl.jjkester.crt.api.model/ListItem.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/ListItem.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/ListItem.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/OrderedList : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/OrderedList|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/OrderedList.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/OrderedList.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/ListItem> // nl.jjkester.crt.api.model/OrderedList.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/OrderedList.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/OrderedList.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Paragraph : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/Paragraph|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Paragraph.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Paragraph.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/Paragraph.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Paragraph.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Paragraph.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/SourceLocation { // nl.jjkester.crt.api.model/SourceLocation|null[0]
+    constructor <init>(kotlin/Int, kotlin/Int) // nl.jjkester.crt.api.model/SourceLocation.<init>|<init>(kotlin.Int;kotlin.Int){}[0]
+
+    final val column // nl.jjkester.crt.api.model/SourceLocation.column|{}column[0]
+        final fun <get-column>(): kotlin/Int // nl.jjkester.crt.api.model/SourceLocation.column.<get-column>|<get-column>(){}[0]
+    final val row // nl.jjkester.crt.api.model/SourceLocation.row|{}row[0]
+        final fun <get-row>(): kotlin/Int // nl.jjkester.crt.api.model/SourceLocation.row.<get-row>|<get-row>(){}[0]
+
+    final fun component1(): kotlin/Int // nl.jjkester.crt.api.model/SourceLocation.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // nl.jjkester.crt.api.model/SourceLocation.component2|component2(){}[0]
+    final fun copy(kotlin/Int = ..., kotlin/Int = ...): nl.jjkester.crt.api.model/SourceLocation // nl.jjkester.crt.api.model/SourceLocation.copy|copy(kotlin.Int;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.api.model/SourceLocation.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.api.model/SourceLocation.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.api.model/SourceLocation.toString|toString(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/StrongEmphasis : nl.jjkester.crt.api.model/Node.Span { // nl.jjkester.crt.api.model/StrongEmphasis|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/StrongEmphasis.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/StrongEmphasis.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> // nl.jjkester.crt.api.model/StrongEmphasis.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/StrongEmphasis.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/StrongEmphasis.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/Text : nl.jjkester.crt.api.model/Node.Span { // nl.jjkester.crt.api.model/Text|null[0]
+    constructor <init>(kotlin/String, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/Text.<init>|<init>(kotlin.String;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/Text.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<kotlin/Nothing> // nl.jjkester.crt.api.model/Text.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/Text.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/Text.metadata.<get-metadata>|<get-metadata>(){}[0]
+    final val text // nl.jjkester.crt.api.model/Text.text|{}text[0]
+        final fun <get-text>(): kotlin/String // nl.jjkester.crt.api.model/Text.text.<get-text>|<get-text>(){}[0]
+}
+
+final class nl.jjkester.crt.api.model/UnorderedList : nl.jjkester.crt.api.model/Node.Block { // nl.jjkester.crt.api.model/UnorderedList|null[0]
+    constructor <init>(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem>, nl.jjkester.crt.api.model/NodeMetadata?) // nl.jjkester.crt.api.model/UnorderedList.<init>|<init>(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+
+    final val children // nl.jjkester.crt.api.model/UnorderedList.children|{}children[0]
+        final fun <get-children>(): kotlin.collections/List<nl.jjkester.crt.api.model/ListItem> // nl.jjkester.crt.api.model/UnorderedList.children.<get-children>|<get-children>(){}[0]
+    final val metadata // nl.jjkester.crt.api.model/UnorderedList.metadata|{}metadata[0]
+        final fun <get-metadata>(): nl.jjkester.crt.api.model/NodeMetadata? // nl.jjkester.crt.api.model/UnorderedList.metadata.<get-metadata>|<get-metadata>(){}[0]
+}
+
+final class nl.jjkester.crt.api.parser/ParserMetrics { // nl.jjkester.crt.api.parser/ParserMetrics|null[0]
+    constructor <init>(kotlin.time/Duration, kotlin.time/Duration, kotlin.time/Duration) // nl.jjkester.crt.api.parser/ParserMetrics.<init>|<init>(kotlin.time.Duration;kotlin.time.Duration;kotlin.time.Duration){}[0]
+
+    final val fileReadTime // nl.jjkester.crt.api.parser/ParserMetrics.fileReadTime|{}fileReadTime[0]
+        final fun <get-fileReadTime>(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.fileReadTime.<get-fileReadTime>|<get-fileReadTime>(){}[0]
+    final val intermediateTransformTime // nl.jjkester.crt.api.parser/ParserMetrics.intermediateTransformTime|{}intermediateTransformTime[0]
+        final fun <get-intermediateTransformTime>(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.intermediateTransformTime.<get-intermediateTransformTime>|<get-intermediateTransformTime>(){}[0]
+    final val sourceParseTime // nl.jjkester.crt.api.parser/ParserMetrics.sourceParseTime|{}sourceParseTime[0]
+        final fun <get-sourceParseTime>(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.sourceParseTime.<get-sourceParseTime>|<get-sourceParseTime>(){}[0]
+    final val totalTime // nl.jjkester.crt.api.parser/ParserMetrics.totalTime|{}totalTime[0]
+        final fun <get-totalTime>(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.totalTime.<get-totalTime>|<get-totalTime>(){}[0]
+
+    final fun component1(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.component1|component1(){}[0]
+    final fun component2(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.component2|component2(){}[0]
+    final fun component3(): kotlin.time/Duration // nl.jjkester.crt.api.parser/ParserMetrics.component3|component3(){}[0]
+    final fun copy(kotlin.time/Duration = ..., kotlin.time/Duration = ..., kotlin.time/Duration = ...): nl.jjkester.crt.api.parser/ParserMetrics // nl.jjkester.crt.api.parser/ParserMetrics.copy|copy(kotlin.time.Duration;kotlin.time.Duration;kotlin.time.Duration){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.api.parser/ParserMetrics.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.api.parser/ParserMetrics.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.api.parser/ParserMetrics.toString|toString(){}[0]
+}
+
+final value class nl.jjkester.crt.api.model/Language { // nl.jjkester.crt.api.model/Language|null[0]
+    constructor <init>(kotlin/String) // nl.jjkester.crt.api.model/Language.<init>|<init>(kotlin.String){}[0]
+
+    final val value // nl.jjkester.crt.api.model/Language.value|{}value[0]
+        final fun <get-value>(): kotlin/String // nl.jjkester.crt.api.model/Language.value.<get-value>|<get-value>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.api.model/Language.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.api.model/Language.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.api.model/Language.toString|toString(){}[0]
+}
+
+final object nl.jjkester.crt.api.factory/DefaultNodeFactory : nl.jjkester.crt.api.factory/NodeFactory { // nl.jjkester.crt.api.factory/DefaultNodeFactory|null[0]
+    final fun blockquote(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Blockquote // nl.jjkester.crt.api.factory/DefaultNodeFactory.blockquote|blockquote(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun code(kotlin/String, nl.jjkester.crt.api.model/Language?, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Code // nl.jjkester.crt.api.factory/DefaultNodeFactory.code|code(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun codeBlock(kotlin/String, nl.jjkester.crt.api.model/Language?, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/CodeBlock // nl.jjkester.crt.api.factory/DefaultNodeFactory.codeBlock|codeBlock(kotlin.String;nl.jjkester.crt.api.model.Language?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun container(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Container // nl.jjkester.crt.api.factory/DefaultNodeFactory.container|container(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun divider(nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Divider // nl.jjkester.crt.api.factory/DefaultNodeFactory.divider|divider(nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun emphasis(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Emphasis // nl.jjkester.crt.api.factory/DefaultNodeFactory.emphasis|emphasis(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun heading(nl.jjkester.crt.api.model/Heading.Level, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Heading // nl.jjkester.crt.api.factory/DefaultNodeFactory.heading|heading(nl.jjkester.crt.api.model.Heading.Level;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun link(nl.jjkester.crt.api.model/Link.Destination, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Link // nl.jjkester.crt.api.factory/DefaultNodeFactory.link|link(nl.jjkester.crt.api.model.Link.Destination;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun listItem(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Block>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/ListItem // nl.jjkester.crt.api.factory/DefaultNodeFactory.listItem|listItem(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Block>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun orderedList(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/OrderedList // nl.jjkester.crt.api.factory/DefaultNodeFactory.orderedList|orderedList(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun paragraph(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Paragraph // nl.jjkester.crt.api.factory/DefaultNodeFactory.paragraph|paragraph(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun strongEmphasis(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/StrongEmphasis // nl.jjkester.crt.api.factory/DefaultNodeFactory.strongEmphasis|strongEmphasis(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun text(kotlin/String, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/Text // nl.jjkester.crt.api.factory/DefaultNodeFactory.text|text(kotlin.String;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+    final fun unorderedList(kotlin.collections/List<nl.jjkester.crt.api.model/ListItem>, nl.jjkester.crt.api.model/NodeMetadata?): nl.jjkester.crt.api.model/UnorderedList // nl.jjkester.crt.api.factory/DefaultNodeFactory.unorderedList|unorderedList(kotlin.collections.List<nl.jjkester.crt.api.model.ListItem>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+}
+
+final fun (nl.jjkester.crt.api.factory/NodeFactory).nl.jjkester.crt.api.factory/code(kotlin/String, kotlin/String? = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Code // nl.jjkester.crt.api.factory/code|code@nl.jjkester.crt.api.factory.NodeFactory(kotlin.String;kotlin.String?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+final fun (nl.jjkester.crt.api.factory/NodeFactory).nl.jjkester.crt.api.factory/codeBlock(kotlin/String, kotlin/String? = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/CodeBlock // nl.jjkester.crt.api.factory/codeBlock|codeBlock@nl.jjkester.crt.api.factory.NodeFactory(kotlin.String;kotlin.String?;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+final fun (nl.jjkester.crt.api.factory/NodeFactory).nl.jjkester.crt.api.factory/heading(kotlin/Int, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Heading // nl.jjkester.crt.api.factory/heading|heading@nl.jjkester.crt.api.factory.NodeFactory(kotlin.Int;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+final fun (nl.jjkester.crt.api.factory/NodeFactory).nl.jjkester.crt.api.factory/link(kotlin/String, kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span> = ..., nl.jjkester.crt.api.model/NodeMetadata? = ...): nl.jjkester.crt.api.model/Link // nl.jjkester.crt.api.factory/link|link@nl.jjkester.crt.api.factory.NodeFactory(kotlin.String;kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>;nl.jjkester.crt.api.model.NodeMetadata?){}[0]
+final fun <#A: kotlin/Any?> (nl.jjkester.crt.api.renderer/BlockTransformer<#A>).nl.jjkester.crt.api.renderer/transformBlock(nl.jjkester.crt.api.model/Node.Block): #A // nl.jjkester.crt.api.renderer/transformBlock|transformBlock@nl.jjkester.crt.api.renderer.BlockTransformer<0:0>(nl.jjkester.crt.api.model.Node.Block){0§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?> (nl.jjkester.crt.api.renderer/SpanTransformer<#A>).nl.jjkester.crt.api.renderer/transformSpan(nl.jjkester.crt.api.model/Node.Span): #A // nl.jjkester.crt.api.renderer/transformSpan|transformSpan@nl.jjkester.crt.api.renderer.SpanTransformer<0:0>(nl.jjkester.crt.api.model.Node.Span){0§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?> (nl.jjkester.crt.api.renderer/Transformer<#A>).nl.jjkester.crt.api.renderer/transform(nl.jjkester.crt.api.model/Node): #A // nl.jjkester.crt.api.renderer/transform|transform@nl.jjkester.crt.api.renderer.Transformer<0:0>(nl.jjkester.crt.api.model.Node){0§<kotlin.Any?>}[0]

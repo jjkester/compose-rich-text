@@ -1,5 +1,7 @@
 package nl.jjkester.crt.markdown
 
+import kotlinx.io.Source
+import kotlinx.io.asInputStream
 import nl.jjkester.crt.api.annotations.InternalFactoryApi
 import nl.jjkester.crt.api.annotations.InternalParserApi
 import nl.jjkester.crt.api.factory.DefaultNodeFactory
@@ -35,6 +37,8 @@ public class MarkdownParser internal constructor(
     override fun parse(input: String): MarkdownParserResult = parseInternal {
         parser.parse(input)
     }
+
+    override fun parse(source: Source): MarkdownParserResult = parse(source.asInputStream())
 
     override fun parse(inputStream: InputStream): MarkdownParserResult = parseInternal {
         inputStream.reader().use { reader ->

@@ -27,19 +27,33 @@ public final class nl/jjkester/crt/api/factory/DefaultNodeFactory : nl/jjkester/
 
 public abstract interface class nl/jjkester/crt/api/factory/NodeFactory {
 	public abstract fun blockquote (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Blockquote;
+	public static synthetic fun blockquote$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Blockquote;
 	public abstract fun code-vn_kUTU (Ljava/lang/String;Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Code;
+	public static synthetic fun code-vn_kUTU$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/lang/String;Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Code;
 	public abstract fun codeBlock-vn_kUTU (Ljava/lang/String;Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/CodeBlock;
+	public static synthetic fun codeBlock-vn_kUTU$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/lang/String;Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/CodeBlock;
 	public abstract fun container (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Container;
+	public static synthetic fun container$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Container;
 	public abstract fun divider (Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Divider;
+	public static synthetic fun divider$default (Lnl/jjkester/crt/api/factory/NodeFactory;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Divider;
 	public abstract fun emphasis (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Emphasis;
+	public static synthetic fun emphasis$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Emphasis;
 	public abstract fun heading (Lnl/jjkester/crt/api/model/Heading$Level;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Heading;
+	public static synthetic fun heading$default (Lnl/jjkester/crt/api/factory/NodeFactory;Lnl/jjkester/crt/api/model/Heading$Level;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Heading;
 	public abstract fun link-tZSIT74 (Ljava/lang/String;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Link;
+	public static synthetic fun link-tZSIT74$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/lang/String;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Link;
 	public abstract fun listItem (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/ListItem;
+	public static synthetic fun listItem$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/ListItem;
 	public abstract fun orderedList (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/OrderedList;
+	public static synthetic fun orderedList$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/OrderedList;
 	public abstract fun paragraph (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Paragraph;
+	public static synthetic fun paragraph$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Paragraph;
 	public abstract fun strongEmphasis (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/StrongEmphasis;
+	public static synthetic fun strongEmphasis$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/StrongEmphasis;
 	public abstract fun text (Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/Text;
+	public static synthetic fun text$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/lang/String;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/Text;
 	public abstract fun unorderedList (Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;)Lnl/jjkester/crt/api/model/UnorderedList;
+	public static synthetic fun unorderedList$default (Lnl/jjkester/crt/api/factory/NodeFactory;Ljava/util/List;Lnl/jjkester/crt/api/model/NodeMetadata;ILjava/lang/Object;)Lnl/jjkester/crt/api/model/UnorderedList;
 }
 
 public final class nl/jjkester/crt/api/factory/NodeFactory$DefaultImpls {
@@ -265,6 +279,7 @@ public abstract class nl/jjkester/crt/api/parser/AbstractParserFactory : nl/jjke
 public abstract interface class nl/jjkester/crt/api/parser/Parser {
 	public abstract fun parse (Ljava/io/InputStream;)Lnl/jjkester/crt/api/parser/ParserResult;
 	public abstract fun parse (Ljava/lang/String;)Lnl/jjkester/crt/api/parser/ParserResult;
+	public abstract fun parse (Lkotlinx/io/Source;)Lnl/jjkester/crt/api/parser/ParserResult;
 }
 
 public abstract interface class nl/jjkester/crt/api/parser/ParserFactory {

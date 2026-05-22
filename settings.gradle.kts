@@ -17,6 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild("build-logic")
 include(":crt-api")
 include(":crt-common")
 include(":crt-demo")
