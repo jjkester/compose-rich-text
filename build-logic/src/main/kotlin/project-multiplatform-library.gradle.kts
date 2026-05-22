@@ -8,6 +8,12 @@ plugins {
 }
 
 kotlin {
+    // Targets
+    jvm()
+    iosArm64()
+    iosSimulatorArm64()
+
+    // Kotlin settings
     explicitApi()
 
     @OptIn(ExperimentalAbiValidation::class)

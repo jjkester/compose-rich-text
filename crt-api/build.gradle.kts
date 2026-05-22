@@ -3,9 +3,6 @@ plugins {
 }
 
 kotlin {
-    jvm()
-    iosArm64()
-
     sourceSets {
         commonMain.dependencies {
             api(libs.kotlinx.io)
