@@ -1,0 +1,38 @@
+// Klib ABI Dump
+// Targets: [iosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <nl.jjkester.crt:crt-dsl>
+abstract interface nl.jjkester.crt.dsl/BlockScope { // nl.jjkester.crt.dsl/BlockScope|null[0]
+    abstract fun blockquote(kotlin/Function1<nl.jjkester.crt.dsl/BlockScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.blockquote|blockquote(kotlin.Function1<nl.jjkester.crt.dsl.BlockScope,kotlin.Unit>){}[0]
+    abstract fun code(kotlin/String, kotlin/String? = ...) // nl.jjkester.crt.dsl/BlockScope.code|code(kotlin.String;kotlin.String?){}[0]
+    abstract fun code(kotlin/String? = ..., kotlin/Function1<nl.jjkester.crt.dsl/LeafScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.code|code(kotlin.String?;kotlin.Function1<nl.jjkester.crt.dsl.LeafScope,kotlin.Unit>){}[0]
+    abstract fun divider() // nl.jjkester.crt.dsl/BlockScope.divider|divider(){}[0]
+    abstract fun heading(kotlin/Int, kotlin/Function1<nl.jjkester.crt.dsl/SpanScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.heading|heading(kotlin.Int;kotlin.Function1<nl.jjkester.crt.dsl.SpanScope,kotlin.Unit>){}[0]
+    abstract fun orderedList(kotlin/Function1<nl.jjkester.crt.dsl/ListScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.orderedList|orderedList(kotlin.Function1<nl.jjkester.crt.dsl.ListScope,kotlin.Unit>){}[0]
+    abstract fun paragraph(kotlin/Function1<nl.jjkester.crt.dsl/SpanScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.paragraph|paragraph(kotlin.Function1<nl.jjkester.crt.dsl.SpanScope,kotlin.Unit>){}[0]
+    abstract fun unorderedList(kotlin/Function1<nl.jjkester.crt.dsl/ListScope, kotlin/Unit>) // nl.jjkester.crt.dsl/BlockScope.unorderedList|unorderedList(kotlin.Function1<nl.jjkester.crt.dsl.ListScope,kotlin.Unit>){}[0]
+}
+
+abstract interface nl.jjkester.crt.dsl/LeafScope { // nl.jjkester.crt.dsl/LeafScope|null[0]
+    abstract fun (kotlin/String).unaryPlus() // nl.jjkester.crt.dsl/LeafScope.unaryPlus|unaryPlus@kotlin.String(){}[0]
+}
+
+abstract interface nl.jjkester.crt.dsl/ListScope { // nl.jjkester.crt.dsl/ListScope|null[0]
+    abstract fun listItem(kotlin/Function1<nl.jjkester.crt.dsl/BlockScope, kotlin/Unit>) // nl.jjkester.crt.dsl/ListScope.listItem|listItem(kotlin.Function1<nl.jjkester.crt.dsl.BlockScope,kotlin.Unit>){}[0]
+}
+
+abstract interface nl.jjkester.crt.dsl/SpanScope { // nl.jjkester.crt.dsl/SpanScope|null[0]
+    abstract fun code(kotlin/String, kotlin/String? = ...) // nl.jjkester.crt.dsl/SpanScope.code|code(kotlin.String;kotlin.String?){}[0]
+    abstract fun code(kotlin/String? = ..., kotlin/Function1<nl.jjkester.crt.dsl/LeafScope, kotlin/Unit>) // nl.jjkester.crt.dsl/SpanScope.code|code(kotlin.String?;kotlin.Function1<nl.jjkester.crt.dsl.LeafScope,kotlin.Unit>){}[0]
+    abstract fun emphasis(kotlin/Function1<nl.jjkester.crt.dsl/SpanScope, kotlin/Unit>) // nl.jjkester.crt.dsl/SpanScope.emphasis|emphasis(kotlin.Function1<nl.jjkester.crt.dsl.SpanScope,kotlin.Unit>){}[0]
+    abstract fun link(kotlin/String, kotlin/Function1<nl.jjkester.crt.dsl/SpanScope, kotlin/Unit>) // nl.jjkester.crt.dsl/SpanScope.link|link(kotlin.String;kotlin.Function1<nl.jjkester.crt.dsl.SpanScope,kotlin.Unit>){}[0]
+    abstract fun strongEmphasis(kotlin/Function1<nl.jjkester.crt.dsl/SpanScope, kotlin/Unit>) // nl.jjkester.crt.dsl/SpanScope.strongEmphasis|strongEmphasis(kotlin.Function1<nl.jjkester.crt.dsl.SpanScope,kotlin.Unit>){}[0]
+    abstract fun text(kotlin/String) // nl.jjkester.crt.dsl/SpanScope.text|text(kotlin.String){}[0]
+    open fun (kotlin/String).unaryPlus() // nl.jjkester.crt.dsl/SpanScope.unaryPlus|unaryPlus@kotlin.String(){}[0]
+}
+
+final fun nl.jjkester.crt.dsl/buildRichText(kotlin/Function1<nl.jjkester.crt.dsl/BlockScope, kotlin/Unit>): nl.jjkester.crt.api.model/Node // nl.jjkester.crt.dsl/buildRichText|buildRichText(kotlin.Function1<nl.jjkester.crt.dsl.BlockScope,kotlin.Unit>){}[0]
