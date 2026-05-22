@@ -1,21 +1,16 @@
 package nl.jjkester.crt.compose
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
+import kotlinx.io.Source
 import nl.jjkester.crt.api.annotations.InternalRendererApi
 import nl.jjkester.crt.api.model.Node
 import nl.jjkester.crt.api.parser.Parser
 import nl.jjkester.crt.api.parser.ParserResult
 import nl.jjkester.crt.compose.renderer.ComposableBlockTransformer
 import nl.jjkester.crt.compose.renderer.ComposeRenderer
-import java.io.InputStream
 
 /**
  * Encapsulates the state for the [RichText] and [LazyRichText] composables.
@@ -53,10 +48,10 @@ public class ParserRichTextState internal constructor(
         }
     }
 
-    internal suspend fun updateSource(inputStream: InputStream) {
+    internal suspend fun updateSource(source: Source) {
         updateSource {
             withContext(Dispatchers.IO) {
-                parser.parse(inputStream)
+                parser.parse(source)
             }
         }
     }
@@ -115,7 +110,7 @@ public fun rememberRichTextState(
  */
 @Composable
 public fun rememberRichTextState(
-    source: InputStream,
+    source: Source,
     parserFactory: () -> Parser<*>,
     renderer: ComposeRenderer = rememberRichTextRenderer()
 ): RichTextState = rememberRichTextState(parserFactory, renderer) { updateSource(source) }

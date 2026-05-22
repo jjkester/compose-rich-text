@@ -1,0 +1,251 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <nl.jjkester.crt:crt-renderer-compose>
+abstract fun interface nl.jjkester.crt.compose.text/LinkHandler { // nl.jjkester.crt.compose.text/LinkHandler|null[0]
+    abstract fun getAction(nl.jjkester.crt.api.model/Link.Destination): kotlin/Function0<kotlin/Unit>? // nl.jjkester.crt.compose.text/LinkHandler.getAction|getAction(nl.jjkester.crt.api.model.Link.Destination){}[0]
+
+    final object Companion { // nl.jjkester.crt.compose.text/LinkHandler.Companion|null[0]
+        final val Default // nl.jjkester.crt.compose.text/LinkHandler.Companion.Default|{}Default[0]
+            final fun <get-Default>(): nl.jjkester.crt.compose.text/LinkHandler // nl.jjkester.crt.compose.text/LinkHandler.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+abstract interface nl.jjkester.crt.compose.renderer/AnnotatedStringSpanTransformer : nl.jjkester.crt.api.renderer/SpanTransformer<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> { // nl.jjkester.crt.compose.renderer/AnnotatedStringSpanTransformer|null[0]
+    abstract fun transformAll(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AnnotatedStringSpanTransformer.transformAll|transformAll(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>){}[0]
+}
+
+abstract interface nl.jjkester.crt.compose.renderer/ComposableBlockTransformer : nl.jjkester.crt.api.renderer/BlockTransformer<kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>> { // nl.jjkester.crt.compose.renderer/ComposableBlockTransformer|null[0]
+    abstract fun container(kotlin.collections/List<kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>>): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/ComposableBlockTransformer.container|container(kotlin.collections.List<kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>>){}[0]
+}
+
+abstract interface nl.jjkester.crt.compose/RichTextState { // nl.jjkester.crt.compose/RichTextState|null[0]
+    abstract val isLoading // nl.jjkester.crt.compose/RichTextState.isLoading|{}isLoading[0]
+        abstract fun <get-isLoading>(): kotlin/Boolean // nl.jjkester.crt.compose/RichTextState.isLoading.<get-isLoading>|<get-isLoading>(){}[0]
+    abstract val result // nl.jjkester.crt.compose/RichTextState.result|{}result[0]
+        abstract fun <get-result>(): nl.jjkester.crt.compose.renderer/ComposeRenderer.Result? // nl.jjkester.crt.compose/RichTextState.result.<get-result>|<get-result>(){}[0]
+}
+
+abstract class nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer : nl.jjkester.crt.compose.renderer/AnnotatedStringSpanTransformer { // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer|null[0]
+    constructor <init>() // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.<init>|<init>(){}[0]
+
+    abstract fun (androidx.compose.ui.text/AnnotatedString.Builder).appendCode(nl.jjkester.crt.api.model/Code): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.appendCode|appendCode@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.Code){}[0]
+    abstract fun (androidx.compose.ui.text/AnnotatedString.Builder).appendEmphasis(nl.jjkester.crt.api.model/Emphasis): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.appendEmphasis|appendEmphasis@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.Emphasis){}[0]
+    abstract fun (androidx.compose.ui.text/AnnotatedString.Builder).appendLink(nl.jjkester.crt.api.model/Link): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.appendLink|appendLink@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.Link){}[0]
+    abstract fun (androidx.compose.ui.text/AnnotatedString.Builder).appendStrongEmphasis(nl.jjkester.crt.api.model/StrongEmphasis): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.appendStrongEmphasis|appendStrongEmphasis@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.StrongEmphasis){}[0]
+    abstract fun (androidx.compose.ui.text/AnnotatedString.Builder).appendText(nl.jjkester.crt.api.model/Text): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.appendText|appendText@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.Text){}[0]
+    final fun (androidx.compose.ui.text/AnnotatedString.Builder).transformAndAppend(nl.jjkester.crt.api.model/Node.Span): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.transformAndAppend|transformAndAppend@androidx.compose.ui.text.AnnotatedString.Builder(nl.jjkester.crt.api.model.Node.Span){}[0]
+    final fun code(nl.jjkester.crt.api.model/Code): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.code|code(nl.jjkester.crt.api.model.Code){}[0]
+    final fun emphasis(nl.jjkester.crt.api.model/Emphasis): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.emphasis|emphasis(nl.jjkester.crt.api.model.Emphasis){}[0]
+    final fun link(nl.jjkester.crt.api.model/Link): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.link|link(nl.jjkester.crt.api.model.Link){}[0]
+    final fun strongEmphasis(nl.jjkester.crt.api.model/StrongEmphasis): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.strongEmphasis|strongEmphasis(nl.jjkester.crt.api.model.StrongEmphasis){}[0]
+    final fun text(nl.jjkester.crt.api.model/Text): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.text|text(nl.jjkester.crt.api.model.Text){}[0]
+    final fun transformAll(kotlin.collections/List<nl.jjkester.crt.api.model/Node.Span>): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer.transformAll|transformAll(kotlin.collections.List<nl.jjkester.crt.api.model.Node.Span>){}[0]
+}
+
+final class nl.jjkester.crt.compose.renderer/ComposeRenderer : nl.jjkester.crt.api.renderer/Renderer<nl.jjkester.crt.compose.renderer/ComposeRenderer.Result> { // nl.jjkester.crt.compose.renderer/ComposeRenderer|null[0]
+    final fun render(nl.jjkester.crt.api.model/Node): nl.jjkester.crt.compose.renderer/ComposeRenderer.Result // nl.jjkester.crt.compose.renderer/ComposeRenderer.render|render(nl.jjkester.crt.api.model.Node){}[0]
+
+    final class Result // nl.jjkester.crt.compose.renderer/ComposeRenderer.Result|null[0]
+}
+
+final class nl.jjkester.crt.compose.renderer/DefaultAnnotatedStringSpanTransformer : nl.jjkester.crt.compose.renderer/AbstractAnnotatedStringSpanTransformer { // nl.jjkester.crt.compose.renderer/DefaultAnnotatedStringSpanTransformer|null[0]
+    constructor <init>(nl.jjkester.crt.compose.style/RichTextStyle, nl.jjkester.crt.compose.text/LinkHandler) // nl.jjkester.crt.compose.renderer/DefaultAnnotatedStringSpanTransformer.<init>|<init>(nl.jjkester.crt.compose.style.RichTextStyle;nl.jjkester.crt.compose.text.LinkHandler){}[0]
+}
+
+final class nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer : nl.jjkester.crt.compose.renderer/ComposableBlockTransformer { // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer|null[0]
+    constructor <init>(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, nl.jjkester.crt.compose.renderer/AnnotatedStringSpanTransformer>) // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.<init>|<init>(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,nl.jjkester.crt.compose.renderer.AnnotatedStringSpanTransformer>){}[0]
+
+    final fun blockquote(nl.jjkester.crt.api.model/Blockquote): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.blockquote|blockquote(nl.jjkester.crt.api.model.Blockquote){}[0]
+    final fun codeBlock(nl.jjkester.crt.api.model/CodeBlock): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.codeBlock|codeBlock(nl.jjkester.crt.api.model.CodeBlock){}[0]
+    final fun container(kotlin.collections/List<kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>>): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.container|container(kotlin.collections.List<kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>>){}[0]
+    final fun container(nl.jjkester.crt.api.model/Container): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.container|container(nl.jjkester.crt.api.model.Container){}[0]
+    final fun divider(nl.jjkester.crt.api.model/Divider): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.divider|divider(nl.jjkester.crt.api.model.Divider){}[0]
+    final fun heading(nl.jjkester.crt.api.model/Heading): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.heading|heading(nl.jjkester.crt.api.model.Heading){}[0]
+    final fun listItem(nl.jjkester.crt.api.model/ListItem): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.listItem|listItem(nl.jjkester.crt.api.model.ListItem){}[0]
+    final fun orderedList(nl.jjkester.crt.api.model/OrderedList): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.orderedList|orderedList(nl.jjkester.crt.api.model.OrderedList){}[0]
+    final fun paragraph(nl.jjkester.crt.api.model/Paragraph): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.paragraph|paragraph(nl.jjkester.crt.api.model.Paragraph){}[0]
+    final fun unorderedList(nl.jjkester.crt.api.model/UnorderedList): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // nl.jjkester.crt.compose.renderer/DefaultComposableBlockTransformer.unorderedList|unorderedList(nl.jjkester.crt.api.model.UnorderedList){}[0]
+}
+
+final class nl.jjkester.crt.compose.style/BlockquoteStyle { // nl.jjkester.crt.compose.style/BlockquoteStyle|null[0]
+    constructor <init>(androidx.compose.ui.text/TextStyle = ..., androidx.compose.foundation/BorderStroke? = ...) // nl.jjkester.crt.compose.style/BlockquoteStyle.<init>|<init>(androidx.compose.ui.text.TextStyle;androidx.compose.foundation.BorderStroke?){}[0]
+
+    final val border // nl.jjkester.crt.compose.style/BlockquoteStyle.border|{}border[0]
+        final fun <get-border>(): androidx.compose.foundation/BorderStroke? // nl.jjkester.crt.compose.style/BlockquoteStyle.border.<get-border>|<get-border>(){}[0]
+    final val text // nl.jjkester.crt.compose.style/BlockquoteStyle.text|{}text[0]
+        final fun <get-text>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/BlockquoteStyle.text.<get-text>|<get-text>(){}[0]
+
+    final fun component1(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/BlockquoteStyle.component1|component1(){}[0]
+    final fun component2(): androidx.compose.foundation/BorderStroke? // nl.jjkester.crt.compose.style/BlockquoteStyle.component2|component2(){}[0]
+    final fun copy(androidx.compose.ui.text/TextStyle = ..., androidx.compose.foundation/BorderStroke? = ...): nl.jjkester.crt.compose.style/BlockquoteStyle // nl.jjkester.crt.compose.style/BlockquoteStyle.copy|copy(androidx.compose.ui.text.TextStyle;androidx.compose.foundation.BorderStroke?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.compose.style/BlockquoteStyle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.compose.style/BlockquoteStyle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.compose.style/BlockquoteStyle.toString|toString(){}[0]
+
+    final object Companion { // nl.jjkester.crt.compose.style/BlockquoteStyle.Companion|null[0]
+        final val Default // nl.jjkester.crt.compose.style/BlockquoteStyle.Companion.Default|{}Default[0]
+            final fun <get-Default>(): nl.jjkester.crt.compose.style/BlockquoteStyle // nl.jjkester.crt.compose.style/BlockquoteStyle.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+final class nl.jjkester.crt.compose.style/EnumerationStyle { // nl.jjkester.crt.compose.style/EnumerationStyle|null[0]
+    constructor <init>(nl.jjkester.crt.common.enumeration/Enumeration.Counting<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> = ..., nl.jjkester.crt.common.enumeration/Enumeration.Fixed<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> = ...) // nl.jjkester.crt.compose.style/EnumerationStyle.<init>|<init>(nl.jjkester.crt.common.enumeration.Enumeration.Counting<nl.jjkester.crt.compose.text.AnnotatedStringWithExtras>;nl.jjkester.crt.common.enumeration.Enumeration.Fixed<nl.jjkester.crt.compose.text.AnnotatedStringWithExtras>){}[0]
+
+    final val ordered // nl.jjkester.crt.compose.style/EnumerationStyle.ordered|{}ordered[0]
+        final fun <get-ordered>(): nl.jjkester.crt.common.enumeration/Enumeration.Counting<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> // nl.jjkester.crt.compose.style/EnumerationStyle.ordered.<get-ordered>|<get-ordered>(){}[0]
+    final val unordered // nl.jjkester.crt.compose.style/EnumerationStyle.unordered|{}unordered[0]
+        final fun <get-unordered>(): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> // nl.jjkester.crt.compose.style/EnumerationStyle.unordered.<get-unordered>|<get-unordered>(){}[0]
+
+    final fun component1(): nl.jjkester.crt.common.enumeration/Enumeration.Counting<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> // nl.jjkester.crt.compose.style/EnumerationStyle.component1|component1(){}[0]
+    final fun component2(): nl.jjkester.crt.common.enumeration/Enumeration.Fixed<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> // nl.jjkester.crt.compose.style/EnumerationStyle.component2|component2(){}[0]
+    final fun copy(nl.jjkester.crt.common.enumeration/Enumeration.Counting<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> = ..., nl.jjkester.crt.common.enumeration/Enumeration.Fixed<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> = ...): nl.jjkester.crt.compose.style/EnumerationStyle // nl.jjkester.crt.compose.style/EnumerationStyle.copy|copy(nl.jjkester.crt.common.enumeration.Enumeration.Counting<nl.jjkester.crt.compose.text.AnnotatedStringWithExtras>;nl.jjkester.crt.common.enumeration.Enumeration.Fixed<nl.jjkester.crt.compose.text.AnnotatedStringWithExtras>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.compose.style/EnumerationStyle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.compose.style/EnumerationStyle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.compose.style/EnumerationStyle.toString|toString(){}[0]
+
+    final object Companion { // nl.jjkester.crt.compose.style/EnumerationStyle.Companion|null[0]
+        final val Default // nl.jjkester.crt.compose.style/EnumerationStyle.Companion.Default|{}Default[0]
+            final fun <get-Default>(): nl.jjkester.crt.compose.style/EnumerationStyle // nl.jjkester.crt.compose.style/EnumerationStyle.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+final class nl.jjkester.crt.compose.style/RichTextStyle { // nl.jjkester.crt.compose.style/RichTextStyle|null[0]
+    constructor <init>(androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., nl.jjkester.crt.compose.style/BlockquoteStyle = ..., nl.jjkester.crt.compose.style/EnumerationStyle = ..., androidx.compose.foundation/BorderStroke? = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/TextLinkStyles = ...) // nl.jjkester.crt.compose.style/RichTextStyle.<init>|<init>(androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;nl.jjkester.crt.compose.style.BlockquoteStyle;nl.jjkester.crt.compose.style.EnumerationStyle;androidx.compose.foundation.BorderStroke?;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.TextLinkStyles){}[0]
+
+    final val blockInset // nl.jjkester.crt.compose.style/RichTextStyle.blockInset|{}blockInset[0]
+        final fun <get-blockInset>(): androidx.compose.ui.unit/Dp // nl.jjkester.crt.compose.style/RichTextStyle.blockInset.<get-blockInset>|<get-blockInset>(){}[0]
+    final val blockSpacing // nl.jjkester.crt.compose.style/RichTextStyle.blockSpacing|{}blockSpacing[0]
+        final fun <get-blockSpacing>(): androidx.compose.ui.unit/Dp // nl.jjkester.crt.compose.style/RichTextStyle.blockSpacing.<get-blockSpacing>|<get-blockSpacing>(){}[0]
+    final val blockquote // nl.jjkester.crt.compose.style/RichTextStyle.blockquote|{}blockquote[0]
+        final fun <get-blockquote>(): nl.jjkester.crt.compose.style/BlockquoteStyle // nl.jjkester.crt.compose.style/RichTextStyle.blockquote.<get-blockquote>|<get-blockquote>(){}[0]
+    final val code // nl.jjkester.crt.compose.style/RichTextStyle.code|{}code[0]
+        final fun <get-code>(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.code.<get-code>|<get-code>(){}[0]
+    final val divider // nl.jjkester.crt.compose.style/RichTextStyle.divider|{}divider[0]
+        final fun <get-divider>(): androidx.compose.foundation/BorderStroke? // nl.jjkester.crt.compose.style/RichTextStyle.divider.<get-divider>|<get-divider>(){}[0]
+    final val emphasis // nl.jjkester.crt.compose.style/RichTextStyle.emphasis|{}emphasis[0]
+        final fun <get-emphasis>(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.emphasis.<get-emphasis>|<get-emphasis>(){}[0]
+    final val enumeration // nl.jjkester.crt.compose.style/RichTextStyle.enumeration|{}enumeration[0]
+        final fun <get-enumeration>(): nl.jjkester.crt.compose.style/EnumerationStyle // nl.jjkester.crt.compose.style/RichTextStyle.enumeration.<get-enumeration>|<get-enumeration>(){}[0]
+    final val h1 // nl.jjkester.crt.compose.style/RichTextStyle.h1|{}h1[0]
+        final fun <get-h1>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h1.<get-h1>|<get-h1>(){}[0]
+    final val h2 // nl.jjkester.crt.compose.style/RichTextStyle.h2|{}h2[0]
+        final fun <get-h2>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h2.<get-h2>|<get-h2>(){}[0]
+    final val h3 // nl.jjkester.crt.compose.style/RichTextStyle.h3|{}h3[0]
+        final fun <get-h3>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h3.<get-h3>|<get-h3>(){}[0]
+    final val h4 // nl.jjkester.crt.compose.style/RichTextStyle.h4|{}h4[0]
+        final fun <get-h4>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h4.<get-h4>|<get-h4>(){}[0]
+    final val h5 // nl.jjkester.crt.compose.style/RichTextStyle.h5|{}h5[0]
+        final fun <get-h5>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h5.<get-h5>|<get-h5>(){}[0]
+    final val h6 // nl.jjkester.crt.compose.style/RichTextStyle.h6|{}h6[0]
+        final fun <get-h6>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.h6.<get-h6>|<get-h6>(){}[0]
+    final val link // nl.jjkester.crt.compose.style/RichTextStyle.link|{}link[0]
+        final fun <get-link>(): androidx.compose.ui.text/TextLinkStyles // nl.jjkester.crt.compose.style/RichTextStyle.link.<get-link>|<get-link>(){}[0]
+    final val paragraph // nl.jjkester.crt.compose.style/RichTextStyle.paragraph|{}paragraph[0]
+        final fun <get-paragraph>(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.paragraph.<get-paragraph>|<get-paragraph>(){}[0]
+    final val strongEmphasis // nl.jjkester.crt.compose.style/RichTextStyle.strongEmphasis|{}strongEmphasis[0]
+        final fun <get-strongEmphasis>(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.strongEmphasis.<get-strongEmphasis>|<get-strongEmphasis>(){}[0]
+
+    final fun component1(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component1|component1(){}[0]
+    final fun component10(): androidx.compose.foundation/BorderStroke? // nl.jjkester.crt.compose.style/RichTextStyle.component10|component10(){}[0]
+    final fun component11(): androidx.compose.ui.unit/Dp // nl.jjkester.crt.compose.style/RichTextStyle.component11|component11(){}[0]
+    final fun component12(): androidx.compose.ui.unit/Dp // nl.jjkester.crt.compose.style/RichTextStyle.component12|component12(){}[0]
+    final fun component13(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.component13|component13(){}[0]
+    final fun component14(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.component14|component14(){}[0]
+    final fun component15(): androidx.compose.ui.text/SpanStyle // nl.jjkester.crt.compose.style/RichTextStyle.component15|component15(){}[0]
+    final fun component16(): androidx.compose.ui.text/TextLinkStyles // nl.jjkester.crt.compose.style/RichTextStyle.component16|component16(){}[0]
+    final fun component2(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component2|component2(){}[0]
+    final fun component3(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component3|component3(){}[0]
+    final fun component4(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component4|component4(){}[0]
+    final fun component5(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component5|component5(){}[0]
+    final fun component6(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component6|component6(){}[0]
+    final fun component7(): androidx.compose.ui.text/TextStyle // nl.jjkester.crt.compose.style/RichTextStyle.component7|component7(){}[0]
+    final fun component8(): nl.jjkester.crt.compose.style/BlockquoteStyle // nl.jjkester.crt.compose.style/RichTextStyle.component8|component8(){}[0]
+    final fun component9(): nl.jjkester.crt.compose.style/EnumerationStyle // nl.jjkester.crt.compose.style/RichTextStyle.component9|component9(){}[0]
+    final fun copy(androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., androidx.compose.ui.text/TextStyle = ..., nl.jjkester.crt.compose.style/BlockquoteStyle = ..., nl.jjkester.crt.compose.style/EnumerationStyle = ..., androidx.compose.foundation/BorderStroke? = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/SpanStyle = ..., androidx.compose.ui.text/TextLinkStyles = ...): nl.jjkester.crt.compose.style/RichTextStyle // nl.jjkester.crt.compose.style/RichTextStyle.copy|copy(androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;androidx.compose.ui.text.TextStyle;nl.jjkester.crt.compose.style.BlockquoteStyle;nl.jjkester.crt.compose.style.EnumerationStyle;androidx.compose.foundation.BorderStroke?;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.SpanStyle;androidx.compose.ui.text.TextLinkStyles){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.compose.style/RichTextStyle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.compose.style/RichTextStyle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.compose.style/RichTextStyle.toString|toString(){}[0]
+
+    final object Companion { // nl.jjkester.crt.compose.style/RichTextStyle.Companion|null[0]
+        final val Default // nl.jjkester.crt.compose.style/RichTextStyle.Companion.Default|{}Default[0]
+            final fun <get-Default>(): nl.jjkester.crt.compose.style/RichTextStyle // nl.jjkester.crt.compose.style/RichTextStyle.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+final class nl.jjkester.crt.compose.text/AnnotatedStringExtras { // nl.jjkester.crt.compose.text/AnnotatedStringExtras|null[0]
+    final object Companion { // nl.jjkester.crt.compose.text/AnnotatedStringExtras.Companion|null[0]
+        final val Empty // nl.jjkester.crt.compose.text/AnnotatedStringExtras.Companion.Empty|{}Empty[0]
+            final fun <get-Empty>(): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.text/AnnotatedStringExtras.Companion.Empty.<get-Empty>|<get-Empty>(){}[0]
+
+        final fun inlineContent(kotlin/String, androidx.compose.foundation.text/InlineTextContent): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.text/AnnotatedStringExtras.Companion.inlineContent|inlineContent(kotlin.String;androidx.compose.foundation.text.InlineTextContent){}[0]
+    }
+}
+
+final class nl.jjkester.crt.compose.text/AnnotatedStringWithExtras { // nl.jjkester.crt.compose.text/AnnotatedStringWithExtras|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // nl.jjkester.crt.compose.text/AnnotatedStringWithExtras.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // nl.jjkester.crt.compose.text/AnnotatedStringWithExtras.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // nl.jjkester.crt.compose.text/AnnotatedStringWithExtras.toString|toString(){}[0]
+}
+
+final class nl.jjkester.crt.compose/NodeRichTextState : nl.jjkester.crt.compose/RichTextState { // nl.jjkester.crt.compose/NodeRichTextState|null[0]
+    final val isLoading // nl.jjkester.crt.compose/NodeRichTextState.isLoading|{}isLoading[0]
+        final fun <get-isLoading>(): kotlin/Boolean // nl.jjkester.crt.compose/NodeRichTextState.isLoading.<get-isLoading>|<get-isLoading>(){}[0]
+    final val result // nl.jjkester.crt.compose/NodeRichTextState.result|{}result[0]
+        final fun <get-result>(): nl.jjkester.crt.compose.renderer/ComposeRenderer.Result? // nl.jjkester.crt.compose/NodeRichTextState.result.<get-result>|<get-result>(){}[0]
+}
+
+final class nl.jjkester.crt.compose/ParserRichTextState : nl.jjkester.crt.compose/RichTextState { // nl.jjkester.crt.compose/ParserRichTextState|null[0]
+    final var isLoading // nl.jjkester.crt.compose/ParserRichTextState.isLoading|{}isLoading[0]
+        final fun <get-isLoading>(): kotlin/Boolean // nl.jjkester.crt.compose/ParserRichTextState.isLoading.<get-isLoading>|<get-isLoading>(){}[0]
+    final var result // nl.jjkester.crt.compose/ParserRichTextState.result|{}result[0]
+        final fun <get-result>(): nl.jjkester.crt.compose.renderer/ComposeRenderer.Result? // nl.jjkester.crt.compose/ParserRichTextState.result.<get-result>|<get-result>(){}[0]
+}
+
+final object nl.jjkester.crt.compose.style/ComposeEnumerationFactory : nl.jjkester.crt.common.enumeration/EnumerationFactory<nl.jjkester.crt.compose.text/AnnotatedStringWithExtras> // nl.jjkester.crt.compose.style/ComposeEnumerationFactory|null[0]
+
+final val nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop|#static{}nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop[0]
+final val nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop|#static{}nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop[0]
+final val nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop|#static{}nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop[0]
+final val nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop|#static{}nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop[0]
+final val nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop|#static{}nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop[0]
+final val nl.jjkester.crt.compose.style/LocalRichTextStyle // nl.jjkester.crt.compose.style/LocalRichTextStyle|{}LocalRichTextStyle[0]
+    final fun <get-LocalRichTextStyle>(): androidx.compose.runtime/ProvidableCompositionLocal<nl.jjkester.crt.compose.style/RichTextStyle> // nl.jjkester.crt.compose.style/LocalRichTextStyle.<get-LocalRichTextStyle>|<get-LocalRichTextStyle>(){}[0]
+final val nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop|#static{}nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop[0]
+final val nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop|#static{}nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop[0]
+final val nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_EnumerationStyle$stableprop // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_EnumerationStyle$stableprop|#static{}nl_jjkester_crt_compose_style_EnumerationStyle$stableprop[0]
+final val nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_RichTextStyle$stableprop // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_RichTextStyle$stableprop|#static{}nl_jjkester_crt_compose_style_RichTextStyle$stableprop[0]
+final val nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop // nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop|#static{}nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop[0]
+final val nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop // nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop|#static{}nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop[0]
+final val nl.jjkester.crt.compose/nl_jjkester_crt_compose_NodeRichTextState$stableprop // nl.jjkester.crt.compose/nl_jjkester_crt_compose_NodeRichTextState$stableprop|#static{}nl_jjkester_crt_compose_NodeRichTextState$stableprop[0]
+final val nl.jjkester.crt.compose/nl_jjkester_crt_compose_ParserRichTextState$stableprop // nl.jjkester.crt.compose/nl_jjkester_crt_compose_ParserRichTextState$stableprop|#static{}nl_jjkester_crt_compose_ParserRichTextState$stableprop[0]
+
+final fun (androidx.compose.ui.text/AnnotatedString).nl.jjkester.crt.compose.text/withExtras(nl.jjkester.crt.compose.text/AnnotatedStringExtras): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.text/withExtras|withExtras@androidx.compose.ui.text.AnnotatedString(nl.jjkester.crt.compose.text.AnnotatedStringExtras){}[0]
+final fun (androidx.compose.ui.text/AnnotatedString).nl.jjkester.crt.compose.text/withoutExtras(): nl.jjkester.crt.compose.text/AnnotatedStringWithExtras // nl.jjkester.crt.compose.text/withoutExtras|withoutExtras@androidx.compose.ui.text.AnnotatedString(){}[0]
+final fun (nl.jjkester.crt.compose.text/AnnotatedStringExtras).nl.jjkester.crt.compose.text/plus(nl.jjkester.crt.compose.text/AnnotatedStringExtras): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.text/plus|plus@nl.jjkester.crt.compose.text.AnnotatedStringExtras(nl.jjkester.crt.compose.text.AnnotatedStringExtras){}[0]
+final fun nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop_getter|nl_jjkester_crt_compose_renderer_AbstractAnnotatedStringSpanTransformer$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop_getter|nl_jjkester_crt_compose_renderer_ComposeRenderer$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop_getter|nl_jjkester_crt_compose_renderer_ComposeRenderer_Result$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop_getter|nl_jjkester_crt_compose_renderer_DefaultAnnotatedStringSpanTransformer$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.renderer/nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop_getter|nl_jjkester_crt_compose_renderer_DefaultComposableBlockTransformer$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop_getter|nl_jjkester_crt_compose_style_BlockquoteStyle$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop_getter|nl_jjkester_crt_compose_style_ComposeEnumerationFactory$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_EnumerationStyle$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_EnumerationStyle$stableprop_getter|nl_jjkester_crt_compose_style_EnumerationStyle$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_RichTextStyle$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.style/nl_jjkester_crt_compose_style_RichTextStyle$stableprop_getter|nl_jjkester_crt_compose_style_RichTextStyle$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.style/rememberBasicRichTextStyle(androidx.compose.ui.graphics/Color, androidx.compose.foundation.layout/PaddingValues, androidx.compose.runtime/Composer?, kotlin/Int): nl.jjkester.crt.compose.style/RichTextStyle // nl.jjkester.crt.compose.style/rememberBasicRichTextStyle|rememberBasicRichTextStyle(androidx.compose.ui.graphics.Color;androidx.compose.foundation.layout.PaddingValues;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose.text/captureExtras(kotlin.coroutines/SuspendFunction1<kotlin.sequences/SequenceScope<nl.jjkester.crt.compose.text/AnnotatedStringExtras>, kotlin/Unit>): nl.jjkester.crt.compose.text/AnnotatedStringExtras // nl.jjkester.crt.compose.text/captureExtras|captureExtras(kotlin.coroutines.SuspendFunction1<kotlin.sequences.SequenceScope<nl.jjkester.crt.compose.text.AnnotatedStringExtras>,kotlin.Unit>){}[0]
+final fun nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop_getter|nl_jjkester_crt_compose_text_AnnotatedStringExtras$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose.text/nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop_getter|nl_jjkester_crt_compose_text_AnnotatedStringWithExtras$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose/LazyRichText(nl.jjkester.crt.compose/RichTextState, androidx.compose.ui/Modifier?, nl.jjkester.crt.compose.style/RichTextStyle?, androidx.compose.ui.text/TextStyle?, androidx.compose.foundation.layout/PaddingValues?, nl.jjkester.crt.compose.text/LinkHandler?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // nl.jjkester.crt.compose/LazyRichText|LazyRichText(nl.jjkester.crt.compose.RichTextState;androidx.compose.ui.Modifier?;nl.jjkester.crt.compose.style.RichTextStyle?;androidx.compose.ui.text.TextStyle?;androidx.compose.foundation.layout.PaddingValues?;nl.jjkester.crt.compose.text.LinkHandler?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/RichText(nl.jjkester.crt.compose/RichTextState, androidx.compose.ui/Modifier?, nl.jjkester.crt.compose.style/RichTextStyle?, androidx.compose.ui.text/TextStyle?, nl.jjkester.crt.compose.text/LinkHandler?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // nl.jjkester.crt.compose/RichText|RichText(nl.jjkester.crt.compose.RichTextState;androidx.compose.ui.Modifier?;nl.jjkester.crt.compose.style.RichTextStyle?;androidx.compose.ui.text.TextStyle?;nl.jjkester.crt.compose.text.LinkHandler?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/nl_jjkester_crt_compose_NodeRichTextState$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose/nl_jjkester_crt_compose_NodeRichTextState$stableprop_getter|nl_jjkester_crt_compose_NodeRichTextState$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose/nl_jjkester_crt_compose_ParserRichTextState$stableprop_getter(): kotlin/Int // nl.jjkester.crt.compose/nl_jjkester_crt_compose_ParserRichTextState$stableprop_getter|nl_jjkester_crt_compose_ParserRichTextState$stableprop_getter(){}[0]
+final fun nl.jjkester.crt.compose/rememberRichTextRenderer(androidx.compose.runtime/Composer?, kotlin/Int): nl.jjkester.crt.compose.renderer/ComposeRenderer // nl.jjkester.crt.compose/rememberRichTextRenderer|rememberRichTextRenderer(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/rememberRichTextRenderer(kotlin/Function0<nl.jjkester.crt.compose.renderer/ComposableBlockTransformer>, androidx.compose.runtime/Composer?, kotlin/Int): nl.jjkester.crt.compose.renderer/ComposeRenderer // nl.jjkester.crt.compose/rememberRichTextRenderer|rememberRichTextRenderer(kotlin.Function0<nl.jjkester.crt.compose.renderer.ComposableBlockTransformer>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/rememberRichTextState(kotlin/String, kotlin/Function0<nl.jjkester.crt.api.parser/Parser<*>>, nl.jjkester.crt.compose.renderer/ComposeRenderer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): nl.jjkester.crt.compose/RichTextState // nl.jjkester.crt.compose/rememberRichTextState|rememberRichTextState(kotlin.String;kotlin.Function0<nl.jjkester.crt.api.parser.Parser<*>>;nl.jjkester.crt.compose.renderer.ComposeRenderer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/rememberRichTextState(kotlinx.io/Source, kotlin/Function0<nl.jjkester.crt.api.parser/Parser<*>>, nl.jjkester.crt.compose.renderer/ComposeRenderer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): nl.jjkester.crt.compose/RichTextState // nl.jjkester.crt.compose/rememberRichTextState|rememberRichTextState(kotlinx.io.Source;kotlin.Function0<nl.jjkester.crt.api.parser.Parser<*>>;nl.jjkester.crt.compose.renderer.ComposeRenderer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun nl.jjkester.crt.compose/rememberRichTextState(nl.jjkester.crt.api.model/Node, nl.jjkester.crt.compose.renderer/ComposeRenderer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): nl.jjkester.crt.compose/RichTextState // nl.jjkester.crt.compose/rememberRichTextState|rememberRichTextState(nl.jjkester.crt.api.model.Node;nl.jjkester.crt.compose.renderer.ComposeRenderer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]

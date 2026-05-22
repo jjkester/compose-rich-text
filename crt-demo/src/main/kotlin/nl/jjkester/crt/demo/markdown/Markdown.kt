@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import kotlinx.io.asSource
+import kotlinx.io.buffered
 import nl.jjkester.crt.compose.LazyRichText
 import nl.jjkester.crt.compose.RichText
 import nl.jjkester.crt.compose.rememberRichTextState
@@ -21,7 +23,7 @@ fun Markdown(
     linkHandler: LinkHandler = LinkHandler.Default
 ) {
     RichText(
-        state = rememberRichTextState(text, MarkdownParserFactory::create),
+        state = rememberRichTextState(text.asSource().buffered(), MarkdownParserFactory::create),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,
@@ -38,7 +40,7 @@ fun LazyMarkdown(
     linkHandler: LinkHandler = LinkHandler.Default
 ) {
     LazyRichText(
-        state = rememberRichTextState(text, MarkdownParserFactory::create),
+        state = rememberRichTextState(text.asSource().buffered(), MarkdownParserFactory::create),
         modifier = modifier,
         richTextStyle = rememberMaterialRichTextStyle(),
         style = style,

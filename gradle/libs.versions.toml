@@ -1,9 +1,10 @@
 [versions]
-agp = "8.13.2"
+agp = "9.0.1"
 kotlin = "2.3.21"
 dokka = "2.2.0"
 kotlinx-binaryCompatibilityValidator = "0.18.1"
 compose-bom = "2026.05.01"
+compose = "1.11.0"
 jetpack-activity = "1.13.0"
 jetpack-lifecycle = "2.10.0"
 jetpack-navigation = "2.9.8"
@@ -17,9 +18,9 @@ test-screenshot = "0.0.1-alpha15"
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
 compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-text = { module = "androidx.compose.ui:ui-text" }
+compose-ui-text = { module = "org.jetbrains.compose.ui:ui-text", version.ref = "compose" }
 compose-ui-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
@@ -38,8 +39,12 @@ test-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 test-junit-platformLauncher = { module = "org.junit.platform:junit-platform-launcher" }
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "test-assertk" }
 test-mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "test-mockito" }
+test-android-screenshot-validationApi = { module = "com.android.tools.screenshot:screenshot-validation-api", version.ref = "test-screenshot"}
+plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-kotlin-compose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
 
 [bundles]
 
